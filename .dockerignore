@@ -1,0 +1,6 @@
+.hg
+.git
+.hgignore
+Dockerfile
+.dockerignore
+README.md
