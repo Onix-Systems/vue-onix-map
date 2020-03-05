@@ -67,11 +67,11 @@ import {Component, Vue, Watch} from 'vue-property-decorator';
 })
 export default class PageMap extends Vue {
   public floors: FloorInterface[] = [
-    {num: 1, planImg: require('./assets/images/floors-plan/onix-office_1.jpg'), width: 2100, height: 1270},
-    {num: 4, planImg: require('./assets/images/floors-plan/onix-office_4.jpg'), width: 2100, height: 1270},
-    {num: 6, planImg: require('./assets/images/floors-plan/onix-office_6.jpg'), width: 2100, height: 1270},
-    {num: 7, planImg: require('./assets/images/floors-plan/onix-office_7.jpg'), width: 2100, height: 1270},
-    {num: 8, planImg: require('./assets/images/floors-plan/onix-office_8.jpg'), width: 2425, height: 1270},
+    {num: 1, planImg: require('./assets/images/floors-plan/onix-office_1.png'), width: 2100, height: 1270},
+    {num: 4, planImg: require('./assets/images/floors-plan/onix-office_4.png'), width: 2100, height: 1270},
+    {num: 6, planImg: require('./assets/images/floors-plan/onix-office_6.png'), width: 2100, height: 1270},
+    {num: 7, planImg: require('./assets/images/floors-plan/onix-office_7.png'), width: 2100, height: 1270},
+    {num: 8, planImg: require('./assets/images/floors-plan/onix-office_8.png'), width: 2425, height: 1270},
   ];
   public selectedUser: UserInterface | null = null;
   public showDetailsModal: boolean = false;
