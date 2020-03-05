@@ -4,6 +4,7 @@ import {UserInterface} from '@/interfaces/userInterface';
 import Vue from 'vue';
 import Vuex from 'vuex';
 import api from '@/api';
+import users from '@/data/users.ts';
 import createPersistedState from 'vuex-persistedstate';
 
 
@@ -44,11 +45,7 @@ export const store = new Vuex.Store({
   },
   actions: {
     getUserData(context) {
-      return api.get(`/users`).then((res) => {
-        if (res.data) {
-          context.commit('setUserData', res.data);
-        }
-      });
+      return context.commit('setUserData', users);
     },
   },
   modules: {},
