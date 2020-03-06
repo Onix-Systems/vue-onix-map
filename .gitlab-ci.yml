@@ -16,7 +16,7 @@ Map-Package:
     - kuber
   stage: package
   only:
-    - master_v2
+    - master
   image: docker:18.09.6-dind
   script:
   - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN ${CI_REGISTRY}
@@ -28,7 +28,7 @@ Map-Deploy:
   - kuber
   stage: deploy
   only:
-    - master_v2
+    - master
   image: roffe/kubectl:v1.13.2
   script:
   - NAMESPACE_NAME=$(echo -e gitdep-$CI_PROJECT_NAMESPACE-$CI_PROJECT_NAME | tr -d _)
