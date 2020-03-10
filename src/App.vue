@@ -1,7 +1,13 @@
 <template lang="pug">
   #app
     .page-container
-      the-header(@userSelected="userSelected" @roomSelected="roomSelected" @floorChanged="floorChanged")
+      the-header(
+        @userSelected="userSelected"
+        @roomSelected="roomSelected"
+        @floorChanged="floorChanged"
+        @clickOnMobileMenu="showMobileMenu = !showMobileMenu"
+        @closeMobileMenu="showMobileMenu = false"
+      )
       svg.map-container(@mousedown="mouseDown"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve"
@@ -42,7 +48,8 @@
         :selectedUser="selectedUser"
         @closed="closeDetails")
       the-loader(v-if="floorLoading")
-      floors-control(@changed="floorChanged")
+      floors-control(:isShowMobile="showMobileMenu" @changed="floorChanged")
+      floor-statistics
     notifications(group="foo")
 
 </template>
@@ -60,10 +67,11 @@ import {TableInterface} from '@/interfaces/tableInterface';
 import {UserInterface} from '@/interfaces/userInterface';
 import {store} from '@/store';
 import {Component, Vue, Watch} from 'vue-property-decorator';
+import FloorStatistics from '@/components/FloorStatistics.vue';
 
 
 @Component({
-  components: {TheHeader, FloorsControl, TheLoader, UserDetails},
+  components: {FloorStatistics, TheHeader, FloorsControl, TheLoader, UserDetails},
 })
 export default class PageMap extends Vue {
   public floors: FloorInterface[] = [
@@ -75,6 +83,7 @@ export default class PageMap extends Vue {
   ];
   public selectedUser: UserInterface | null = null;
   public showDetailsModal: boolean = false;
+  public showMobileMenu: boolean = false;
   public floorLoading: boolean = false;
   public selectedFloor: FloorInterface = this.floors[0];
   public popupHeight: number = 132;
@@ -285,19 +294,22 @@ export default class PageMap extends Vue {
           setTimeout(() => {
             popup = (userDet.$refs.popupContainer as HTMLElement).getClientRects()[0];
             let count = 0;
+            let topOffset = 143;
+            let leftOffset = this.isSidebarOnLeft ? 72 : 0;
+            if (window.innerWidth < 640) {
+              leftOffset = 0;
+              topOffset = 57;
+            }
             const timerId = setInterval(() => {
-              if (popup.top < 60) {
-                this.positionY += Math.abs(popup.top - 60) / 25;
+              if (popup.top < topOffset) {
+                this.positionY += Math.abs(popup.top - topOffset) / 25;
               }
-              if (this.isSidebarOnLeft && popup.left < 72) {
-                this.positionX += (Math.abs(popup.left) + 72) / 25;
+              if (popup.left < leftOffset) {
+                this.positionX += (Math.abs(popup.left) + leftOffset) / 25;
               }
-              if (!this.isSidebarOnLeft && popup.left < 0) {
-                this.positionX += Math.abs(popup.left) / 25;
-              }
-              if (popup.left + popup.width >= window.innerWidth - (window.innerWidth <= 1024 ? 0 : 70)) {
+              if (popup.width >= window.innerWidth - leftOffset) {
                 this.positionX -=
-                  (popup.left + popup.width - window.innerWidth + (window.innerWidth <= 1024 ? 0 : 70)) / 25;
+                  (popup.width / 2 - (window.innerWidth + leftOffset) / 2) / 25;
 
               }
               this.setPopUpStyles();

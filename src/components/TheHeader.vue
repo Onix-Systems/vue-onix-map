@@ -3,6 +3,8 @@
     .header-section-1
       .floors-icon
         img(src="../assets/images/floors.icon.svg" alt="floors")
+      .mobile-menu(@click="$emit('clickOnMobileMenu')" v-click-outside="closeMobileMenu")
+        img(src="../assets/images/header-icons/menu.svg" alt="Menu")
       .logo
         a(href="http://onix-systems.com/")
       custom-search(@selected="userSelected")
@@ -78,6 +80,10 @@ export default class TheHeader extends Vue {
     return store.state.tablesStatistic;
   }
 
+  public closeMobileMenu() {
+    this.$emit('closeMobileMenu');
+  }
+
   public closeMenu() {
     this.isShowMenu = false;
   }
@@ -125,25 +131,44 @@ export default class TheHeader extends Vue {
       * {
         margin: auto 12px;
       }
+      @media only screen and (max-width: 340px) {
+        * {
+          margin: auto 8px;
+        }
+      }
     }
     .header-section-1 {
       justify-content: flex-start;
       width: 100%;
+      align-items: center;
     }
     .header-section-2 {
       justify-content: flex-end;
     }
 
     .floors-icon {
+      @include media_mobile {
+        display: none;
+      }
 
       img {
         height: 24px;
         width: 24px;
         margin: 0;
       }
-      img:hover {
-          cursor: pointer;
-        }
+    }
+
+    .mobile-menu {
+      cursor: pointer;
+      display: none;
+      margin: 0 7px;
+      @include media_mobile {
+        display: block;
+      }
+
+      img {
+        margin: 0;
+      }
     }
 
     .logo {

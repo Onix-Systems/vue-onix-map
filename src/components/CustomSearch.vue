@@ -226,6 +226,12 @@ export default class CustomSearch extends Vue {
 
     &.expand {
       min-width: 280px;
+      position: fixed;
+      left: 44px;
+      z-index: 3;
+      @media only screen and (max-width: 340px) {
+        min-width: 240px;
+      }
     }
 
     .input-box {
@@ -234,7 +240,7 @@ export default class CustomSearch extends Vue {
       max-width: 400px;
       width: 100%;
       border: 1px solid #E2E6ED;
-      border-radius: 1000px;
+      border-radius: 25px;
       padding: 0 16px;
       background-color: #ffffff;
       cursor: pointer;
@@ -263,7 +269,7 @@ export default class CustomSearch extends Vue {
     }
 
     .dropdown {
-      position: absolute;
+      position: fixed;
       right: 0;
       top: 57px;
 
@@ -277,7 +283,6 @@ export default class CustomSearch extends Vue {
       .dropdown-container {
         background-color: #ffffff;
         width: calc(100vw - 72px);
-        position: relative;
         padding: 24px 0 0 24px;
         height: calc(100vh - 57px);
         display: flex;
@@ -337,6 +342,9 @@ export default class CustomSearch extends Vue {
           font-size: 12px;
           line-height: 15px;
           color: #0072FF;
+          @media only screen and (max-width: 340px) {
+            margin: 0 5px;
+          }
 
           span {
             color: #99C7FF;

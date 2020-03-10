@@ -1,10 +1,11 @@
 <template lang="pug">
-  .floors-control(:class="{right: !isLeft}")
-    .header FLOORS
-    button.floor-btn(v-for="floor in floors"
-      @click="selectFloor(floor)"
-      :disabled="isDisabled(floor)"
-      :class="{active: currentFloor === floor}") {{floor}}
+  .floors-control(:class="{right: !isLeft, 'show-mobile': isShowMobile}")
+    .buttons-block
+      .header FLOORS
+      button.floor-btn(v-for="floor in floors"
+        @click="selectFloor(floor)"
+        :disabled="isDisabled(floor)"
+        :class="{active: currentFloor === floor}") {{floor}}
     .position-checkbox-block
       .checkbox-block
         label.label(:class="{right: !isLeft}")
@@ -18,12 +19,13 @@
 
 <script lang="ts">
 import {store} from '@/store';
-import {Component, Vue} from 'vue-property-decorator';
+import {Component, Prop, Vue} from 'vue-property-decorator';
 
 
 @Component({})
 export default class FloorsControl extends Vue {
-  public floors: number[] = [1, 2, 3, 4, 5, 6, 7, 8];
+  @Prop({type: Boolean, default: false}) public isShowMobile!: boolean;
+  public floors: number[] = [8, 7, 6, 5, 4, 3, 2, 1];
 
   public selectFloor(floor: number) {
     store.commit('changeFloor', floor);
@@ -53,9 +55,9 @@ export default class FloorsControl extends Vue {
   .floors-control {
     position: absolute;
     display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: flex-end;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
     top: 57px;
     background-color: #F8FBFF;
     width: 72px;
@@ -64,7 +66,10 @@ export default class FloorsControl extends Vue {
     font-style: normal;
     font-weight: 500;
     color: #8891A3;
+    overflow-y: auto;
+    overflow-x: hidden;
     @include media_mobile{
+      display: none;
       width: 56px;
     }
 
@@ -72,11 +77,29 @@ export default class FloorsControl extends Vue {
       right: 0;
     }
 
+    @include media_mobile {
+      &.show-mobile {
+        display: flex;
+      }
+    }
+
     .header {
-      order: 1;
       font-size: 12px;
       line-height: 15px;
       padding: 25px 0 17px 0;
+      @media only screen and (max-height: 640px) {
+        display: none;
+      }
+      @include media_mobile {
+        display: none;
+      }
+    }
+
+    .buttons-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
     }
 
     .floor-btn {
@@ -86,8 +109,9 @@ export default class FloorsControl extends Vue {
       font-size: 18px;
       line-height: 22px;
       padding: 17px 31px;
-      margin: 8px 0;
       outline: none;
+      width: 100%;
+      height: 56px;
       transition: background-color 300ms;
       @include media_mobile{
         padding: 9px 23px;
@@ -114,19 +138,18 @@ export default class FloorsControl extends Vue {
     }
 
     .position-checkbox-block {
-      order: -1;
+      width: 100%;
       display: flex;
+      flex: 1;
       flex-direction: column;
       align-items: center;
       margin-top: auto;
       margin-bottom: 40px;
-      @media screen and (max-height: 750px){
+      @include media_mobile{
         display: none;
       }
-      @include media_mobile{
-        @media screen and (max-height: 640px){
-          display: none;
-        }
+      @media only screen and (max-height: 680px) {
+        margin-bottom: 10px;
       }
 
       .checkbox-block {
@@ -175,6 +198,7 @@ export default class FloorsControl extends Vue {
       }
 
       .position-label {
+        width: 100%;
         font-size: 12px;
         line-height: 15px;
         padding: 8px 16px;
@@ -187,6 +211,25 @@ export default class FloorsControl extends Vue {
       margin-left: 6px;
       font-size: 21px;
       color: #777271;
+    }
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 1000px;
+      background: #F8FBFF;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      color: blue;
+      border-radius: 1000px;
+      background: #E5E5E5;
+
+      &:hover {
+        background: #9EA3AF;
+      }
     }
   }
 </style>
