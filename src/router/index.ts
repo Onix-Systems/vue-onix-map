@@ -7,18 +7,18 @@ export default new Router(
   {
     mode: 'history',
 
-    routes: [
-      {
-        path: '',
-        name: 'mainPage',
-        component: () => import('@/components/MainLayout.vue'),
-        beforeEnter: (to, from, next) => {
-          if (!localStorage.token) {
-            next('/login');
-          } else {
-            next();
-          }
-        },
+    // routes: [
+    //   {
+    //     path: '',
+    //     name: 'mainPage',
+    //     component: () => import('@/components/MainLayout.vue'),
+        // beforeEnter: (to, from, next) => {
+        //   if (!localStorage.token) {
+        //     next('/login');
+        //   } else {
+        //     next();
+        //   }
+        // },
       },
 
       // {
@@ -40,10 +40,10 @@ export default new Router(
       //   component: () => import('@/components/AuthenticationCallback.vue'),
       // },
 
-      {
-        path: '*',
-        redirect: {name: 'mainPage'},
-      },
-    ],
-  },
+    //   {
+    //     path: '*',
+    //     redirect: {name: 'mainPage'},
+    //   },
+    // ],
+  // },
 );
