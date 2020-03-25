@@ -15,5 +15,19 @@ export default class CommonMixin extends Vue {
       title: 'Copied!',
       text: 'Data was copied to clipboard',
     });
+    this.$gtag.event('Copy info', {
+      event_category: 'Search users',
+      event_label: value,
+    });
+  }
+
+  public copyUrl() {
+    this.copyToClipboard(window.location.href);
+  }
+  public toTheCalendar() {
+    window.open('https://calendar.google.com/calendar/r', '_blank');
+    this.$gtag.event('Click on google calendar link', {
+      event_category: 'Search places',
+    });
   }
 }

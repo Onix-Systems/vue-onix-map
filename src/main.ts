@@ -4,9 +4,17 @@ import App from './App.vue';
 import './assets/scss/style.scss';
 import './registerServiceWorker';
 import store from './store';
+import router from './router';
 import VueScrollTo from 'vue-scrollto';
+import VueGtag from 'vue-gtag';
 
 
+Vue.use(VueGtag, {
+  config: { id: '' },
+  params: {
+    send_page_view: false,
+  },
+});
 Vue.use(Notifications);
 Vue.use(VueScrollTo);
 Vue.config.productionTip = false;
@@ -23,5 +31,6 @@ Vue.filter('wrapText', (value: string, query: string) => {
 
 new Vue({
   store,
+  router,
   render: (h) => h(App),
 }).$mount('#app');

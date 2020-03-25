@@ -1,3 +1,5 @@
+/* this file is not in use */
+
 export const ROOMS = {
   8: [
     {
@@ -6,11 +8,12 @@ export const ROOMS = {
       y: 460,
       width: 353,
       height: 175,
-      path: 'M126 0 L353 112 L227 175 L0 62 Z',
+      path: 'M126 0 L353 112 L227 175 L0 62 Z', // line square around the room
       bubble: {
         text: '8-1. Conf Room',
         x: 80,
         y: 20,
+        // square bubble for the name of the conf.room
         path: 'M0 5 Q 0 0 5 0 L156 0 Q 161 0 161 5 L161 25 Q 161 30 156 30 L90 30 L80 40 L70 30 L5 30 Q 0 30 0 25 Z',
       },
     },
@@ -39,8 +42,10 @@ export const ROOMS = {
       path: 'M107 0 L214 52 L108 105 L0 51 Z',
       bubble: {
         text: '7-1. Conf Room',
-        x: 10,
-        y: 10,
+        x: 30,
+        y: -25,
+        width: 240,
+        height: 32,
         path: 'M0 5 Q 0 0 5 0 L156 0 Q 161 0 161 5 L161 25 Q 161 30 156 30 L90 30 L80 40 L70 30 L5 30 Q 0 30 0 25 Z',
       },
     },

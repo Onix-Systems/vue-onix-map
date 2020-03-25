@@ -10,6 +10,8 @@
         .full-name(
           v-html="$options.filters.wrapText(user.firstName + ' ' + user.lastName, query)"
         )
+        .user-role(v-if="userRoles")
+          span(v-for="(role, i) in userRoles") {{role + (userRoles.length - 1 === i ? '' : ', ')}}
       img.pin-icon(:src="require('../assets/images/pin.svg')" @click="$emit('selectUser')")
       img.down-icon(:src="require('../assets/images/header-icons/header_down-arrow.svg')" :class="{'arrow-up': isExpand}")
     .user-contacts
@@ -24,18 +26,17 @@
 </template>
 
 <script lang="ts">
-import {UserInterface} from '@/interfaces/userInterface';
 import {Component, Prop, Mixins} from 'vue-property-decorator';
 import CommonMixin from '@/components/mixins/CommonMixin';
 import {SearchSortEnum} from '@/enums/SearchSortEnum';
 import moment from 'moment';
+import UserMixin from '@/components/mixins/UserMixin';
 
 @Component({
   name: 'UserSearchCard',
 })
-export default class UserSearchCard extends Mixins(CommonMixin) {
+export default class UserSearchCard extends Mixins(CommonMixin, UserMixin) {
   @Prop({type: String, default: ''}) public query!: string;
-  @Prop({type: Object}) public user!: UserInterface;
   @Prop({type: String, default: SearchSortEnum.Floor}) public sort!: string;
   public isExpand: boolean = false;
 
@@ -61,7 +62,7 @@ export default class UserSearchCard extends Mixins(CommonMixin) {
     height: 218px;
     color: #000000;
     border: 1px solid #F1F1F1;
-    font-family: Open Sans, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
@@ -128,10 +129,24 @@ export default class UserSearchCard extends Mixins(CommonMixin) {
           padding-left: 8px;
         }
 
+        .user-role {
+          font-weight: 600;
+          color: #888888;
+          margin-top: 12px;
+          align-self: center;
+          @media only screen and (max-width: 539px) {
+            margin-top: 4px;
+            align-self: flex-start;
+            font: normal normal 14px Inter, sans-serif;
+            line-height: 17px;
+            color: #979797;
+          }
+        }
+
         .additional-info {
           display: none;
           flex-direction: column;
-          font-family: Inter, sans-serif;
+          font-family: 'Inter', sans-serif;
           font-style: normal;
           font-weight: normal;
           font-size: 12px;
@@ -254,6 +269,9 @@ export default class UserSearchCard extends Mixins(CommonMixin) {
 
     &:hover {
       @media only screen and (min-width: 1025px) {
+        .user-role{
+          display: none;
+        }
         align-items: flex-start;
         background: #F8FAFE;
 
@@ -304,6 +322,10 @@ export default class UserSearchCard extends Mixins(CommonMixin) {
 
           .user-name {
             padding-left: 8px;
+
+            .user-role{
+              display: none;
+            }
 
             .additional-info {
               display: flex;

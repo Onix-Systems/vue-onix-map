@@ -1,34 +1,48 @@
 <template lang="pug">
-  .search-container(v-click-outside="closeDropdown" :class="{expand: showDropdown}")
-    .input-box(@click="showDropdown = true")
-      input(type="text" v-model="query" placeholder="Search by name, skills or technologies")
+  .search-container(v-click-outside="closeDropdown" :class="[{expand: showDropdown, 'beButton': !showDropdown}]")
+    .input-box(@click="clickOnInput")
+      input(
+        type="text"
+        v-model="query"
+        :placeholder="inputText"
+        @change="changeInput(query)"
+      )
       .search-icon
     .dropdown(v-if="showDropdown" :class="{left: !isSidebarOnLeft}")
       .dropdown-container
         .dropdown-header
           .scroll-buttons
-            button(v-scroll-to="{ el: '#peoples', container: '#scroll-container' }") People
+            button(
+              v-scroll-to="{ el: '#peoples', container: '#scroll-container' }"
+              @click="scrollToBlock('People')"
+            ) People
               span  {{ filteredUsers.length }}
-            button(v-scroll-to="{ el: '#skills', container: '#scroll-container' }") Skills
+            button(
+              v-scroll-to="{ el: '#skills', container: '#scroll-container' }"
+              @click="scrollToBlock('Skills')"
+            ) Skills
               span  {{ filteredSkills.length }}
-            button(v-scroll-to="{ el: '#technologies', container: '#scroll-container' }") Technologies
+            button(
+              v-scroll-to="{ el: '#technologies', container: '#scroll-container' }"
+              @click="scrollToBlock('Technologies')"
+            ) Technologies
               span  {{ filteredTechnologies.length }}
-            button.close(@click="showDropdown = false")
+            button.close(@click="showDropdown = false, $emit('searchIsActive', false)")
           .sort-block(v-click-outside="closeSort")
             .sort-label Sort by:&nbsp
               button(@click="showSort = !showSort" :class="{'arrow-up': showSort}") {{ currentSort }}
             .sort-dropdown(v-if="showSort")
               ul(@click.stop="showSort = false")
                 li(
-                  @click="currentSort = searchSort.Floor"
+                  @click="changeSort(searchSort.Floor)"
                   :class="{active: currentSort === searchSort.Floor}"
                 ) {{ searchSort.Floor }}
                 li(
-                  @click="currentSort = searchSort.Experience"
+                  @click="changeSort(searchSort.Experience)"
                   :class="{active: currentSort === searchSort.Experience}"
                 ) {{ searchSort.Experience }}
                 li(
-                  @click="currentSort = searchSort.NearestBirthday"
+                  @click="changeSort(searchSort.NearestBirthday)"
                   :class="{active: currentSort === searchSort.NearestBirthday}"
                 ) {{ searchSort.NearestBirthday }}
         .search-result#scroll-container
@@ -80,17 +94,18 @@
 import ClickOutside from '@/directives/clickOutside';
 import {UserInterface} from '@/interfaces/userInterface';
 import {store} from '@/store';
-import {Component, Vue} from 'vue-property-decorator';
+import {Component, Mixins} from 'vue-property-decorator';
 import UserSearchCard from '@/components/UserSearchCard.vue';
 import {SearchSortEnum} from '@/enums/SearchSortEnum';
 import moment, {Moment} from 'moment';
+import UserMixin from '@/components/mixins/UserMixin';
 
 
 @Component({
   components: {UserSearchCard},
   directives: {ClickOutside},
 })
-export default class CustomSearch extends Vue {
+export default class CustomSearch extends Mixins(UserMixin) {
   public query: string = '';
   public showDropdown: boolean = false;
   public showSort: boolean = false;
@@ -99,6 +114,15 @@ export default class CustomSearch extends Vue {
   public currentSort: string = SearchSortEnum.Floor;
   public searchSort = SearchSortEnum;
   public floors: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 0];
+  public inputText = '';
+
+  public mounted() {
+    this.setInputText();
+  }
+  public setInputText() {
+    const width = window.innerWidth;
+    this.inputText = width > 400 ? 'Search by Name, Project, Skills, Other' : 'Name, Project, Skills, Other..';
+  }
 
   get filteredUsers(): UserInterface[] {
     let users = this.sortedUsers;
@@ -205,12 +229,45 @@ export default class CustomSearch extends Vue {
   }
 
   public closeDropdown() {
-    this.query = '';
-    this.showDropdown = false;
+    if (this.showDropdown) {
+      this.query = '';
+      this.showDropdown = false;
+      this.$emit('searchIsActive', false);
+    }
   }
 
   public closeSort() {
     this.showSort = false;
+  }
+
+  public changeInput(query: string) {
+    this.$gtag.event('Search text', {
+      event_category: 'Search users',
+      event_label: query,
+    });
+  }
+
+  public changeSort(sort: string) {
+    this.currentSort = sort;
+    this.$gtag.event('Change search sort', {
+      event_category: 'Search users',
+      event_label: sort,
+    });
+  }
+
+  public clickOnInput() {
+    this.showDropdown = true;
+    this.$gtag.event('Click on search input', {
+      event_category: 'Search users',
+    });
+    this.$emit('searchIsActive', true);
+  }
+
+  public scrollToBlock(blockName: string) {
+    this.$gtag.event('Scroll to block on search result list', {
+      event_category: 'Search users',
+      event_label: blockName,
+    });
   }
 }
 </script>
@@ -225,10 +282,18 @@ export default class CustomSearch extends Vue {
     justify-content: center;
 
     &.expand {
-      min-width: 280px;
-      position: fixed;
-      left: 44px;
+      min-width: 400px;
+      left: 304px;
       z-index: 3;
+      @media only screen and (max-width: 768px) {
+        left: 60px;
+      }
+      @include media_mobile {
+        left: 44px;
+      }
+      @media only screen and (max-width: 465px) {
+        min-width: 280px;
+      }
       @media only screen and (max-width: 340px) {
         min-width: 240px;
       }
@@ -253,7 +318,7 @@ export default class CustomSearch extends Vue {
         flex-wrap: wrap;
         outline: none;
         border: none;
-        font-family: Inter, sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: normal;
         font-size: 14px;
@@ -261,10 +326,10 @@ export default class CustomSearch extends Vue {
       }
 
       .search-icon {
-        background: url("../assets/images/loupe.svg") no-repeat;
-        width: 16px;
-        height: 16px;
-        margin-left: 2px;
+        background: url("../assets/images/loupe.svg") center center no-repeat;
+        width: 36px;
+        height: 36px;
+        margin-right: -10px;
       }
     }
 
@@ -336,7 +401,7 @@ export default class CustomSearch extends Vue {
           outline: none;
           border: none;
           cursor: pointer;
-          font-family: Inter, sans-serif;
+          font-family: 'Inter', sans-serif;
           font-style: normal;
           font-weight: 600;
           font-size: 12px;
@@ -353,7 +418,7 @@ export default class CustomSearch extends Vue {
       }
 
       .sort-block {
-        font-family: Inter, sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 14px;
@@ -375,7 +440,7 @@ export default class CustomSearch extends Vue {
             color: #0072FF;
             text-transform: capitalize;
             cursor: pointer;
-            font-family: Inter, sans-serif;
+            font-family: 'Inter', sans-serif;
             font-style: normal;
             font-weight: 500;
             font-size: 14px;
@@ -468,7 +533,7 @@ export default class CustomSearch extends Vue {
       }
 
       .title {
-        font-family: Open Sans,sans-serif;
+        font-family: 'Open Sans', sans-serif;
         font-style: normal;
         font-weight: bold;
         font-size: 24px;
@@ -516,7 +581,7 @@ export default class CustomSearch extends Vue {
       }
 
       .floor-label {
-        font-family: Open Sans,sans-serif;
+        font-family: 'Open Sans', sans-serif;
         font-style: normal;
         font-weight: bold;
         font-size: 24px;
@@ -542,6 +607,25 @@ export default class CustomSearch extends Vue {
 
       .no-matches {
         text-align: center;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 430px) {
+    .beButton {
+      min-width: 36px;
+      flex-basis: 36px;
+      .input-box {
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        vertical-align: middle;
+        input {
+          display: none;
+        }
+        .search-icon {
+          margin-right: 1px;
+        }
       }
     }
   }

@@ -1,39 +1,44 @@
 <template lang="pug">
+  //- user pop-up
   .user-details(v-if="showDetailsModal" :style="popUpStyles" ref="popupContainer")
     .popup-body(ref="popupBody")
       .user-img
-        img(:src="selectedUser.attachment ? selectedUser.attachment.link70 : require('../assets/images/def-img.png')")
+        img(:src="user.attachment ? user.attachment.link70 : require('../assets/images/def-img.png')")
       .user-info
-        .data-row.place {{selectedUser.tableNumber ? `Place ${selectedUser.tableNumber}` : 'Remote'}}
+        .data-row.place {{user.tableNumber ? `Place ${user.tableNumber}` : 'Remote'}}
+          .copy-url(@click="copyUrl")
+            img(:src="require('@/assets/images/copy-url.svg')" title="Copy url")
         .data-row.name
-          span {{selectedUser.firstName}} {{selectedUser.lastName}}
-          i.status(:class="{vocation: selectedUser.isVacation}")
+          span {{user.firstName}} {{user.lastName}}
+          i.status(:class="{vocation: checkUserOnVacation}")
             .tooltip
-              span {{selectedUser.isVacation ? 'Vacation' : 'In Office'}}
-        .data-row.phone(v-if="selectedUser.phone" @click="copyToClipboard(selectedUser.phone)")
-          | {{selectedUser.phone}}
-        .data-row.gmail(v-if="selectedUser.gmailId" @click="copyToClipboard(selectedUser.gmailId)")
-          | {{selectedUser.gmailId}}
-        .data-row.skype(v-if="selectedUser.skypeId" @click="copyToClipboard(selectedUser.skypeId)")
-          | {{selectedUser.skypeId}}
-        .data-row.tech(v-if="selectedUser.technologies.length")
-          span(v-for="(tech, i) in selectedUser.technologies") {{tech.name + (selectedUser.technologies.length - 1 === i ? '' : ', ')}}
+              span {{checkUserOnVacation ? 'Vacation' : 'In Office'}}
+        .data-row.role(v-if="userRoles")
+          span(v-for="(role, i) in userRoles") {{role + (userRoles.length - 1 === i ? '' : ', ')}}
+        .data-row.phone(v-if="user.phone" @click="copyToClipboard(user.phone)")
+          | {{user.phone}}
+        .data-row.gmail(v-if="user.gmailId" @click="copyToClipboard(user.gmailId)")
+          | {{user.gmailId}}
+        .data-row.skype(v-if="user.skypeId" @click="copyToClipboard(user.skypeId)")
+          | {{user.skypeId}}
+        .data-row.tech(v-if="userTechnologies.length")
+          span(v-for="(tech, i) in userTechnologies") {{tech.name + (userTechnologies.length - 1 === i ? '' : ', ')}}
       button.close(@click="closeDetails")
-    .arrow(v-if="selectedUser.tableNumber")
+    .arrow(v-if="user.tableNumber")
 </template>
 
 <script lang="ts">
-import {UserInterface} from '@/interfaces/userInterface';
 import {Component, Prop, Mixins} from 'vue-property-decorator';
 import CommonMixin from '@/components/mixins/CommonMixin';
+import UserMixin from '@/components/mixins/UserMixin';
 
 
 @Component({})
-export default class UserDetails extends Mixins(CommonMixin) {
+export default class UserDetails extends Mixins(CommonMixin, UserMixin) {
   @Prop(Boolean) public showDetailsModal!: boolean;
   @Prop(String) public popUpStyles!: boolean;
-  @Prop({default: null}) public selectedUser!: UserInterface;
   public closeDetails() {
+    this.$router.push(this.$route.path);
     this.$emit('closed');
   }
 }
@@ -70,7 +75,7 @@ export default class UserDetails extends Mixins(CommonMixin) {
       .user-info {
         display: flex;
         flex-direction: column;
-        font-family: Inter, sans-serif;
+        font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: normal;
         font-size: 12px;
@@ -87,6 +92,24 @@ export default class UserDetails extends Mixins(CommonMixin) {
           &.place {
             color: #8891A3;
             padding: 0;
+            display: flex;
+            align-items: center;
+
+            .copy-url {
+              border-radius: 50%;
+              background: #E5F0FF;
+              width: 16px;
+              height: 16px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-left: 8px;
+              cursor: pointer;
+
+              &:hover {
+                background: #d2e5ff;
+              }
+            }
           }
 
           &.name {
@@ -150,11 +173,17 @@ export default class UserDetails extends Mixins(CommonMixin) {
             }
           }
 
+          &.role {
+            color: #8891A3;
+            padding: 0;
+          }
+
           &.gmail, &.skype, &.phone, &.tech {
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
             margin-top: 12px;
+            height: 16px;
           }
 
           &.gmail, &.skype, &.phone {
@@ -242,5 +271,4 @@ export default class UserDetails extends Mixins(CommonMixin) {
       }
     }
   }
-
 </style>

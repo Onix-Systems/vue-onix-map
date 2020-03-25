@@ -30,6 +30,10 @@ export default class FloorsControl extends Vue {
   public selectFloor(floor: number) {
     store.commit('changeFloor', floor);
     this.$emit('changed');
+    this.$gtag.event('Select floor', {
+      event_category: 'Navigate',
+      event_label: floor,
+    });
   }
 
   get currentFloor(): number {
@@ -37,11 +41,15 @@ export default class FloorsControl extends Vue {
   }
 
   get isLeft(): boolean {
-      return store.state.isSidebarOnLeft;
+    return store.state.isSidebarOnLeft;
   }
 
   public changeSidebarPosition(event: any) {
-      this.$store.commit('changeSidebarPosition', event.target.checked);
+    this.$store.commit('changeSidebarPosition', event.target.checked);
+    this.$gtag.event('Change sidebar position', {
+      event_category: 'Navigate',
+      event_label: event.target.checked ? 'to left' : 'to right',
+    });
   }
 
   public isDisabled(floor: number): boolean {
@@ -62,7 +70,7 @@ export default class FloorsControl extends Vue {
     background-color: #F8FBFF;
     width: 72px;
     height: calc(100vh - 57px);
-    font-family: Inter, sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     color: #8891A3;
@@ -75,6 +83,13 @@ export default class FloorsControl extends Vue {
 
     &.right {
       right: 0;
+
+      .floor-btn {
+        &.active {
+          border-right: #0072FF 4px solid;
+          border-left: transparent 4px solid;
+        }
+      }
     }
 
     @include media_mobile {
@@ -87,12 +102,6 @@ export default class FloorsControl extends Vue {
       font-size: 12px;
       line-height: 15px;
       padding: 25px 0 17px 0;
-      @media only screen and (max-height: 640px) {
-        display: none;
-      }
-      @include media_mobile {
-        display: none;
-      }
     }
 
     .buttons-block {
@@ -108,23 +117,17 @@ export default class FloorsControl extends Vue {
       border: none;
       font-size: 18px;
       line-height: 22px;
-      padding: 17px 31px;
+      padding: 0;
       outline: none;
       width: 100%;
       height: 56px;
       transition: background-color 300ms;
-      @include media_mobile{
-        padding: 9px 23px;
-      }
 
       &.active {
         color: #0072FF;
         background-color: #E5F0FF;
         border-left: #0072FF 4px solid;
-        padding-left: 27px;
-        @include media_mobile{
-          padding-left: 19px;
-        }
+        border-right: transparent 4px solid;
       }
 
       &:hover {
@@ -150,6 +153,9 @@ export default class FloorsControl extends Vue {
       }
       @media only screen and (max-height: 680px) {
         margin-bottom: 10px;
+      }
+      @media only screen and (max-width: 900px) and (max-height: 600px) {
+        display: none;
       }
 
       .checkbox-block {

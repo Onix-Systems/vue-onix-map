@@ -6,74 +6,50 @@
       .mobile-menu(@click="$emit('clickOnMobileMenu')" v-click-outside="closeMobileMenu")
         img(src="../assets/images/header-icons/menu.svg" alt="Menu")
       .logo
-        a(href="http://onix-systems.com/")
-      custom-search(@selected="userSelected")
-    .header-section-2
+        a(href="http://onix-systems.com/" target="blank" @click.stop="clickOnLogo")
+      custom-search(@selected="userSelected" @searchIsActive="hideButtons")
+    .header-section-2(:class="{'hideSection': hideRightSection}")
       header-button(
-        v-bind:title="'Conference Rooms'"
-        v-bind:icon="require('../assets/images/header-icons/header_clock.svg')"
-        v-bind:data="confRooms"
-        v-on:select-data="roomSelected")
-      header-button(v-bind:title="'Places'", v-bind:icon="require('../assets/images/header-icons/header_places.svg')" v-bind:dummy="true" )
-      header-button(v-bind:icon="require('../assets/images/header-icons/header_links.svg')" v-bind:dummy="true")
-      //- .user-container
-      //-   .user-name Roman Marusenko
-      //-   img(src="../assets/images/header-icons/test_img.png" alt="Roman Marusenko")
-    //- .menu(v-click-outside="closeMenu")
-      button.menu-btn(@click="isShowMenu = !isShowMenu")
-      .side-menu(:class="{expanded: isShowMenu}")
-        ul
-          li
-            span Floor
-              select(@change="floorChanged")
-                option(v-for="floor in floors"
-                  :disabled="isDisabled(floor)"
-                  :value="floor"
-                  :selected="floor === currentFloor") {{floor}}
-          li
-            input(type="checkbox" id="confRooms")
-            div
-              label(for="confRooms") Conference rooms
-              ul
-                li(v-for="room in confRooms")
-                  a(@click="roomSelected(room)") {{room.bubble.text}}
-          li(v-if="tablesStatistic.total")
-            input(type="checkbox" id="tablesStatistic")
-            div
-              label(for="tablesStatistic") {{`Number of seats/free: ${tablesStatistic.total.all}/${tablesStatistic.total.free}`}}
-              ul
-                li(v-for="(data, floor,) in tablesStatistic" v-if="floor !== 'total'")
-                  span {{`${floor} floor: ${data.all}/${data.free}`}}
+        :title="'Conference Rooms'"
+        :icon="require('../assets/images/header-icons/header_clock.svg')"
+        @roomSelected="placeSelected"
+      )
+        conference-rooms
+      header-button(
+        :title="'Places'"
+        :icon="require('../assets/images/header-icons/header_places.svg')"
+        @place-selected="placeSelected"
+      )
+        places-menu
+      header-button(:icon="require('../assets/images/header-icons/header_links.svg')")
+        other-services
+      current-user-menu
 </template>
 
 <script lang="ts">
 import CustomSearch from '@/components/CustomSearch.vue';
 import HeaderButton from '@/components/HeaderButton.vue';
-import HeaderDropdown from '@/components/HeaderDropdown.vue';
-
-import {ROOMS} from '@/data/conferenceRooms';
+import ConferenceRooms from '@/components/ConferenceRooms.vue';
 import ClickOutside from '@/directives/clickOutside';
 import {UserInterface} from '@/interfaces/userInterface';
 import {store} from '@/store';
 import {Component, Vue} from 'vue-property-decorator';
+import OtherServices from '@/components/OtherServices.vue';
+import PlacesMenu from '@/components/PlacesMenu.vue';
+import CurrentUserMenu from '@/components/CurrentUserMenu.vue';
 
 
 @Component({
-  components: {CustomSearch, HeaderButton, HeaderDropdown},
+  components: {CurrentUserMenu, PlacesMenu, OtherServices, CustomSearch, HeaderButton, ConferenceRooms},
   directives: {ClickOutside},
 })
 export default class TheHeader extends Vue {
   public floors: number[] = [1, 2, 3, 4, 5, 6, 7, 8];
   public isShowMenu: boolean = false;
+  public hideRightSection: boolean = false;
 
   get currentFloor(): number {
     return store.state.currentFloor;
-  }
-
-  get confRooms(): any[] {
-    let rooms: any[] = [];
-    Object.values(ROOMS).forEach((value) => rooms = [...rooms, ...value]);
-    return rooms;
   }
 
   get tablesStatistic() {
@@ -82,10 +58,6 @@ export default class TheHeader extends Vue {
 
   public closeMobileMenu() {
     this.$emit('closeMobileMenu');
-  }
-
-  public closeMenu() {
-    this.isShowMenu = false;
   }
 
   public isDisabled(floor: number): boolean {
@@ -102,9 +74,18 @@ export default class TheHeader extends Vue {
     this.$emit('floorChanged');
   }
 
-  public roomSelected(room: any) {
-    // this.isShowMenu = false;
-    this.$emit('roomSelected', room);
+  public placeSelected(place: any) {
+    this.$emit('placeSelected', place);
+  }
+
+  public hideButtons(searchIsActive: boolean) {
+    this.hideRightSection = searchIsActive;
+  }
+
+  public clickOnLogo() {
+    this.$gtag.event('Click on logo link', {
+      event_category: 'Navigate',
+    });
   }
 }
 </script>
@@ -139,11 +120,16 @@ export default class TheHeader extends Vue {
     }
     .header-section-1 {
       justify-content: flex-start;
-      width: 100%;
       align-items: center;
+      width: 100%;
     }
     .header-section-2 {
       justify-content: flex-end;
+    }
+    .hideSection {
+      @media screen and (max-width: 465px) {
+        display: none;
+      }
     }
 
     .floors-icon {
@@ -172,12 +158,8 @@ export default class TheHeader extends Vue {
     }
 
     .logo {
-      flex-basis: 220px;
-      min-width: 175px;
+      min-width: 220px;
       height: 40px;
-      @include media_tablet {
-        flex-basis: 135px;
-      }
       @media only screen and (max-width: 768px) {
         display: none;
       }
@@ -189,128 +171,6 @@ export default class TheHeader extends Vue {
         height: 100%;
         width: 100%;
       }
-    }
-
-    .menu {
-      flex-basis: 220px;
-      display: flex;
-      justify-content: flex-end;
-
-      .menu-btn {
-        background: transparent;
-        border: none;
-        cursor: pointer;
-
-        &:before {
-          content: '';
-          display: block;
-          background-image: url("../assets/images/bars.svg");
-          width: 16px;
-          height: 16px;
-          background-size: 100% 100%;
-        }
-      }
-
-      .side-menu {
-        position: fixed;
-        background-color: #ebebeb;
-        top: 60px;
-        right: 0;
-        bottom: 0;
-        width: 0;
-        overflow-y: auto;
-        overflow-x: hidden;
-        transition: width 500ms;
-
-        &.expanded {
-          width: 270px;
-        }
-
-        ul {
-          min-width: 270px;
-
-          li {
-            font-size: 15px;
-            line-height: 44px;
-
-            span, a, label {
-              display: block;
-              padding: 0 20px;
-            }
-
-            label {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-
-              &:after {
-                content: '';
-                display: block;
-                background-image: url("../assets/images/chevron.svg");
-                width: 16px;
-                height: 16px;
-                background-size: 100% 100%;
-                transition: all 500ms;
-              }
-            }
-
-            a, label {
-              cursor: pointer;
-
-              &:hover {
-                background: rgba(50, 50, 50, 0.06);
-              }
-            }
-
-            li {
-              a, label, span {
-                padding: 0 40px;
-              }
-            }
-
-            input[type=checkbox] {
-              display: none;
-
-              &:checked + div {
-                ul{
-                  height: auto;
-                }
-                label:after {
-                  transform: rotate(180deg);
-                }
-              }
-            }
-
-            ul {
-              height: 0;
-              overflow: hidden;
-            }
-          }
-        }
-
-        select {
-          height: 27px;
-          border-radius: 10px;
-          border: 1px solid #cdcbcc;
-          box-shadow: inset 0 0 5px #cdcbcc;
-          background-color: #ffffff;
-          padding: 0 5px;
-          font-size: 13px;
-          color: #777372;
-          outline: none;
-          margin-left: 10px;
-        }
-      }
-      @include media_tablet {
-        flex-basis: 40px;
-      }
-    }
-    .user-container {
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: center;
-      align-items: center;
-      margin: 0;
     }
   }
 </style>

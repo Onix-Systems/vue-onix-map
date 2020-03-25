@@ -2,7 +2,8 @@
   .statistics-block(:class="{left: !isSidebarOnLeft}")
     .floor {{ currentFloor }}
       span  FLOOR
-    .statistics {{ currentFloorStatistic.all }} people, {{ currentFloorStatistic.free }} free seats
+    .statistics {{ currentFloorStatistic ? currentFloorStatistic.all : 0 }} people,
+      | {{ currentFloorStatistic ? currentFloorStatistic.free : 0 }} free seats
 </template>
 
 <script lang="ts">

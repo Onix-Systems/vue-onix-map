@@ -3,6 +3,7 @@ export const TABLES = {
     {
       id: 111,
       img: 'table-002.png',
+      /* img invisible clicking hover */
       rect: {
         x: 10,
         y: 0,
@@ -11,6 +12,7 @@ export const TABLES = {
       },
       imgWidth: 72,
       imgHeight: 72,
+      /* position x,y */
       x: 922,
       y: 679,
     },
@@ -1533,7 +1535,7 @@ export const TABLES = {
       y: 275,
     },
     {
-      id: 715,
+      id: 716,
       img: 'table-003.png',
       rect: {
         x: 0,
@@ -1561,7 +1563,7 @@ export const TABLES = {
       y: 299,
     },
     {
-      id: 716,
+      id: 715,
       img: 'table-003.png',
       rect: {
         x: 0,
@@ -1631,7 +1633,7 @@ export const TABLES = {
       y: 380,
     },
     {
-      id: 721,
+      id: 722,
       img: 'table-004.png',
       rect: {
         x: 30,
@@ -1645,7 +1647,7 @@ export const TABLES = {
       y: 426,
     },
     {
-      id: 723,
+      id: 724,
       img: 'table-003.png',
       rect: {
         x: 0,
@@ -1659,7 +1661,7 @@ export const TABLES = {
       y: 437,
     },
     {
-      id: 722,
+      id: 721,
       img: 'table-004.png',
       rect: {
         x: 30,
@@ -1673,7 +1675,7 @@ export const TABLES = {
       y: 450,
     },
     {
-      id: 724,
+      id: 723,
       img: 'table-003.png',
       rect: {
         x: 0,
@@ -1687,7 +1689,7 @@ export const TABLES = {
       y: 461,
     },
     {
-      id: 725,
+      id: 726,
       img: 'table-004.png',
       rect: {
         x: 30,
@@ -1715,7 +1717,7 @@ export const TABLES = {
       y: 522,
     },
     {
-      id: 726,
+      id: 728,
       img: 'table-004.png',
       rect: {
         x: 30,
@@ -1729,7 +1731,7 @@ export const TABLES = {
       y: 535,
     },
     {
-      id: 728,
+      id: 725,
       img: 'table-003.png',
       rect: {
         x: 0,
@@ -2450,7 +2452,7 @@ export const TABLES = {
       img: 'onix-office-8_table-002.png',
       rect: {
         x: 30,
-        y: 0,
+        y: 10,
         height: 30,
         width: 35,
       },
