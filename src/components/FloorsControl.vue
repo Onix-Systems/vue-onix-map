@@ -67,10 +67,11 @@ export default class FloorsControl extends Mixins(CommonMixin) {
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
-    top: 57px;
+    top: 0;
+    padding-top: 57px;
     background-color: #F8FBFF;
     width: 72px;
-    height: calc(100vh - 57px);
+    height: 100vh;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
