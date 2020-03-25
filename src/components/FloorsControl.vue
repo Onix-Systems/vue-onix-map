@@ -62,7 +62,7 @@ export default class FloorsControl extends Mixins(CommonMixin) {
 <style lang="scss" scoped>
   @import "../assets/scss/media";
   .floors-control {
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
