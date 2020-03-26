@@ -216,6 +216,7 @@ export default class MainLayout extends Vue {
     this.selectedPlace = null;
     this.showPlaceModal = false;
     this.showUserModal = false;
+    this.setHiddenIcon(-1);
     if (this.$route.query.userId || this.$route.query.placeId) {
       this.$router.push(this.$route.path);
     }
