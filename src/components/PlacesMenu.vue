@@ -113,6 +113,7 @@ export default class PlacesMenu extends Vue {
     overflow-y: auto;
     max-height: calc(100vh - 57px);
     @include media_mobile {
+      position: absolute;
       top: 54px;
       right: 12px;
     }
