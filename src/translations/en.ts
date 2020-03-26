@@ -1,0 +1,43 @@
+export default {
+  languageName: 'english',
+  logout: 'logout',
+  confRoomMenu: {
+    book: 'book',
+  },
+  search: {
+    placeholder: {
+      full: 'Search by Name, Technologies, Skills',
+      small: 'Search',
+    },
+    sort: {
+      label: 'Sort by:',
+      type: {
+        'floor': 'floor',
+        'experience': 'experience',
+        'nearest birthday': 'nearest birthday',
+      },
+    },
+    noMatches: 'No matches found.',
+  },
+  language: 'language | languages',
+  floor: 'floor | floors',
+  freeSeats: 'free seats',
+  remote: 'remote',
+  moveTo: 'move to',
+  left: 'left',
+  right: 'right',
+  people: 'people',
+  skill: 'skill | skills',
+  technology: 'technology | technologies',
+  welcomeTo: 'Welcome to',
+  loginWith: 'Login with',
+  poweredBy: 'Powered by',
+  conferenceRoom: 'conference room | conference rooms',
+  place: 'place | places',
+  vacation: 'vacation',
+  inOffice: 'in office',
+  copy: 'copy',
+  unknown: 'unknown',
+  birthday: 'birthday',
+  workStart: 'work start',
+};

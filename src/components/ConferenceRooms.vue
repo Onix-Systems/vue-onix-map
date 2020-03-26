@@ -5,7 +5,7 @@
       :key="index"
       @click.self="selectRoom(object)"
     ) {{object.name}}
-      button.btn-booking(@click="toTheCalendar()") book
+      button.btn-booking(@click="toTheCalendar()") {{$t('confRoomMenu.book')}}
 </template>
 
 <script lang="ts">
@@ -83,8 +83,9 @@ export default class ConferenceRooms extends Mixins(CommonMixin) {
       border-bottom: 1px solid#F6F8FC;
     }
     .btn-booking {
-      width: 80px;
+      width: fit-content;
       height: 20px;
+      padding: 0 10px;
       justify-content: flex-end;
       background-color: #EDF5FF;
       border: none;

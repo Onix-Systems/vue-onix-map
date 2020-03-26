@@ -4,7 +4,7 @@
       input(
         type="text"
         v-model="query"
-        :placeholder="inputText"
+        :placeholder="placeholder"
         @change="changeInput(query)"
       )
       .search-icon
@@ -15,44 +15,44 @@
             button(
               v-scroll-to="{ el: '#peoples', container: '#scroll-container' }"
               @click="scrollToBlock('People')"
-            ) People
+            ) {{$t('people')}}
               span  {{ filteredUsers.length }}
             button(
               v-scroll-to="{ el: '#skills', container: '#scroll-container' }"
               @click="scrollToBlock('Skills')"
-            ) Skills
+            ) {{$tc('skill', 2)}}
               span  {{ filteredSkills.length }}
             button(
               v-scroll-to="{ el: '#technologies', container: '#scroll-container' }"
               @click="scrollToBlock('Technologies')"
-            ) Technologies
+            ) {{$tc('technology', 2)}}
               span  {{ filteredTechnologies.length }}
             button.close(@click="showDropdown = false, $emit('searchIsActive', false)")
           .sort-block(v-click-outside="closeSort")
-            .sort-label Sort by:&nbsp
-              button(@click="showSort = !showSort" :class="{'arrow-up': showSort}") {{ currentSort }}
+            .sort-label {{$t('search.sort.label')}}
+              button(@click="showSort = !showSort" :class="{'arrow-up': showSort}") {{$t(`search.sort.type.${currentSort}`)}}
             .sort-dropdown(v-if="showSort")
               ul(@click.stop="showSort = false")
                 li(
                   @click="changeSort(searchSort.Floor)"
                   :class="{active: currentSort === searchSort.Floor}"
-                ) {{ searchSort.Floor }}
+                ) {{$t(`search.sort.type.${searchSort.Floor}`)}}
                 li(
                   @click="changeSort(searchSort.Experience)"
                   :class="{active: currentSort === searchSort.Experience}"
-                ) {{ searchSort.Experience }}
+                ) {{$t(`search.sort.type.${searchSort.Experience}`)}}
                 li(
                   @click="changeSort(searchSort.NearestBirthday)"
                   :class="{active: currentSort === searchSort.NearestBirthday}"
-                ) {{ searchSort.NearestBirthday }}
+                ) {{$t(`search.sort.type.${searchSort.NearestBirthday}`)}}
         .search-result#scroll-container
           section(v-if="filteredUsers.length")
-            .title#peoples People
+            .title#peoples {{$t('people')}}
             template(v-if="currentSort === searchSort.Floor")
               .floor-block(v-for="floor in floors" :key="floor")
                 template(v-if="getUsersByFloor(filteredUsers, floor).length")
                   .floor-label {{floor !== 0 ? floor : ''}}
-                    span {{floor !== 0 ? ' FLOOR' : 'REMOTE'}}
+                    span {{floor !== 0 ? ` ${$tc('floor')}` : $t('remote')}}
                   .users-list
                     .user-block(
                       v-for="user in getUsersByFloor(filteredUsers, floor)"
@@ -65,7 +65,7 @@
                 )
                   user-search-card(:user="user" :query="query" :sort="currentSort" @selectUser="selectUser(user)")
           section(v-if="filteredSkills.length")
-            .title#skills Skills
+            .title#skills {{$tc('skill', 2)}}
               template(v-if="listOfSkills.length")  (
                 span(
                   v-for="(skill, i) in listOfSkills"
@@ -76,7 +76,7 @@
               template(v-for="user in filteredSkills")
                 user-search-card(:user="user" :query="query" :sort="currentSort" @selectUser="selectUser(user)")
           section(v-if="filteredTechnologies.length")
-            .title#technologies Technologies
+            .title#technologies {{$tc('technology', 2)}}
               template(v-if="listOfTechnologies.length")  (
                 span(
                   v-for="(tech, i) in listOfTechnologies"
@@ -86,7 +86,7 @@
             .users-list
               template(v-for="user in filteredTechnologies")
                 user-search-card(:user="user" :query="query" :sort="currentSort" @selectUser="selectUser(user)")
-          .no-matches(v-if="!filteredUsers.length && !filteredSkills.length && !filteredTechnologies.length") No matches found.
+          .no-matches(v-if="!filteredUsers.length && !filteredSkills.length && !filteredTechnologies.length") {{$t('search.noMatches')}}
 
 </template>
 
@@ -114,14 +114,9 @@ export default class CustomSearch extends Mixins(UserMixin) {
   public currentSort: string = SearchSortEnum.Floor;
   public searchSort = SearchSortEnum;
   public floors: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 0];
-  public inputText = '';
 
-  public mounted() {
-    this.setInputText();
-  }
-  public setInputText() {
-    const width = window.innerWidth;
-    this.inputText = width > 400 ? 'Search by Name, Project, Skills, Other' : 'Name, Project, Skills, Other..';
+  get placeholder() {
+    return window.innerWidth > 400 ? this.$t('search.placeholder.full') : this.$t('search.placeholder.small');
   }
 
   get filteredUsers(): UserInterface[] {
@@ -407,6 +402,7 @@ export default class CustomSearch extends Mixins(UserMixin) {
           font-size: 12px;
           line-height: 15px;
           color: #0072FF;
+          text-transform: capitalize;
           @media only screen and (max-width: 340px) {
             margin: 0 5px;
           }
@@ -540,6 +536,7 @@ export default class CustomSearch extends Mixins(UserMixin) {
         line-height: 33px;
         color: #2B2C30;
         margin: 8px 0 24px 16px;
+        text-transform: capitalize;
 
         span {
           font-size: 20px;
@@ -591,6 +588,7 @@ export default class CustomSearch extends Mixins(UserMixin) {
 
         span {
           font-size: 16px;
+          text-transform: uppercase;
         }
       }
 

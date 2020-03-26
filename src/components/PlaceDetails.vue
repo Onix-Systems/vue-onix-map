@@ -5,7 +5,7 @@
       img.header-img(v-if="haveImg()" :src="getImg(selectedPlace.img)" alt="")
       .header-text {{selectedPlace.name}}
       .get-link(@click="copyUrl")
-      .btn-booking(v-if="isConfRoom()" @click="toTheCalendar()") book
+      .btn-booking(v-if="isConfRoom()" @click="toTheCalendar()") {{$t('confRoomMenu.book')}}
       .description(v-if="haveDescription()")
         .info(v-html="selectedPlace.description")
       button.close(@click="closeDetails")
@@ -106,7 +106,7 @@ export default class PlacesDetails extends Mixins(CommonMixin) {
       display: flex;
       align-items: center;
       height: 20px;
-      font-size: 14px ; 
+      font-size: 14px ;
       line-height: 17px;
       font-weight: 600;
       color: #363A42;
@@ -156,8 +156,9 @@ export default class PlacesDetails extends Mixins(CommonMixin) {
       align-items: center;
       justify-content: center;
       margin-top: 10px;
-      width: 80px;
+      width: fit-content;
       height: 20px;
+      padding: 0 10px;
       border: none;
       border-radius: 20px;
       color: #232323;

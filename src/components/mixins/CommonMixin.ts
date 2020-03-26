@@ -1,6 +1,16 @@
 import {Component, Vue} from 'vue-property-decorator';
 
-@Component
+@Component({
+  filters: {
+    capitalize(value: any) {
+      if (!value) {
+        return '';
+      }
+      value = value.toString();
+      return value.charAt(0).toUpperCase() + value.slice(1);
+    },
+  },
+})
 export default class CommonMixin extends Vue {
   public copyToClipboard(value: string) {
     const dummy = document.createElement('textarea');

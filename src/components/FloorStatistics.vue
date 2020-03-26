@@ -1,9 +1,10 @@
 <template lang="pug">
   .statistics-block(:class="{left: !isSidebarOnLeft}")
     .floor {{ currentFloor }}
-      span  FLOOR
-    .statistics {{ currentFloorStatistic ? currentFloorStatistic.all : 0 }} people,
-      | {{ currentFloorStatistic ? currentFloorStatistic.free : 0 }} free seats
+      span  {{$tc('floor', 1)}}
+    .statistics {{$t('people')}} {{ currentFloorStatistic ? currentFloorStatistic.all : 0 }},
+      |  {{$t('freeSeats')}}
+      |  {{ currentFloorStatistic ? currentFloorStatistic.free : 0 }}
 </template>
 
 <script lang="ts">
@@ -50,6 +51,7 @@
 
       & span {
         font-size: 18px;
+        text-transform: uppercase;
       }
     }
 

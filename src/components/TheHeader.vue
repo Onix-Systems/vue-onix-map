@@ -10,13 +10,13 @@
       custom-search(@selected="userSelected" @searchIsActive="hideButtons")
     .header-section-2(:class="{'hideSection': hideRightSection}")
       header-button(
-        :title="'Conference Rooms'"
+        :title="$tc('conferenceRoom', 2)"
         :icon="require('../assets/images/header-icons/header_clock.svg')"
         @roomSelected="placeSelected"
       )
         conference-rooms
       header-button(
-        :title="'Places'"
+        :title="$tc('place', 2)"
         :icon="require('../assets/images/header-icons/header_places.svg')"
         @place-selected="placeSelected"
       )

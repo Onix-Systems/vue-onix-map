@@ -5,7 +5,7 @@
         img(:src="user.attachment ? user.attachment.link70 : require('../assets/images/def-img.png')")
       .user-name
         .additional-info
-          .place {{user.tableNumber ? `Place ${user.tableNumber}` : 'Remote'}}
+          .place {{user.tableNumber ? `${$tc('place')} ${user.tableNumber}` : $t('remote')}}
           .sorted-info {{ sortedInfo }}
         .full-name(
           v-html="$options.filters.wrapText(user.firstName + ' ' + user.lastName, query)"
@@ -42,14 +42,14 @@ export default class UserSearchCard extends Mixins(CommonMixin, UserMixin) {
 
   get sortedInfo() {
     if (this.sort === SearchSortEnum.NearestBirthday) {
-      return 'Birthday: ' + (this.user.birthDate ? moment(this.user.birthDate).format('DD/MM/YYYY') : 'unknown');
+      return `${this.$t('birthday')}: ` + (this.user.birthDate ? moment(this.user.birthDate).format('DD/MM/YYYY') : this.$t('unknown'));
     }
 
     if (this.sort === SearchSortEnum.Experience) {
-      return 'Work start: ' + (this.user.birthDate ? moment(this.user.workStartDate).format('DD/MM/YYYY') : 'unknown');
+      return `${this.$t('birthday')}: ` + (this.user.birthDate ? moment(this.user.workStartDate).format('DD/MM/YYYY') : this.$t('unknown'));
     }
 
-    return (this.user.tableNumber ? 'Floor: ' + Math.floor(parseInt(this.user.tableNumber, 10) / 100) : '');
+    return (this.user.tableNumber ? `${this.$tc('floor')}: ` + Math.floor(parseInt(this.user.tableNumber, 10) / 100) : '');
   }
 }
 </script>
@@ -152,6 +152,7 @@ export default class UserSearchCard extends Mixins(CommonMixin, UserMixin) {
           font-size: 12px;
           line-height: 15px;
           color: #979797;
+          text-transform: capitalize;
           @media only screen and (max-width: 539px) {
             display: flex;
           }

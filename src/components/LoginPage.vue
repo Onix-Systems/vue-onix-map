@@ -2,11 +2,11 @@
   .login-block
     header
       h1
-        | Welcome to&nbsp
-        span HYDRA.
+        | {{$t('welcomeTo')}}
+        span  HYDRA.
         | onixmap
-    button.login(@click="login") Login with HYDRA passport
-    footer Powered by ONIX systems
+    button.login(@click="login") {{$t('loginWith')}} HYDRA passport
+    footer {{$t('poweredBy')}} ONIX systems
 </template>
 
 <script lang="ts">

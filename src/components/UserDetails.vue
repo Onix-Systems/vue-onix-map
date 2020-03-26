@@ -5,14 +5,14 @@
       .user-img
         img(:src="user.attachment ? user.attachment.link70 : require('../assets/images/def-img.png')")
       .user-info
-        .data-row.place {{user.tableNumber ? `Place ${user.tableNumber}` : 'Remote'}}
+        .data-row.place {{user.tableNumber ? `${$tc('place')} ${user.tableNumber}` : $t('remote')}}
           .copy-url(@click="copyUrl")
-            img(:src="require('@/assets/images/copy-url.svg')" title="Copy url")
+            img(:src="require('@/assets/images/copy-url.svg')" :title="`${$t('copy')} url` | capitalize")
         .data-row.name
           span {{user.firstName}} {{user.lastName}}
           i.status(:class="{vocation: checkUserOnVacation}")
             .tooltip
-              span {{checkUserOnVacation ? 'Vacation' : 'In Office'}}
+              span {{checkUserOnVacation ? $t('vacation') : $t('inOffice')}}
         .data-row.role(v-if="userRoles")
           span(v-for="(role, i) in userRoles") {{role + (userRoles.length - 1 === i ? '' : ', ')}}
         .data-row.phone(v-if="user.phone" @click="copyToClipboard(user.phone)")
@@ -94,6 +94,7 @@ export default class UserDetails extends Mixins(CommonMixin, UserMixin) {
             padding: 0;
             display: flex;
             align-items: center;
+            text-transform: capitalize;
 
             .copy-url {
               border-radius: 50%;
@@ -154,6 +155,7 @@ export default class UserDetails extends Mixins(CommonMixin, UserMixin) {
                   background: #555555;
                   border-radius: 6px;
                   padding: 0 5px;
+                  text-transform: capitalize;
                 }
               }
 

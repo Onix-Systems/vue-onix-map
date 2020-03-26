@@ -80,6 +80,7 @@ export default class HeaderButton extends Vue {
   .text {
     opacity: 0.7;
     padding-right: 40px;
+    text-transform: capitalize;
     @include media_tablet {
       display: none;
     }
