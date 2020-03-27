@@ -3,7 +3,7 @@ import {ServiceInterface} from '@/interfaces/serviceInterface';
 export const SERVICES: ServiceInterface[] = [
   {
     id: 0,
-    name: 'Projects',
+    name: 'Hydra',
     link: 'https://knowledge.onix.kr.ua/knowledge-base/poleznye-ssylki-v-kompanii-onix/',
     icon: 'projects.svg',
   },
@@ -15,30 +15,24 @@ export const SERVICES: ServiceInterface[] = [
   },
   {
     id: 2,
-    name: 'Onix map',
-    link: 'https://map.onix-systems.com/',
-    icon: 'floors.icon.svg',
-  },
-  {
-    id: 3,
     name: 'Jira',
     link: 'https://onix-systems.atlassian.net/jira/your-work',
     icon: 'jira.svg',
   },
   {
-    id: 4,
+    id: 3,
     name: 'Knowledge',
     link: 'https://knowledge.onix.kr.ua/',
     icon: 'knowledge.svg',
   },
   {
-    id: 5,
+    id: 4,
     name: 'Facebook',
     link: 'https://www.facebook.com/groups/onix.systems.internal/',
     icon: 'facebook.svg',
   },
   {
-    id: 6,
+    id: 5,
     name: 'Gitlab',
     link: 'https://gitlab.onix.ua/users/sign_in',
     icon: 'gitlab.svg',
