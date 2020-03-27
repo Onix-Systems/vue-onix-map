@@ -9,6 +9,7 @@ export interface PlacesMenuInterface {
     football?: PlaceMenuInterface,
     kitchen?: PlaceMenuInterface,
     wc?: PlaceMenuInterface,
+    gym?: PlaceMenuInterface,
     shower?: PlaceMenuInterface,
     extinguisher?: PlaceMenuInterface,
     medkit?: PlaceMenuInterface,

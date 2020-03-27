@@ -597,7 +597,7 @@ export const PLACES = {
       id: 609,
       img: 'gym.svg',
       name: {
-        en: 'Sport',
+        en: '6. Sport',
         ua: 'Спорт',
       },
       placeType: 'gym',
@@ -940,7 +940,7 @@ export const PLACES = {
       id: 707,
       img: 'gym.svg',
       name: {
-        en: 'Sport',
+        en: '7. Sport',
         ua: 'Спорт',
       },
       placeType: 'gym',

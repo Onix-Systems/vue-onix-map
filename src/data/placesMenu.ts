@@ -25,11 +25,11 @@ export const PLACES_MENU: PlacesMenuInterface[] = [
         icon: 'ice-cream.svg',
       },
 
-      chill: {
+      gym: {
         id: 3,
-        name: 'Chill Room',
-        label: '6 floor',
-        icon: 'chill-room.svg',
+        name: 'Sport',
+        label: '6,7 floors',
+        icon: 'gym.svg',
       },
 
       foosball: {
@@ -47,22 +47,29 @@ export const PLACES_MENU: PlacesMenuInterface[] = [
         icon: 'football.svg',
       },
 
-      kitchen: {
+      chill: {
         id: 6,
+        name: 'Chill Room',
+        label: '6,7,8 floors',
+        icon: 'chill-room.svg',
+      },
+
+      kitchen: {
+        id: 7,
         name: 'Kitchens',
         label: 'All floors',
         icon: 'kitchens.svg',
       },
 
       wc: {
-        id: 7,
+        id: 8,
         name: 'Toilets',
         label: 'All floors',
         icon: 'wc.svg',
       },
 
       shower: {
-        id: 8,
+        id: 9,
         name: 'Shower',
         label: '8 floor',
         icon: 'shower.svg',
@@ -74,14 +81,14 @@ export const PLACES_MENU: PlacesMenuInterface[] = [
     sectionName: 'Emergency',
     places: {
       extinguisher: {
-        id: 9,
+        id: 10,
         name: 'Extinguisher',
         label: 'All floors',
         icon: 'extinguisher.svg',
       },
 
       medkit: {
-        id: 10,
+        id: 11,
         name: 'First Aid Kit',
         label: 'All floors',
         icon: 'aid-kit.svg',
