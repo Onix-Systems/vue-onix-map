@@ -240,7 +240,7 @@ export const PLACES = {
         width: 35,
       },
       bubble: {
-        x: 62,
+        x: 20,
         y: 40,
         width: 240,
         height: 32,
@@ -397,7 +397,7 @@ export const PLACES = {
         width: 35,
       },
       bubble: {
-        x: 62,
+        x: 20,
         y: 40,
         width: 240,
         height: 32,
@@ -988,7 +988,7 @@ export const PLACES = {
         width: 35,
       },
       bubble: {
-        x: 62,
+        x: 20,
         y: 40,
         width: 240,
         height: 32,
@@ -1019,7 +1019,7 @@ export const PLACES = {
         width: 35,
       },
       bubble: {
-        x: 62,
+        x: 20,
         y: 40,
         width: 240,
         height: 32,
@@ -1050,7 +1050,7 @@ export const PLACES = {
         width: 35,
       },
       bubble: {
-        x: 62,
+        x: 20,
         y: 40,
         width: 240,
         height: 32,
@@ -1081,7 +1081,7 @@ export const PLACES = {
         width: 35,
       },
       bubble: {
-        x: 62,
+        x: 20,
         y: 40,
         width: 240,
         height: 32,
@@ -1207,7 +1207,7 @@ export const PLACES = {
         width: 35,
       },
       bubble: {
-        x: 62,
+        x: 20,
         y: 40,
         width: 240,
         height: 32,
@@ -1238,7 +1238,7 @@ export const PLACES = {
         width: 35,
       },
       bubble: {
-        x: 62,
+        x: 20,
         y: 40,
         width: 240,
         height: 32,

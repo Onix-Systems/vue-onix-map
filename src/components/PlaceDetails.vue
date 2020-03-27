@@ -2,9 +2,10 @@
   //- place pop-up
   .place-details(v-if="showDetailsModal" :style="popUpStyles" ref="popupContainer")
     .popup-body(ref="popupBody" :class="[isConfRoom() ? 'conf-room-container' : 'place-container']")
-      img.header-img(v-if="haveImg()" :src="getImg(selectedPlace.img)" alt="")
-      .header-text {{getTranslate(selectedPlace.name)}}
-      .get-link(@click="copyUrl")
+      .popup-header
+        img.header-img(v-if="haveImg()" :src="getImg(selectedPlace.img)" alt="")
+        .header-text {{getTranslate(selectedPlace.name)}}
+        .get-link(@click="copyUrl")
       .btn-booking(v-if="isConfRoom()" @click="toTheCalendar()") {{$t('confRoomMenu.book')}}
       .description(v-if="haveDescription()")
         .info(v-html="getTranslate(selectedPlace.description)")
@@ -58,7 +59,13 @@ export default class PlacesDetails extends Mixins(CommonMixin) {
       border: 1px solid #d2d4cf;
       border-radius: 4px;
       display: flex;
+      flex-direction: column;
       position: relative;
+
+      .popup-header {
+        display: flex;
+        padding-right: 25px;
+      }
 
       //close cross x
       .close {
@@ -146,7 +153,7 @@ export default class PlacesDetails extends Mixins(CommonMixin) {
       min-height: 35px;
     }
     .conf-room-container {
-      width: 200px;
+      width: 286px;
     }
     .place-container {
       width: 235px;

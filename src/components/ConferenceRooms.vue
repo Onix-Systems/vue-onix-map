@@ -50,7 +50,7 @@ export default class ConferenceRooms extends Mixins(CommonMixin) {
     justify-content: center;
     top: 43px;
     position: absolute;
-    width: 310px;
+    width: 335px;
     right: 0; //- temporary solution for non-user header structure
     background-color: #fff;
     border-radius: 4px;
