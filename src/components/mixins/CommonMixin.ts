@@ -40,4 +40,14 @@ export default class CommonMixin extends Vue {
       event_category: 'Search places',
     });
   }
+
+  public getTranslate(field: any) {
+    if (field.hasOwnProperty(this.$i18n.locale)) {
+      return field[this.$i18n.locale];
+    }
+    if (field.hasOwnProperty(this.$i18n.fallbackLocale)) {
+      return field[this.$i18n.fallbackLocale];
+    }
+    return field;
+  }
 }

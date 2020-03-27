@@ -9,39 +9,40 @@
               v-if="place.link"
               :href="place.link"
               target="blank"
-              :title="place.name"
+              :title="getTranslate(place.name)"
               @click.stop="clickOnPlace(place, i)"
             )
               .icon
                 img(:src="require('../assets/images/header-icons/places/' + place.icon)")
-              .place-name {{place.name}}
+              .place-name {{getTranslate(place.name)}}
               .place-label.link {{place.label}}
 
             .place(
               v-else
-              :title="place.name"
+              :title="getTranslate(place.name)"
               @click.stop="clickOnPlace(place, i)"
             )
               .icon
                 img(:src="require('../assets/images/header-icons/places/' + place.icon)")
-              .place-name {{place.name}}
+              .place-name {{getTranslate(place.name)}}
               .place-label {{place.label}}
     .place-list-block(v-if="showPlacesList")
       .place-list-label-block
         img(:src="require('../assets/images/header-icons/places/arrow.svg')" @click.stop="showPlacesList = false")
         .place-list-label {{currentPlace.name}}
-      .place-list-name(v-for="place in placesList" :key="place.name" @click="clickOnPlaceList(place)") {{place.name}}
+      .place-list-name(v-for="place in placesList" :key="place.id" @click="clickOnPlaceList(place)") {{getTranslate(place.name)}}
 </template>
 
 <script lang="ts">
-import {Component, Vue} from 'vue-property-decorator';
+import {Component, Mixins} from 'vue-property-decorator';
 import {PLACES} from '@/data/places';
 import {PlaceInterface} from '@/interfaces/placeInterface';
 import {PLACES_MENU} from '@/data/placesMenu';
 import {PlacesMenuInterface, PlaceMenuInterface} from '@/interfaces/placesMenuInterface';
+import CommonMixin from '@/components/mixins/CommonMixin';
 
 @Component({})
-export default class PlacesMenu extends Vue {
+export default class PlacesMenu extends Mixins(CommonMixin) {
   public placesMenu: any = PLACES_MENU;
   public places: any = PLACES;
   public placesList: PlaceInterface[] = [];

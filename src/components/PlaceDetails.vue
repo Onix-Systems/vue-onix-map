@@ -3,11 +3,11 @@
   .place-details(v-if="showDetailsModal" :style="popUpStyles" ref="popupContainer")
     .popup-body(ref="popupBody" :class="[isConfRoom() ? 'conf-room-container' : 'place-container']")
       img.header-img(v-if="haveImg()" :src="getImg(selectedPlace.img)" alt="")
-      .header-text {{selectedPlace.name}}
+      .header-text {{getTranslate(selectedPlace.name)}}
       .get-link(@click="copyUrl")
       .btn-booking(v-if="isConfRoom()" @click="toTheCalendar()") {{$t('confRoomMenu.book')}}
       .description(v-if="haveDescription()")
-        .info(v-html="selectedPlace.description")
+        .info(v-html="getTranslate(selectedPlace.description)")
       button.close(@click="closeDetails")
     .arrow
 </template>

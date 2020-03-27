@@ -3,10 +3,16 @@ export const PLACES = {
     {
       id: 101,
       img: 'shadow-wc-v1.svg',
-      name: '1-1. Water Closet',
+      name: {
+        en: '1-1. Water Closet',
+        ua: '1-1. Туалет',
+      },
       placeType: 'wc',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 0,
@@ -28,10 +34,16 @@ export const PLACES = {
     {
       id: 102,
       img: 'shadow-kitchen.svg',
-      name: '1-1. Kitchen',
+      name: {
+        en: '1-1. Kitchen',
+        ua: '1-1. Кухня',
+      },
       placeType: 'kitchen',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 0,
@@ -53,10 +65,16 @@ export const PLACES = {
     {
       id: 103,
       img: 'shadow-wc-v1.svg',
-      name: '1-2. Water Closet',
+      name: {
+        en: '1-2. Water Closet',
+        ua: '1-2. Туалет',
+      },
       placeType: 'wc',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 3,
@@ -78,10 +96,16 @@ export const PLACES = {
     {
       id: 104,
       img: 'shadow-kitchen.svg',
-      name: '1-2. Kitchen',
+      name: {
+        en: '1-2. Kitchen',
+        ua: '1-2. Кухня',
+      },
       placeType: 'kitchen',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 0,
@@ -103,10 +127,16 @@ export const PLACES = {
     {
       id: 105,
       img: 'doctor.svg',
-      name: '1-1. First aid kit',
+      name: {
+        en: '1-1. First aid kit',
+        ua: '1-1. Аптечка першої допомоги',
+      },
       placeType: 'medkit',
       PlaceGroup: 'emergency',
-      description: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
+      description: {
+        en: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
+        ua: 'Якщо вам, або вашому колезі потрібне щось із предметів першої допомоги, ви можете взяти <b> пов’язки, антисептики, знеболюючі та інші лікарські засоби </b>. Будьте здорові.',
+      },
       showImg: true,
       rect: {
         x: 3,
@@ -128,10 +158,16 @@ export const PLACES = {
     {
       id: 106,
       img: 'doctor.svg',
-      name: '1-2. First aid kit',
+      name: {
+        en: '1-2. First aid kit',
+        ua: '1-2. Аптечка першої допомоги',
+      },
       placeType: 'medkit',
       PlaceGroup: 'emergency',
-      description: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
+      description: {
+        en: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
+        ua: 'Якщо вам, або вашому колезі потрібне щось із предметів першої допомоги, ви можете взяти <b> пов’язки, антисептики, знеболюючі та інші лікарські засоби </b>. Будьте здорові.',
+      },
       showImg: true,
       rect: {
         x: 3,
@@ -153,10 +189,16 @@ export const PLACES = {
     {
       id: 107,
       img: 'ice-cream.svg',
-      name: 'Ice cream',
+      name: {
+        en: 'Ice cream',
+        ua: 'Морозиво',
+      },
       placeType: 'icecream',
       PlaceGroup: 'chill',
-      description: 'Ice Cream Fridge',
+      description: {
+        en: 'Ice Cream Fridge',
+        ua: 'Холодильник з морозивом',
+      },
       showImg: true,
       rect: {
         x: 20,
@@ -180,10 +222,16 @@ export const PLACES = {
     {
       id: 401,
       img: 'meetroom.svg',
-      name: '4. Conf Room',
+      name: {
+        en: '4. Conf Room',
+        ua: '4. Кімната для переговорів',
+      },
       placeType: 'meetroom',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 4,
@@ -205,10 +253,16 @@ export const PLACES = {
     {
       id: 402,
       img: 'shadow-kitchen.svg',
-      name: '4. Kitchen',
+      name: {
+        en: '4. Kitchen',
+        ua: '4. Кухня',
+      },
       placeType: 'kitchen',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 0,
@@ -230,10 +284,16 @@ export const PLACES = {
     {
       id: 403,
       img: 'shadow-wc-v1.svg',
-      name: '4-1. Water Closet',
+      name: {
+        en: '4-1. Water Closet',
+        ua: '4-1. Туалет',
+      },
       placeType: 'wc',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 0,
@@ -255,10 +315,16 @@ export const PLACES = {
     {
       id: 404,
       img: 'shadow-wc-v2.svg',
-      name: '4-2. Water Closet',
+      name: {
+        en: '4-2. Water Closet',
+        ua: '4-2. Туалет',
+      },
       placeType: 'wc',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 3,
@@ -280,10 +346,16 @@ export const PLACES = {
     {
       id: 406,
       img: 'doctor.svg',
-      name: '4. First aid kit',
+      name: {
+        en: '4. First aid kit',
+        ua: '4. Аптечка першої допомоги',
+      },
       placeType: 'medkit',
       PlaceGroup: 'emergency',
-      description: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
+      description: {
+        en: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
+        ua: 'Якщо вам, або вашому колезі потрібне щось із предметів першої допомоги, ви можете взяти <b> пов’язки, антисептики, знеболюючі та інші лікарські засоби </b>. Будьте здорові.',
+      },
       showImg: true,
       rect: {
         x: 3,
@@ -307,10 +379,16 @@ export const PLACES = {
     {
       id: 601,
       img: 'meetroom.svg',
-      name: '6. Conf Room',
+      name: {
+        en: '6. Conf Room',
+        ua: '6. Кімната для переговорів',
+      },
       placeType: 'meetroom',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 4,
@@ -332,10 +410,16 @@ export const PLACES = {
     {
       id: 602,
       img: 'shadow-wc-v1.svg',
-      name: '6-1. Water Closet',
+      name: {
+        en: '6-1. Water Closet',
+        ua: '6-1. Туалет',
+      },
       placeType: 'wc',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 0,
@@ -357,10 +441,16 @@ export const PLACES = {
     {
       id: 603,
       img: 'shadow-wc-v2.svg',
-      name: '6-2. Water Closet',
+      name: {
+        en: '6-2. Water Closet',
+        ua: '6-2. Туалет',
+      },
       placeType: 'wc',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 3,
@@ -382,10 +472,16 @@ export const PLACES = {
     {
       id: 604,
       img: 'shadow-kitchen.svg',
-      name: '6-1. Kitchen',
+      name: {
+        en: '6-1. Kitchen',
+        ua: '6-1. Кухня',
+      },
       placeType: 'kitchen',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 0,
@@ -407,10 +503,16 @@ export const PLACES = {
     {
       id: 605,
       img: 'shadow-kitchen.svg',
-      name: '6-2. Kitchen',
+      name: {
+        en: '6-2. Kitchen',
+        ua: '6-2. Кухня',
+      },
       placeType: 'kitchen',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 0,
@@ -432,10 +534,16 @@ export const PLACES = {
     {
       id: 606,
       img: 'shadow-wc-v1.svg',
-      name: '6-3. Water Closet',
+      name: {
+        en: '6-3. Water Closet',
+        ua: '6-3. Туалет',
+      },
       placeType: 'wc',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 0,
@@ -457,10 +565,16 @@ export const PLACES = {
     {
       id: 607,
       img: 'shadow-smoke.svg',
-      name: '6-1. Smoking Place',
+      name: {
+        en: '6-1. Smoking Place',
+        ua: '6-1. Місце для паління',
+      },
       placeType: 'smoking',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 0,
@@ -482,10 +596,16 @@ export const PLACES = {
     {
       id: 609,
       img: 'gym.svg',
-      name: 'Sport',
+      name: {
+        en: 'Sport',
+        ua: 'Спорт',
+      },
       placeType: 'gym',
       PlaceGroup: 'chill',
-      description: 'Here you can warm up a bit. <b>Horizontal bars, bars.</b>',
+      description: {
+        en: 'Here you can warm up a bit. <b>Horizontal bars, bars.</b>',
+        ua: 'Тут можна трохи розігритись. <b>Турнік, бруси.</b>',
+      },
       showImg: true,
       rect: {
         x: 20,
@@ -507,10 +627,16 @@ export const PLACES = {
     {
       id: 610,
       img: 'foosball.svg',
-      name: 'Foosball',
+      name: {
+        en: 'Foosball',
+        ua: 'Настольний футбол',
+      },
       placeType: 'foosball',
       PlaceGroup: 'chill',
-      description: 'Here you can play foosball',
+      description: {
+        en: 'Here you can play foosball',
+        ua: 'Тут можна пограти в настольний футбол',
+      },
       showImg: true,
       rect: {
         x: 20,
@@ -532,10 +658,16 @@ export const PLACES = {
     {
       id: 611,
       img: 'doctor.svg',
-      name: '6-1. First aid kit',
+      name: {
+        en: '6-1. First aid kit',
+        ua: '6-1. Аптечка першої допомоги',
+      },
       placeType: 'medkit',
       PlaceGroup: 'emergency',
-      description: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
+      description: {
+        en: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
+        ua: 'Якщо вам, або вашому колезі потрібне щось із предметів першої допомоги, ви можете взяти <b> пов’язки, антисептики, знеболюючі та інші лікарські засоби </b>. Будьте здорові.',
+      },
       showImg: true,
       rect: {
         x: 3,
@@ -557,10 +689,16 @@ export const PLACES = {
     {
       id: 612,
       img: 'doctor.svg',
-      name: '6-2. First aid kit',
+      name: {
+        en: '6-2. First aid kit',
+        ua: '6-2. Аптечка першої допомоги',
+      },
       placeType: 'medkit',
       PlaceGroup: 'emergency',
-      description: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
+      description: {
+        en: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
+        ua: 'Якщо вам, або вашому колезі потрібне щось із предметів першої допомоги, ви можете взяти <b> пов’язки, антисептики, знеболюючі та інші лікарські засоби </b>. Будьте здорові.',
+      },
       showImg: true,
       rect: {
         x: 3,
@@ -582,10 +720,16 @@ export const PLACES = {
     {
       id: 613,
       img: 'sofa.svg',
-      name: 'Chill Room',
+      name: {
+        en: '6. Chill Room',
+        ua: '6. Кімната відпочинку',
+      },
       placeType: 'chill',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 0,
@@ -609,10 +753,16 @@ export const PLACES = {
     {
       id: 701,
       img: 'doctor.svg',
-      name: '7. First aid kit',
+      name: {
+        en: '7. First aid kit',
+        ua: '7. Аптечка першої допомоги',
+      },
       placeType: 'medkit',
       PlaceGroup: 'emergency',
-      description: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
+      description: {
+        en: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
+        ua: 'Якщо вам, або вашому колезі потрібне щось із предметів першої допомоги, ви можете взяти <b> пов’язки, антисептики, знеболюючі та інші лікарські засоби </b>. Будьте здорові.',
+      },
       showImg: true,
       rect: {
         x: 3,
@@ -634,10 +784,16 @@ export const PLACES = {
     {
       id: 702,
       img: 'fire-extinguisher.svg',
-      name: '7-1. Extinguisher',
+      name: {
+        en: '7-1. Extinguisher',
+        ua: '7-1. Вогнегасник',
+      },
       placeType: 'extinguisher',
       PlaceGroup: 'emergency',
-      description: '<ul><li>Выдернуть опломбированную чеку.</li><li>Отойти от очага пожара на 3-4 м.</li><li>Привести огнетушитель в действие: с встроенным источником давления – отвести вверх рукоятку запуска газового баллончика, нажать кистью руки на ручку пистолета-распылителя.</li></ul>',
+      description: {
+        en: '<ul><li>Pull out the sealed check.</li><li>Move away from the fire by 3-4 m.</li><li>Operate the fire extinguisher: with the built-in pressure source, pull the start handle of the gas canister up, press the handle of the spray gun with your hand.</li></ul>',
+        ua: '<ul><li>Висмикнути опломбовану чеку.</li><li>Відійти від джерела пожежі на 3-4 м.</li><li>Привести вогнегасник в дію: з вбудованим джерелом тиску - відвести вгору рукоятку запуску газового балончика, натиснути кистю руки на ручку пістолета-розпилювача.</li></ul>',
+      },
       showImg: true,
       rect: {
         x: 2,
@@ -659,10 +815,16 @@ export const PLACES = {
     {
       id: 703,
       img: 'shadow-wc-v1.svg',
-      name: '7-1. Water Closet',
+      name: {
+        en: '7-1. Water Closet',
+        ua: '7-1. Туалет',
+      },
       placeType: 'wc',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 0,
@@ -684,10 +846,16 @@ export const PLACES = {
     {
       id: 704,
       img: 'shadow-wc-v2.svg',
-      name: '7-2. Water Closet',
+      name: {
+        en: '7-2. Water Closet',
+        ua: '7-2. Туалет',
+      },
       placeType: 'wc',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 3,
@@ -709,16 +877,22 @@ export const PLACES = {
     {
       id: 705,
       img: 'shadow-kitchen.svg',
-      name: '7. Kitchen',
+      name: {
+        en: '7. Kitchen',
+        ua: '7. Кухня',
+      },
       placeType: 'kitchen',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 0,
         y: 2,
         height: 60,
-        width: 75,
+        width: 60,
       },
       bubble: {
         x: 58,
@@ -726,18 +900,24 @@ export const PLACES = {
         width: 240,
         height: 32,
       },
-      imgWidth: 72,
-      imgHeight: 72,
-      x: 1476,
-      y: 120,
+      imgWidth: 60,
+      imgHeight: 60,
+      x: 1630,
+      y: 200,
     },
     {
       id: 706,
       img: 'playstation.svg',
-      name: 'Playstation',
+      name: {
+        en: 'Playstation',
+        ua: 'Playstation',
+      },
       placeType: 'ps',
       PlaceGroup: 'chill',
-      description: 'Here you can relax and play games such as <b>FIFA, Track mania, NFL, Mortal Kombat and more else.</b>',
+      description: {
+        en: 'Here you can relax and play games such as <b>FIFA, Track mania, NFL, Mortal Kombat and more else.</b>',
+        ua: 'Тут ви можете розслабитися та пограти в такі ігри, як: <b>FIFA, Track mania, NFL, Mortal Kombat та багато іншого.</b>',
+      },
       showImg: true,
       rect: {
         x: 20,
@@ -759,10 +939,16 @@ export const PLACES = {
     {
       id: 707,
       img: 'gym.svg',
-      name: 'Sport',
+      name: {
+        en: 'Sport',
+        ua: 'Спорт',
+      },
       placeType: 'gym',
       PlaceGroup: 'chill',
-      description: 'Here you can warm up a bit. <b>Horizontal bars, bars.</b>',
+      description: {
+        en: 'Here you can warm up a bit. <b>Horizontal bars, bars.</b>',
+        ua: 'Тут можна трохи розігритись. <b>Турнік, бруси.</b>',
+      },
       showImg: true,
       rect: {
         x: 20,
@@ -784,10 +970,16 @@ export const PLACES = {
     {
       id: 708,
       img: 'meetroom.svg',
-      name: '7-1. Conf Room',
+      name: {
+        en: '7-1. Conf Room',
+        ua: '7-1. Кімната для переговорів',
+      },
       placeType: 'meetroom',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 4,
@@ -809,10 +1001,16 @@ export const PLACES = {
     {
       id: 709,
       img: 'meetroom.svg',
-      name: '7-2. Meet Room',
+      name: {
+        en: '7-2. Meet Room',
+        ua: '7-2. Кімната для зустрічей',
+      },
       placeType: 'meetroom',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 4,
@@ -834,10 +1032,16 @@ export const PLACES = {
     {
       id: 710,
       img: 'meetroom.svg',
-      name: '7-3. Meet Room',
+      name: {
+        en: '7-3. Meet Room',
+        ua: '7-3. Кімната для зустрічей',
+      },
       placeType: 'meetroom',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 4,
@@ -859,10 +1063,16 @@ export const PLACES = {
     {
       id: 711,
       img: 'meetroom.svg',
-      name: '7-4. Meet Room',
+      name: {
+        en: '7-4. Meet Room',
+        ua: '7-4. Кімната для зустрічей',
+      },
       placeType: 'meetroom',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 4,
@@ -884,10 +1094,16 @@ export const PLACES = {
     {
       id: 712,
       img: 'shadow-smoke.svg',
-      name: '7. Smoking Place',
+      name: {
+        en: '7. Smoking Place',
+        ua: '7. Місце для паління',
+      },
       placeType: 'smoking',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 0,
@@ -909,10 +1125,16 @@ export const PLACES = {
     {
       id: 713,
       img: 'fire-extinguisher.svg',
-      name: '7-2. Extinguisher',
+      name: {
+        en: '7-2. Extinguisher',
+        ua: '7-2. Вогнегасник',
+      },
       placeType: 'extinguisher',
       PlaceGroup: 'emergency',
-      description: '<ul><li>Выдернуть опломбированную чеку.</li><li>Отойти от очага пожара на 3-4 м.</li><li>Привести огнетушитель в действие: с встроенным источником давления – отвести вверх рукоятку запуска газового баллончика, нажать кистью руки на ручку пистолета-распылителя.</li></ul>',
+      description: {
+        en: '<ul><li>Pull out the sealed check.</li><li>Move away from the fire by 3-4 m.</li><li>Operate the fire extinguisher: with the built-in pressure source, pull the start handle of the gas canister up, press the handle of the spray gun with your hand.</li></ul>',
+        ua: '<ul><li>Висмикнути опломбовану чеку.</li><li>Відійти від джерела пожежі на 3-4 м.</li><li>Привести вогнегасник в дію: з вбудованим джерелом тиску - відвести вгору рукоятку запуску газового балончика, натиснути кистю руки на ручку пістолета-розпилювача.</li></ul>',
+      },
       showImg: true,
       rect: {
         x: 2,
@@ -931,15 +1153,52 @@ export const PLACES = {
       x: 1208,
       y: 374,
     },
+    {
+      id: 714,
+      img: 'sofa.svg',
+      name: {
+        en: '7. Chill Room',
+        ua: '7. Кімната відпочинку',
+      },
+      placeType: 'chill',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 0,
+        y: 2,
+        height: 60,
+        width: 75,
+      },
+      bubble: {
+        x: 58,
+        y: 25,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 72,
+      imgHeight: 72,
+      x: 1477,
+      y: 119,
+    },
   ],
   8: [
     {
       id: 801,
       img: 'meetroom.svg',
-      name: '8-1. Conf Room',
+      name: {
+        en: '8-1. Conf Room',
+        ua: '8-1. Кімната для переговорів',
+      },
       placeType: 'meetroom',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 4,
@@ -961,10 +1220,16 @@ export const PLACES = {
     {
       id: 802,
       img: 'meetroom.svg',
-      name: '8-2. Conf Room',
+      name: {
+        en: '8-2. Conf Room',
+        ua: '8-2. Кімната для переговорів',
+      },
       placeType: 'meetroom',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 4,
@@ -986,10 +1251,16 @@ export const PLACES = {
     {
       id: 803,
       img: 'shadow-wc-v1.svg',
-      name: '8-1. Water Closet',
+      name: {
+        en: '8-1. Water Closet',
+        ua: '8-1. Туалет',
+      },
       placeType: 'wc',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 0,
@@ -1011,10 +1282,16 @@ export const PLACES = {
     {
       id: 804,
       img: 'shower.svg',
-      name: 'Shower',
+      name: {
+        en: 'Shower',
+        ua: 'Душ',
+      },
       placeType: 'shower',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: true,
       rect: {
         x: 0,
@@ -1036,10 +1313,16 @@ export const PLACES = {
     {
       id: 805,
       img: 'shadow-wc-v2.svg',
-      name: '8-2. Water Closet',
+      name: {
+        en: '8-2. Water Closet',
+        ua: '8-2. Туалет',
+      },
       placeType: 'wc',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 3,
@@ -1061,10 +1344,16 @@ export const PLACES = {
     {
       id: 806,
       img: 'shadow-kitchen.svg',
-      name: '8-1. Kitchen',
+      name: {
+        en: '8-1. Kitchen',
+        ua: '8-1. Кухня',
+      },
       placeType: 'kitchen',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 0,
@@ -1086,10 +1375,16 @@ export const PLACES = {
     {
       id: 807,
       img: 'shadow-kitchen.svg',
-      name: '8-2. Kitchen',
+      name: {
+        en: '8-2. Kitchen',
+        ua: '8-2. Кухня',
+      },
       placeType: 'kitchen',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 0,
@@ -1111,10 +1406,16 @@ export const PLACES = {
     {
       id: 808,
       img: 'shadow-smoke.svg',
-      name: '8-1. Smoking Place',
+      name: {
+        en: '8-1. Smoking Place',
+        ua: '8-1. Місце для паління',
+      },
       placeType: 'smoking',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 0,
@@ -1136,10 +1437,16 @@ export const PLACES = {
     {
       id: 809,
       img: 'shadow-smoke.svg',
-      name: '8-2. Smoking Place',
+      name: {
+        en: '8-2. Smoking Place',
+        ua: '8-2. Місце для паління',
+      },
       placeType: 'smoking',
       PlaceGroup: 'chill',
-      description: '',
+      description: {
+        en: '',
+        ua: '',
+      },
       showImg: false,
       rect: {
         x: 0,
@@ -1161,10 +1468,16 @@ export const PLACES = {
     {
       id: 810,
       img: 'doctor.svg',
-      name: '8. First aid kit',
+      name: {
+        en: '8. First aid kit',
+        ua: '8. Аптечка першої допомоги',
+      },
       placeType: 'medkit',
       PlaceGroup: 'emergency',
-      description: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
+      description: {
+        en: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
+        ua: 'Якщо вам, або вашому колезі потрібне щось із предметів першої допомоги, ви можете взяти <b> пов’язки, антисептики, знеболюючі та інші лікарські засоби </b>. Будьте здорові.',
+      },
       showImg: true,
       rect: {
         x: 3,
@@ -1186,10 +1499,16 @@ export const PLACES = {
     {
       id: 811,
       img: 'coke.svg',
-      name: 'Drinks',
+      name: {
+        en: 'Drinks',
+        ua: 'Напої',
+      },
       placeType: 'drinks',
       PlaceGroup: 'chill',
-      description: 'Fresh cold drinks',
+      description: {
+        en: 'Fresh cold drinks',
+        ua: 'Свіжі прохолоджуючі напої',
+      },
       showImg: true,
       /* img invisible clicking hover */
       rect: {
@@ -1213,10 +1532,16 @@ export const PLACES = {
     {
       id: 812,
       img: 'fire-extinguisher.svg',
-      name: '8-1. Extinguisher',
+      name: {
+        en: '8-1. Extinguisher',
+        ua: '8-1. Вогнегасник',
+      },
       placeType: 'extinguisher',
       PlaceGroup: 'emergency',
-      description: '<ul><li>Выдернуть опломбированную чеку.</li><li>Отойти от очага пожара на 3-4 м.</li><li>Привести огнетушитель в действие: с встроенным источником давления – отвести вверх рукоятку запуска газового баллончика, нажать кистью руки на ручку пистолета-распылителя.</li></ul>',
+      description: {
+        en: '<ul><li>Pull out the sealed check.</li><li>Move away from the fire by 3-4 m.</li><li>Operate the fire extinguisher: with the built-in pressure source, pull the start handle of the gas canister up, press the handle of the spray gun with your hand.</li></ul>',
+        ua: '<ul><li>Висмикнути опломбовану чеку.</li><li>Відійти від джерела пожежі на 3-4 м.</li><li>Привести вогнегасник в дію: з вбудованим джерелом тиску - відвести вгору рукоятку запуску газового балончика, натиснути кистю руки на ручку пістолета-розпилювача.</li></ul>',
+      },
       showImg: true,
       rect: {
         x: 2,
@@ -1238,10 +1563,16 @@ export const PLACES = {
     {
       id: 813,
       img: 'fire-extinguisher.svg',
-      name: '8-2. Extinguisher',
+      name: {
+        en: '8-2. Extinguisher',
+        ua: '8-2. Вогнегасник',
+      },
       placeType: 'extinguisher',
       PlaceGroup: 'emergency',
-      description: '<ul><li>Выдернуть опломбированную чеку.</li><li>Отойти от очага пожара на 3-4 м.</li><li>Привести огнетушитель в действие: с встроенным источником давления – отвести вверх рукоятку запуска газового баллончика, нажать кистью руки на ручку пистолета-распылителя.</li></ul>',
+      description: {
+        en: '<ul><li>Pull out the sealed check.</li><li>Move away from the fire by 3-4 m.</li><li>Operate the fire extinguisher: with the built-in pressure source, pull the start handle of the gas canister up, press the handle of the spray gun with your hand.</li></ul>',
+        ua: '<ul><li>Висмикнути опломбовану чеку.</li><li>Відійти від джерела пожежі на 3-4 м.</li><li>Привести вогнегасник в дію: з вбудованим джерелом тиску - відвести вгору рукоятку запуску газового балончика, натиснути кистю руки на ручку пістолета-розпилювача.</li></ul>',
+      },
       showImg: true,
       rect: {
         x: 2,
@@ -1259,6 +1590,37 @@ export const PLACES = {
       imgHeight: 44,
       x: 1925,
       y: 254,
+    },
+    {
+      id: 814,
+      img: 'sofa.svg',
+      name: {
+        en: '8. Chill Room',
+        ua: '8. Кімната відпочинку',
+      },
+      placeType: 'chill',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 0,
+        y: 2,
+        height: 60,
+        width: 75,
+      },
+      bubble: {
+        x: 58,
+        y: 25,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 72,
+      imgHeight: 72,
+      x: 550,
+      y: 917,
     },
   ],
 };

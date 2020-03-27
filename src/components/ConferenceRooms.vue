@@ -4,7 +4,7 @@
       v-for="(object, index) in confRooms"
       :key="index"
       @click.self="selectRoom(object)"
-    ) {{object.name}}
+    ) {{getTranslate(object.name)}}
       button.btn-booking(@click="toTheCalendar()") {{$t('confRoomMenu.book')}}
 </template>
 
