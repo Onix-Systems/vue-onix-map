@@ -1,8 +1,8 @@
 <template lang="pug">
   .places-block
     .menu(v-show="!showPlacesList")
-      .sections(v-for="section in placesMenu" :key="section.sectionName")
-        .section-name {{section.sectionName}}
+      .sections(v-for="section in placesMenu" :key="getTranslate(section.sectionName)")
+        .section-name {{getTranslate(section.sectionName)}}
         ul
           li(v-for="(place, i) in section.places" :key="place.id")
             a.place(
@@ -15,7 +15,7 @@
               .icon
                 img(:src="require('../assets/images/header-icons/places/' + place.icon)")
               .place-name {{getTranslate(place.name)}}
-              .place-label.link {{place.label}}
+              .place-label.link {{getTranslate(place.label)}}
 
             .place(
               v-else
@@ -25,11 +25,11 @@
               .icon
                 img(:src="require('../assets/images/header-icons/places/' + place.icon)")
               .place-name {{getTranslate(place.name)}}
-              .place-label {{place.label}}
+              .place-label {{getTranslate(place.label)}}
     .place-list-block(v-if="showPlacesList")
       .place-list-label-block
         img(:src="require('../assets/images/header-icons/places/arrow.svg')" @click.stop="showPlacesList = false")
-        .place-list-label {{currentPlace.name}}
+        .place-list-label {{getTranslate(currentPlace.name)}}
       .place-list-name(v-for="place in placesList" :key="place.id" @click="clickOnPlaceList(place)") {{getTranslate(place.name)}}
 </template>
 
@@ -149,7 +149,7 @@ export default class PlacesMenu extends Mixins(CommonMixin) {
     .place {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       color: #363A42;
       width: 100%;
@@ -178,6 +178,7 @@ export default class PlacesMenu extends Mixins(CommonMixin) {
       justify-content: center;
       padding-top: 8px;
       width: 100%;
+      text-align: center;
     }
 
     .place-label {
@@ -188,6 +189,7 @@ export default class PlacesMenu extends Mixins(CommonMixin) {
       color: #8891A3;
       margin-top: 5px;
       width: 100%;
+      text-align: center;
 
       &.link {
         position: relative;

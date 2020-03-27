@@ -1,5 +1,7 @@
+import {TranslationInterface} from '@/interfaces/translationInterface';
+
 export interface PlacesMenuInterface {
-  sectionName: string;
+  sectionName: TranslationInterface;
   places: {
     ps?: PlaceMenuInterface,
     drinks?: PlaceMenuInterface,
@@ -18,8 +20,8 @@ export interface PlacesMenuInterface {
 
 export interface PlaceMenuInterface {
   id: number;
-  name: string;
-  label: string;
+  name: TranslationInterface;
+  label: TranslationInterface;
   icon: string;
   link?: string;
 }

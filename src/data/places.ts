@@ -629,13 +629,13 @@ export const PLACES = {
       img: 'foosball.svg',
       name: {
         en: 'Foosball',
-        ua: 'Настольний футбол',
+        ua: 'Настільний футбол',
       },
       placeType: 'foosball',
       PlaceGroup: 'chill',
       description: {
         en: 'Here you can play foosball',
-        ua: 'Тут можна пограти в настольний футбол',
+        ua: 'Тут можна пограти в настільний футбол',
       },
       showImg: true,
       rect: {

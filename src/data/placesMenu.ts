@@ -2,95 +2,173 @@ import {PlacesMenuInterface} from '@/interfaces/placesMenuInterface';
 
 export const PLACES_MENU: PlacesMenuInterface[] = [
   {
-    sectionName: 'Chill',
+    sectionName: {
+      en: 'Chill',
+      ua: 'Відпочинок',
+    },
     places: {
       ps: {
         id: 0,
-        name: 'Playstation',
-        label: '7 floor',
+        name: {
+          en: 'Playstation',
+          ua: 'Playstation',
+        },
+        label: {
+          en: '7 floor',
+          ua: '7 поверх',
+        },
         icon: 'playstation.svg',
       },
 
       drinks: {
         id: 1,
-        name: 'Drinks',
-        label: '8 floor',
+        name: {
+          en: 'Drinks',
+          ua: 'Нопої',
+        },
+        label: {
+          en: '8 floor',
+          ua: '8 поверх',
+        },
         icon: 'drinks.svg',
       },
 
       icecream: {
         id: 2,
-        name: 'Ice Cream',
-        label: '1 floor',
+        name: {
+          en: 'Ice Cream',
+          ua: 'Морозиво',
+        },
+        label: {
+          en: '1 floor',
+          ua: '1 поверх',
+        },
         icon: 'ice-cream.svg',
       },
 
       gym: {
         id: 3,
-        name: 'Sport',
-        label: '6,7 floors',
+        name: {
+          en: 'Sport',
+          ua: 'Спорт',
+        },
+        label: {
+          en: '6,7 floors',
+          ua: '6,7 поверхи',
+        },
         icon: 'gym.svg',
       },
 
       foosball: {
         id: 4,
-        name: 'Foosball',
-        label: '6 floor',
+        name: {
+          en: 'Foosball',
+          ua: 'Настільний футбол',
+        },
+        label: {
+          en: '6 floor',
+          ua: '6 поверх',
+        },
         icon: 'foosball.svg',
       },
 
       football: {
         id: 5,
-        name: 'Football',
-        label: 'Contact us',
+        name: {
+          en: 'Football',
+          ua: 'Футбол',
+        },
+        label: {
+          en: 'Contact us',
+          ua: 'Зв\'яжіться з нами',
+        },
         link: 'https://www.facebook.com/maxim.kamenschikov',
         icon: 'football.svg',
       },
 
       chill: {
         id: 6,
-        name: 'Chill Room',
-        label: '6,7,8 floors',
+        name: {
+          en: 'Chill Room',
+          ua: 'Кімнати відпочинку',
+        },
+        label: {
+          en: '6,7,8 floors',
+          ua: '6,7,8 поверхи',
+        },
         icon: 'chill-room.svg',
       },
 
       kitchen: {
         id: 7,
-        name: 'Kitchens',
-        label: 'All floors',
+        name: {
+          en: 'Kitchens',
+          ua: 'Кухні',
+        },
+        label: {
+          en: 'All floors',
+          ua: 'Всі поверхи',
+        },
         icon: 'kitchens.svg',
       },
 
       wc: {
         id: 8,
-        name: 'Toilets',
-        label: 'All floors',
+        name: {
+          en: 'Toilets',
+          ua: 'Туалети',
+        },
+        label: {
+          en: 'All floors',
+          ua: 'Всі поверхи',
+        },
         icon: 'wc.svg',
       },
 
       shower: {
         id: 9,
-        name: 'Shower',
-        label: '8 floor',
+        name: {
+          en: 'Shower',
+          ua: 'Душ',
+        },
+        label: {
+          en: '8 floor',
+          ua: '8 поверх',
+        },
         icon: 'shower.svg',
       },
     },
   },
 
   {
-    sectionName: 'Emergency',
+    sectionName: {
+      en: 'Emergency',
+      ua: 'Надзвичайна ситуація',
+    },
     places: {
       extinguisher: {
         id: 10,
-        name: 'Extinguisher',
-        label: 'All floors',
+        name: {
+          en: 'Extinguisher',
+          ua: 'Вогнегасники',
+        },
+        label: {
+          en: 'All floors',
+          ua: 'Всі поверхи',
+        },
         icon: 'extinguisher.svg',
       },
 
       medkit: {
         id: 11,
-        name: 'First Aid Kit',
-        label: 'All floors',
+        name: {
+          en: 'First Aid Kit',
+          ua: 'Аптечки першої допомоги',
+        },
+        label: {
+          en: 'All floors',
+          ua: 'Всі поверхи',
+        },
         icon: 'aid-kit.svg',
       },
     },

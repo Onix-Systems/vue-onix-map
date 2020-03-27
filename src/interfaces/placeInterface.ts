@@ -1,10 +1,12 @@
+import {TranslationInterface} from '@/interfaces/translationInterface';
+
 export interface PlaceInterface {
   id: number;
   img: string;
-  name: string;
+  name: TranslationInterface;
   placeGroup: string;
   placeType: string;
-  description: string;
+  description: TranslationInterface;
   showImg: boolean;
   rect: {
     x: number,

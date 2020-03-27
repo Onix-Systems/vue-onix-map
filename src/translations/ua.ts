@@ -33,7 +33,7 @@ export default {
   loginWith: 'Вхід через',
   poweredBy: 'Розроблено в',
   conferenceRoom: 'кімната для переговорів | кімнати для переговорів',
-  place: 'місце | місця',
+  place: 'місце | локації',
   vacation: 'у відпусці',
   inOffice: 'в офісі',
   copy: 'копіювати',
