@@ -82,7 +82,7 @@ export const PLACES_MENU: PlacesMenuInterface[] = [
           en: 'Contact us',
           ua: 'Зв\'яжіться з нами',
         },
-        link: 'https://www.facebook.com/maxim.kamenschikov',
+        link: 'https://www.facebook.com',
         icon: 'football.svg',
       },
 
