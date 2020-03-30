@@ -8,7 +8,7 @@
           .place {{user.tableNumber ? `${$tc('place')} ${user.tableNumber}` : $t('remote')}}
           .sorted-info {{ sortedInfo }}
         .full-name(
-          v-html="$options.filters.wrapText(user.firstName + ' ' + user.lastName, query)"
+          v-html="$i18n.locale === localeEnum.En ? $options.filters.wrapText(user.firstName + ' ' + user.lastName, query) : $options.filters.wrapText(user.firstNameRu + ' ' + user.lastNameRu, query)"
         )
         .user-role(v-if="userRoles")
           span(v-for="(role, i) in userRoles") {{role + (userRoles.length - 1 === i ? '' : ', ')}}
@@ -31,6 +31,7 @@ import CommonMixin from '@/components/mixins/CommonMixin';
 import {SearchSortEnum} from '@/enums/SearchSortEnum';
 import moment from 'moment';
 import UserMixin from '@/components/mixins/UserMixin';
+import {LocaleEnum} from '@/enums/LocaleEnum';
 
 @Component({
   name: 'UserSearchCard',
@@ -39,6 +40,7 @@ export default class UserSearchCard extends Mixins(CommonMixin, UserMixin) {
   @Prop({type: String, default: ''}) public query!: string;
   @Prop({type: String, default: SearchSortEnum.Floor}) public sort!: string;
   public isExpand: boolean = false;
+  public localeEnum = LocaleEnum;
 
   get sortedInfo() {
     if (this.sort === SearchSortEnum.NearestBirthday) {

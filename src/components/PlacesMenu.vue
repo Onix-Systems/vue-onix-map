@@ -119,6 +119,10 @@ export default class PlacesMenu extends Mixins(CommonMixin) {
       right: 12px;
     }
 
+    .menu {
+      padding: 0 5px;
+    }
+
     .sections {
       border-bottom: 1px solid #F6F8FC;
 

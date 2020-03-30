@@ -35,7 +35,7 @@ export default class PlacesDetails extends Mixins(CommonMixin) {
     return this.selectedPlace.showImg;
   }
   private haveDescription(): boolean {
-    return this.selectedPlace.description !== '';
+    return this.getTranslate(this.selectedPlace.description) !== '';
   }
   private getImg(name: string): string {
     return require(`../assets/images/places/icons/${name}`);

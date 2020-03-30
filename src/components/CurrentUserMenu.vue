@@ -8,7 +8,7 @@
       )
     .user-dropdown(v-if="showMenu")
       ul(v-if="!showLanguageList" @click.stop="showMenu = false")
-        li(@click.stop="showLanguageList = true") {{$tc('language')}}: {{$tc('languageName')}}
+        li(@click.stop="showLanguageList = true") {{$tc('language')}}: {{$t('languageName')}}
         li(@click="logout") {{$t('logout')}}
       .language-list-block(v-if="showLanguageList")
         .language-list-label-block

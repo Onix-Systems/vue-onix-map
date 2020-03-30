@@ -9,7 +9,7 @@
           .copy-url(@click="copyUrl")
             img(:src="require('@/assets/images/copy-url.svg')" :title="`${$t('copy')} url` | capitalize")
         .data-row.name
-          span {{user.firstName}} {{user.lastName}}
+          span {{$i18n.locale === localeEnum.En ? `${user.firstName} ${user.lastName}` : `${user.firstNameRu} ${user.lastNameRu}`}}
           i.status(:class="{vocation: checkUserOnVacation}")
             .tooltip
               span {{checkUserOnVacation ? $t('vacation') : $t('inOffice')}}
@@ -31,12 +31,14 @@
 import {Component, Prop, Mixins} from 'vue-property-decorator';
 import CommonMixin from '@/components/mixins/CommonMixin';
 import UserMixin from '@/components/mixins/UserMixin';
+import {LocaleEnum} from '@/enums/LocaleEnum';
 
 
 @Component({})
 export default class UserDetails extends Mixins(CommonMixin, UserMixin) {
   @Prop(Boolean) public showDetailsModal!: boolean;
   @Prop(String) public popUpStyles!: boolean;
+  public localeEnum = LocaleEnum;
   public closeDetails() {
     this.$router.push(this.$route.path);
     this.$emit('closed');
