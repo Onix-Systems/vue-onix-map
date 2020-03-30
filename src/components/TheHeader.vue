@@ -6,7 +6,7 @@
       .mobile-menu(@click="$emit('clickOnMobileMenu')" v-click-outside="closeMobileMenu")
         img(src="../assets/images/header-icons/menu.svg" alt="Menu")
       .logo
-        a(href="http://onix-systems.com/" target="blank" @click.stop="clickOnLogo")
+        a(href="http://demo.map.onix-systems.com/" target="blank" @click.stop="clickOnLogo")
       custom-search(@selected="userSelected" @searchIsActive="hideButtons")
     .header-section-2(:class="{'hideSection': hideRightSection}")
       header-button(
