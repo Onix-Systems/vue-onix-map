@@ -3,10 +3,9 @@ import {TableInterface} from '@/interfaces/tableInterface';
 import {UserInterface} from '@/interfaces/userInterface';
 import Vue from 'vue';
 import Vuex from 'vuex';
-import api from '@/api';
 import users from '@/data/users.ts';
 import createPersistedState from 'vuex-persistedstate';
-
+import {LocaleEnum} from '@/enums/LocaleEnum';
 
 Vue.use(Vuex);
 
@@ -16,6 +15,7 @@ export const store = new Vuex.Store({
     currentFloor: 8,
     tablesStatistic: {} as any,
     isSidebarOnLeft: true,
+    locale: LocaleEnum.En,
   },
   mutations: {
     changeFloor(state, floor) {
@@ -41,6 +41,9 @@ export const store = new Vuex.Store({
     },
     changeSidebarPosition(state, isLeft) {
       state.isSidebarOnLeft = isLeft;
+    },
+    setLocale(state, locale) {
+      state.locale = locale;
     },
   },
   actions: {

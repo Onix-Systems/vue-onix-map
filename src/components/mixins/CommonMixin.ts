@@ -1,6 +1,16 @@
 import {Component, Vue} from 'vue-property-decorator';
 
-@Component
+@Component({
+  filters: {
+    capitalize(value: any) {
+      if (!value) {
+        return '';
+      }
+      value = value.toString();
+      return value.charAt(0).toUpperCase() + value.slice(1);
+    },
+  },
+})
 export default class CommonMixin extends Vue {
   public copyToClipboard(value: string) {
     const dummy = document.createElement('textarea');
@@ -29,5 +39,15 @@ export default class CommonMixin extends Vue {
     this.$gtag.event('Click on google calendar link', {
       event_category: 'Search places',
     });
+  }
+
+  public getTranslate(field: any) {
+    if (field.hasOwnProperty(this.$i18n.locale)) {
+      return field[this.$i18n.locale];
+    }
+    if (field.hasOwnProperty(this.$i18n.fallbackLocale)) {
+      return field[this.$i18n.fallbackLocale];
+    }
+    return field;
   }
 }

@@ -1,47 +1,48 @@
 <template lang="pug">
   .places-block
     .menu(v-show="!showPlacesList")
-      .sections(v-for="section in placesMenu" :key="section.sectionName")
-        .section-name {{section.sectionName}}
+      .sections(v-for="section in placesMenu" :key="getTranslate(section.sectionName)")
+        .section-name {{getTranslate(section.sectionName)}}
         ul
           li(v-for="(place, i) in section.places" :key="place.id")
             a.place(
               v-if="place.link"
               :href="place.link"
               target="blank"
-              :title="place.name"
+              :title="getTranslate(place.name)"
               @click.stop="clickOnPlace(place, i)"
             )
               .icon
                 img(:src="require('../assets/images/header-icons/places/' + place.icon)")
-              .place-name {{place.name}}
-              .place-label.link {{place.label}}
+              .place-name {{getTranslate(place.name)}}
+              .place-label.link {{getTranslate(place.label)}}
 
             .place(
               v-else
-              :title="place.name"
+              :title="getTranslate(place.name)"
               @click.stop="clickOnPlace(place, i)"
             )
               .icon
                 img(:src="require('../assets/images/header-icons/places/' + place.icon)")
-              .place-name {{place.name}}
-              .place-label {{place.label}}
+              .place-name {{getTranslate(place.name)}}
+              .place-label {{getTranslate(place.label)}}
     .place-list-block(v-if="showPlacesList")
       .place-list-label-block
         img(:src="require('../assets/images/header-icons/places/arrow.svg')" @click.stop="showPlacesList = false")
-        .place-list-label {{currentPlace.name}}
-      .place-list-name(v-for="place in placesList" :key="place.name" @click="clickOnPlaceList(place)") {{place.name}}
+        .place-list-label {{getTranslate(currentPlace.name)}}
+      .place-list-name(v-for="place in placesList" :key="place.id" @click="clickOnPlaceList(place)") {{getTranslate(place.name)}}
 </template>
 
 <script lang="ts">
-import {Component, Vue} from 'vue-property-decorator';
+import {Component, Mixins} from 'vue-property-decorator';
 import {PLACES} from '@/data/places';
 import {PlaceInterface} from '@/interfaces/placeInterface';
 import {PLACES_MENU} from '@/data/placesMenu';
 import {PlacesMenuInterface, PlaceMenuInterface} from '@/interfaces/placesMenuInterface';
+import CommonMixin from '@/components/mixins/CommonMixin';
 
 @Component({})
-export default class PlacesMenu extends Vue {
+export default class PlacesMenu extends Mixins(CommonMixin) {
   public placesMenu: any = PLACES_MENU;
   public places: any = PLACES;
   public placesList: PlaceInterface[] = [];
@@ -113,8 +114,13 @@ export default class PlacesMenu extends Vue {
     overflow-y: auto;
     max-height: calc(100vh - 57px);
     @include media_mobile {
+      position: absolute;
       top: 54px;
       right: 12px;
+    }
+
+    .menu {
+      padding: 0 5px;
     }
 
     .sections {
@@ -147,7 +153,7 @@ export default class PlacesMenu extends Vue {
     .place {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       color: #363A42;
       width: 100%;
@@ -176,6 +182,7 @@ export default class PlacesMenu extends Vue {
       justify-content: center;
       padding-top: 8px;
       width: 100%;
+      text-align: center;
     }
 
     .place-label {
@@ -186,6 +193,7 @@ export default class PlacesMenu extends Vue {
       color: #8891A3;
       margin-top: 5px;
       width: 100%;
+      text-align: center;
 
       &.link {
         position: relative;

@@ -7,6 +7,7 @@ import store from './store';
 import router from './router';
 import VueScrollTo from 'vue-scrollto';
 import VueGtag from 'vue-gtag';
+import i18n from '@/translations/i18n';
 
 
 Vue.use(VueGtag, {
@@ -32,5 +33,6 @@ Vue.filter('wrapText', (value: string, query: string) => {
 new Vue({
   store,
   router,
+  i18n,
   render: (h) => h(App),
 }).$mount('#app');

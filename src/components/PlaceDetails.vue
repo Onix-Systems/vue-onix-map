@@ -2,12 +2,13 @@
   //- place pop-up
   .place-details(v-if="showDetailsModal" :style="popUpStyles" ref="popupContainer")
     .popup-body(ref="popupBody" :class="[isConfRoom() ? 'conf-room-container' : 'place-container']")
-      img.header-img(v-if="haveImg()" :src="getImg(selectedPlace.img)" alt="")
-      .header-text {{selectedPlace.name}}
-      .get-link(@click="copyUrl")
-      .btn-booking(v-if="isConfRoom()" @click="toTheCalendar()") book
+      .popup-header
+        img.header-img(v-if="haveImg()" :src="getImg(selectedPlace.img)" alt="")
+        .header-text {{getTranslate(selectedPlace.name)}}
+        .get-link(@click="copyUrl")
+      .btn-booking(v-if="isConfRoom()" @click="toTheCalendar()") {{$t('confRoomMenu.book')}}
       .description(v-if="haveDescription()")
-        .info(v-html="selectedPlace.description")
+        .info(v-html="getTranslate(selectedPlace.description)")
       button.close(@click="closeDetails")
     .arrow
 </template>
@@ -34,7 +35,7 @@ export default class PlacesDetails extends Mixins(CommonMixin) {
     return this.selectedPlace.showImg;
   }
   private haveDescription(): boolean {
-    return this.selectedPlace.description !== '';
+    return this.getTranslate(this.selectedPlace.description) !== '';
   }
   private getImg(name: string): string {
     return require(`../assets/images/places/icons/${name}`);
@@ -58,7 +59,13 @@ export default class PlacesDetails extends Mixins(CommonMixin) {
       border: 1px solid #d2d4cf;
       border-radius: 4px;
       display: flex;
+      flex-direction: column;
       position: relative;
+
+      .popup-header {
+        display: flex;
+        padding-right: 25px;
+      }
 
       //close cross x
       .close {
@@ -106,7 +113,7 @@ export default class PlacesDetails extends Mixins(CommonMixin) {
       display: flex;
       align-items: center;
       height: 20px;
-      font-size: 14px ; 
+      font-size: 14px ;
       line-height: 17px;
       font-weight: 600;
       color: #363A42;
@@ -146,7 +153,7 @@ export default class PlacesDetails extends Mixins(CommonMixin) {
       min-height: 35px;
     }
     .conf-room-container {
-      width: 200px;
+      width: 286px;
     }
     .place-container {
       width: 235px;
@@ -156,8 +163,9 @@ export default class PlacesDetails extends Mixins(CommonMixin) {
       align-items: center;
       justify-content: center;
       margin-top: 10px;
-      width: 80px;
+      width: fit-content;
       height: 20px;
+      padding: 0 10px;
       border: none;
       border-radius: 20px;
       color: #232323;

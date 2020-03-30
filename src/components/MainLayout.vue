@@ -216,6 +216,7 @@ export default class MainLayout extends Vue {
     this.selectedPlace = null;
     this.showPlaceModal = false;
     this.showUserModal = false;
+    this.setHiddenIcon(-1);
     if (this.$route.query.userId || this.$route.query.placeId) {
       this.$router.push(this.$route.path);
     }
@@ -435,15 +436,18 @@ export default class MainLayout extends Vue {
           setTimeout(() => {
             popup = (placeDet.$refs.popupContainer as HTMLElement).getClientRects()[0];
             let count = 0;
+            /* margin left can be 72 and 56 - it's floor control panel size */
+            const minMargin = window.innerWidth < 640 ? 56 : 72;
+            const marginRight = window.innerWidth - popup.right;
             const timerId = setInterval(() => {
               if (popup.top < 60) {
                 this.positionY += Math.abs(popup.top - 60) / 25;
               }
-              if (this.isSidebarOnLeft && popup.left < 72) {
-                this.positionX += (Math.abs(popup.left) + 72) / 25;
+              if (this.isSidebarOnLeft && popup.left < minMargin) {
+                this.positionX += Math.abs(minMargin - popup.left + 2) / 25;
               }
-              if (!this.isSidebarOnLeft && popup.left < 0) {
-                this.positionX += Math.abs(popup.left) / 25;
+              if (!this.isSidebarOnLeft && marginRight < minMargin) {
+                this.positionX -= Math.abs(minMargin - marginRight + 2) / 25;
               }
               if (popup.left + popup.width >= window.innerWidth - (window.innerWidth <= 1024 ? 0 : 70)) {
                 this.positionX -=

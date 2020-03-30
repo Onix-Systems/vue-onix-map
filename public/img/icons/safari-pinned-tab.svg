@@ -1,14 +1,13 @@
-<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
-        "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-     width="16.000000pt" height="16.000000pt" viewBox="0 0 16.000000 16.000000"
-     preserveAspectRatio="xMidYMid meet">
-    <metadata>
-        Created by potrace 1.11, written by Peter Selinger 2001-2013
-    </metadata>
-    <g id="Originals" stroke="none" stroke-width="1" fill="#0093ff" fill-rule="evenodd" transform="scale(0.157)">
-        <path class="logo-text"
-              d="M51,76 C64.8071194,76 76,64.3594042 76,50 C76,35.6405958 64.8071194,24 51,24 C37.1928806,24 26,35.6405958 26,50 C26,64.3594042 37.1928806,76 51,76 Z M51,100 C22.8334764,100 0,77.6142389 0,50 C0,22.3857611 22.8334764,0 51,0 C79.1665236,0 102,22.3857611 102,50 C102,77.6142389 79.1665236,100 51,100 Z M176.033025,50 Z"></path>
-    </g>
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<path d="M16 0H0V16H16V0Z" fill="#0093FF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.55214 1.44668L2.18547 4.72628C1.93814 4.87745 1.93814 5.12255 2.18547 5.27368L7.55214 8.55328C7.79947 8.70445 8.2005 8.70445 8.4478 8.55328L13.8145 5.27368C14.0618 5.12255 14.0618 4.87745 13.8145 4.72628L8.4478 1.44668C8.2005 1.29553 7.79947 1.29553 7.55214 1.44668Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.71004 9.66669L7.55214 12.0763C7.79947 12.2315 8.2005 12.2315 8.4478 12.0763L12.2899 9.66669L13.8145 10.6229C14.0618 10.778 14.0618 11.0295 13.8145 11.1846L8.4478 14.5504C8.2005 14.7055 7.79947 14.7055 7.55214 14.5504L2.18547 11.1846C1.93814 11.0295 1.93814 10.778 2.18547 10.6229L3.71004 9.66669Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.71004 6.66669L7.55214 9.07632C7.79947 9.23145 8.2005 9.23145 8.4478 9.07632L12.2899 6.66669L13.8145 7.62285C14.0618 7.77795 14.0618 8.02945 13.8145 8.18459L8.4478 11.5504C8.2005 11.7055 7.79947 11.7055 7.55214 11.5504L2.18547 8.18459C1.93814 8.02945 1.93814 7.77795 2.18547 7.62285L3.71004 6.66669Z" fill="white"/>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs>
 </svg>

@@ -1,7 +1,7 @@
 <template lang="pug">
   .floors-control(:class="{right: !isLeft, 'show-mobile': isShowMobile}")
     .buttons-block
-      .header FLOORS
+      .header {{$tc('floor', 2)}}
       button.floor-btn(v-for="floor in floors"
         @click="selectFloor(floor)"
         :disabled="isDisabled(floor)"
@@ -14,16 +14,17 @@
             :checked="isLeft"
             @change="changeSidebarPosition($event)"
           )
-      .position-label Move to {{isLeft ? 'right' : 'left'}}
+      .position-label {{$t('moveTo') | capitalize}} {{isLeft ? $t('right') : $t('left')}}
 </template>
 
 <script lang="ts">
 import {store} from '@/store';
-import {Component, Prop, Vue} from 'vue-property-decorator';
+import {Component, Prop, Mixins} from 'vue-property-decorator';
+import CommonMixin from '@/components/mixins/CommonMixin';
 
 
 @Component({})
-export default class FloorsControl extends Vue {
+export default class FloorsControl extends Mixins(CommonMixin) {
   @Prop({type: Boolean, default: false}) public isShowMobile!: boolean;
   public floors: number[] = [8, 7, 6, 5, 4, 3, 2, 1];
 
@@ -61,15 +62,16 @@ export default class FloorsControl extends Vue {
 <style lang="scss" scoped>
   @import "../assets/scss/media";
   .floors-control {
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
-    top: 57px;
+    top: 0;
+    padding-top: 57px;
     background-color: #F8FBFF;
     width: 72px;
-    height: calc(100vh - 57px);
+    height: 100vh;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -102,6 +104,7 @@ export default class FloorsControl extends Vue {
       font-size: 12px;
       line-height: 15px;
       padding: 25px 0 17px 0;
+      text-transform: uppercase;
     }
 
     .buttons-block {
@@ -207,7 +210,7 @@ export default class FloorsControl extends Vue {
         width: 100%;
         font-size: 12px;
         line-height: 15px;
-        padding: 8px 16px;
+        padding: 8px 2px;
         text-align: center;
       }
     }

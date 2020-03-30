@@ -7,20 +7,30 @@
         :alt="currentUser.name"
       )
     .user-dropdown(v-if="showMenu")
-      ul(@click.stop="showMenu = false")
-        li logout
+      ul(v-if="!showLanguageList" @click.stop="showMenu = false")
+        li(@click.stop="showLanguageList = true") {{$tc('language')}}: {{$t('languageName')}}
+        li(@click="logout") {{$t('logout')}}
+      .language-list-block(v-if="showLanguageList")
+        .language-list-label-block
+          img(:src="require('../assets/images/header-icons/places/arrow.svg')" @click.stop="showLanguageList = false")
+          .language-list-label {{$tc('language', 2)}}
+        .language-list-name(@click.stop="setLanguage(localeEnum.En)") English
+        .language-list-name(@click.stop="setLanguage(localeEnum.Ua)") Українська
 </template>
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
 import {store} from '@/store';
 import ClickOutside from '@/directives/clickOutside';
+import {LocaleEnum} from '@/enums/LocaleEnum';
 
 @Component({
   directives: {ClickOutside},
 })
 export default class CurrentUserMenu extends Vue {
   public showMenu: boolean = false;
+  public showLanguageList: boolean = false;
+  public localeEnum = LocaleEnum;
 
   // public created() {
   //   store.dispatch('getCurrentUser');
@@ -38,6 +48,13 @@ export default class CurrentUserMenu extends Vue {
     });
     localStorage.removeItem('token');
     this.$router.push('/login');
+  }
+
+  public setLanguage(locale: string) {
+    store.commit('setLocale', locale);
+    this.$i18n.locale = locale;
+    this.showMenu = false;
+    this.showLanguageList = false;
   }
 
   public closeMenu() {
@@ -124,6 +141,41 @@ export default class CurrentUserMenu extends Vue {
           background: #EBEEF2;
         }
       }
+    }
+  }
+
+  .language-list-block {
+    width: 100%;
+  }
+
+  .language-list-label-block {
+    display: flex;
+    padding: 24px 0 24px 15px;
+    img {
+      cursor: pointer;
+    }
+  }
+
+  .language-list-label {
+    font: normal 600 14px Inter, sans-serif;
+    line-height: 17px;
+    padding-left: 15px;
+    text-transform: capitalize;
+  }
+
+  .language-list-name {
+    font: normal normal 12px Inter, sans-serif;
+    line-height: 15px;
+    padding: 16px 0 16px 45px;
+    border-bottom: 1px solid #F6F8FC;
+    cursor: pointer;
+
+    &:hover {
+      background: #EBEEF2;
+    }
+
+    &:last-child {
+      border-bottom: none;
     }
   }
 </style>
