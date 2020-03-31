@@ -1,6 +1,6 @@
 <template lang="pug">
   .current-user(v-click-outside="closeMenu")
-    .user-block(@click.stop="showMenu = !showMenu")
+    .user-block(@click="showMenu = !showMenu")
       .user-name(:class="{'arrow-up': showMenu}") {{currentUser.name}}
       img.avatar(
         :src="currentUser.attachment ? currentUser.attachment.link70 : require('../assets/images/def-img.png')"

@@ -24,7 +24,7 @@ export const PLACES_MENU: PlacesMenuInterface[] = [
         id: 1,
         name: {
           en: 'Drinks',
-          ua: 'Нопої',
+          ua: 'Напої',
         },
         label: {
           en: '8 floor',
