@@ -114,9 +114,10 @@ export default class PlacesMenu extends Mixins(CommonMixin) {
     overflow-y: auto;
     max-height: calc(100vh - 57px);
     @include media_mobile {
-      position: absolute;
+      position: fixed;
       top: 54px;
       right: 12px;
+      max-height: calc(80vh - 57px);
     }
 
     .menu {

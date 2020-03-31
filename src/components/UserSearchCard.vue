@@ -44,11 +44,13 @@ export default class UserSearchCard extends Mixins(CommonMixin, UserMixin) {
 
   get sortedInfo() {
     if (this.sort === SearchSortEnum.NearestBirthday) {
-      return `${this.$t('birthday')}: ` + (this.user.birthDate ? moment(this.user.birthDate).format('DD/MM/YYYY') : this.$t('unknown'));
+      return `${this.$t('birthday')}: ` +
+        (this.user.birthDate ? moment(this.user.birthDate).format('DD/MM/YYYY') : this.$t('unknown'));
     }
 
     if (this.sort === SearchSortEnum.Experience) {
-      return `${this.$t('birthday')}: ` + (this.user.birthDate ? moment(this.user.workStartDate).format('DD/MM/YYYY') : this.$t('unknown'));
+      return `${this.$t('birthday')}: ` +
+        (this.user.birthDate ? moment(this.user.workStartDate).format('DD/MM/YYYY') : this.$t('unknown'));
     }
 
     return (this.user.tableNumber ? `${this.$tc('floor')}: ` + Math.floor(parseInt(this.user.tableNumber, 10) / 100) : '');
