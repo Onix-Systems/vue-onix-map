@@ -1,7 +1,7 @@
 <template lang="pug">
   .floors-control(:class="{right: !isLeft, 'show-mobile': isShowMobile}")
     .buttons-block
-      .header {{$tc('floor', 2)}}
+      .header(:class="{'long-lang': $i18n.locale === localeEnum.Ua}") {{$tc('floor', 2)}}
       button.floor-btn(v-for="floor in floors"
         @click="selectFloor(floor)"
         :disabled="isDisabled(floor)"
@@ -105,6 +105,12 @@ export default class FloorsControl extends Mixins(CommonMixin) {
       line-height: 15px;
       padding: 25px 0 17px 0;
       text-transform: uppercase;
+
+      &.long-lang {
+        @include media_mobile {
+          font-size: 10px;
+        }
+      }
     }
 
     .buttons-block {

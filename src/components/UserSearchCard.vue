@@ -31,7 +31,6 @@ import CommonMixin from '@/components/mixins/CommonMixin';
 import {SearchSortEnum} from '@/enums/SearchSortEnum';
 import moment from 'moment';
 import UserMixin from '@/components/mixins/UserMixin';
-import {LocaleEnum} from '@/enums/LocaleEnum';
 
 @Component({
   name: 'UserSearchCard',
@@ -40,7 +39,6 @@ export default class UserSearchCard extends Mixins(CommonMixin, UserMixin) {
   @Prop({type: String, default: ''}) public query!: string;
   @Prop({type: String, default: SearchSortEnum.Floor}) public sort!: string;
   public isExpand: boolean = false;
-  public localeEnum = LocaleEnum;
 
   get sortedInfo() {
     if (this.sort === SearchSortEnum.NearestBirthday) {

@@ -89,7 +89,7 @@ export const PLACES_MENU: PlacesMenuInterface[] = [
       chill: {
         id: 6,
         name: {
-          en: 'Chill Room',
+          en: 'Chill Rooms',
           ua: 'Кімнати відпочинку',
         },
         label: {
