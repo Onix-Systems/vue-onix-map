@@ -30,7 +30,7 @@ export default class LoginPage extends Vue {
     localStorage.codeVerifier = codeVerifier;
 
     const params = new URLSearchParams();
-    params.append('client_id', 'kVWed0XDnLYkat1MCqp9Z');
+    params.append('client_id', process.env.VUE_APP_CLIENT_ID);
     params.append('redirect_uri', window.location.protocol + '//' + window.location.host + '/callback');
     params.append('response_type', 'code');
     params.append('scope', 'openid offline_access profile hydra_passport_find_users hydra_system_employee');
@@ -39,7 +39,7 @@ export default class LoginPage extends Vue {
     params.append('code_challenge_method', 'S256');
     params.append('prompt', 'consent');
 
-    window.location.href = 'https://passport.hydra.office.onix.ua/v1/oidc-provider/auth?' + params.toString();
+    window.location.href = `${process.env.VUE_APP_PASSPORT_API_URL}/v1/oidc-provider/auth?${params.toString()}`;
   }
 }
 </script>
