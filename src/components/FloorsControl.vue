@@ -48,7 +48,7 @@ export default class FloorsControl extends Mixins(CommonMixin) {
   public changeSidebarPosition(event: any) {
     this.$store.commit('changeSidebarPosition', event.target.checked);
     this.$gtag.event('Change sidebar position', {
-      event_category: 'Navigate',
+      event_category: 'Settings',
       event_label: event.target.checked ? 'to left' : 'to right',
     });
   }
