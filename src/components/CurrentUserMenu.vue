@@ -6,7 +6,7 @@
         :src="currentUser.attachment ? currentUser.attachment.link70 : require('../assets/images/def-img.png')"
         :alt="currentUser.name"
       )
-    .user-dropdown(v-if="showMenu")
+    .user-dropdown(v-if="showMenu" :class="{'can-touch': canTouch}")
       ul(v-if="!showLanguageList" @click.stop="showMenu = false")
         li(@click.stop="showLanguageList = true") {{$tc('language')}}: {{$t('languageName')}}
         li(@click="logout") {{$t('logout')}}
@@ -19,18 +19,17 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue} from 'vue-property-decorator';
+import {Component, Mixins} from 'vue-property-decorator';
 import {store} from '@/store';
 import ClickOutside from '@/directives/clickOutside';
-import {LocaleEnum} from '@/enums/LocaleEnum';
+import CommonMixin from '@/components/mixins/CommonMixin';
 
 @Component({
   directives: {ClickOutside},
 })
-export default class CurrentUserMenu extends Vue {
+export default class CurrentUserMenu extends Mixins(CommonMixin) {
   public showMenu: boolean = false;
   public showLanguageList: boolean = false;
-  public localeEnum = LocaleEnum;
 
   // public created() {
   //   store.dispatch('getCurrentUser');
@@ -40,6 +39,10 @@ export default class CurrentUserMenu extends Vue {
     return {
       name: 'John Doe',
     };
+  }
+
+  get canTouch() {
+    return store.state.isTouchDevice;
   }
 
   public logout() {
@@ -55,10 +58,21 @@ export default class CurrentUserMenu extends Vue {
     this.$i18n.locale = locale;
     this.showMenu = false;
     this.showLanguageList = false;
+    this.$gtag.event('Set language', {
+      event_category: 'Settings',
+      event_label: locale,
+    });
   }
 
   public closeMenu() {
     this.showMenu = false;
+  }
+
+  public clickOnMyProfile() {
+    this.$gtag.event('My profile', {
+      event_category: 'Navigate',
+      event_label: this.currentUser.name,
+    });
   }
 }
 </script>
@@ -134,12 +148,26 @@ export default class CurrentUserMenu extends Vue {
       li {
         cursor: pointer;
         text-transform: capitalize;
-        padding: 8px 16px;
         width: 100%;
+        &:not(.link) {
+          padding: 8px 16px;
+        }
+
+        a {
+          display: flex;
+          color: inherit;
+          text-decoration: none;
+          padding: 8px 16px;
+        }
 
         &:hover {
           background: #EBEEF2;
         }
+      }
+    }
+    &.can-touch {
+      ul li:hover, .language-list-block .language-list-name:hover {
+        background: none;
       }
     }
   }

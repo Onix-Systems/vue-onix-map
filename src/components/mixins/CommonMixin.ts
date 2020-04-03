@@ -1,4 +1,5 @@
 import {Component, Vue} from 'vue-property-decorator';
+import {LocaleEnum} from '@/enums/LocaleEnum';
 
 @Component({
   filters: {
@@ -12,6 +13,9 @@ import {Component, Vue} from 'vue-property-decorator';
   },
 })
 export default class CommonMixin extends Vue {
+  public env = process.env;
+  public localeEnum = LocaleEnum;
+
   public copyToClipboard(value: string) {
     const dummy = document.createElement('textarea');
     document.body.appendChild(dummy);

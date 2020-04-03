@@ -31,7 +31,6 @@ import CommonMixin from '@/components/mixins/CommonMixin';
 import {SearchSortEnum} from '@/enums/SearchSortEnum';
 import moment from 'moment';
 import UserMixin from '@/components/mixins/UserMixin';
-import {LocaleEnum} from '@/enums/LocaleEnum';
 
 @Component({
   name: 'UserSearchCard',
@@ -40,15 +39,16 @@ export default class UserSearchCard extends Mixins(CommonMixin, UserMixin) {
   @Prop({type: String, default: ''}) public query!: string;
   @Prop({type: String, default: SearchSortEnum.Floor}) public sort!: string;
   public isExpand: boolean = false;
-  public localeEnum = LocaleEnum;
 
   get sortedInfo() {
     if (this.sort === SearchSortEnum.NearestBirthday) {
-      return `${this.$t('birthday')}: ` + (this.user.birthDate ? moment(this.user.birthDate).format('DD/MM/YYYY') : this.$t('unknown'));
+      return `${this.$t('birthday')}: ` +
+        (this.user.birthDate ? moment(this.user.birthDate).format('DD/MM/YYYY') : this.$t('unknown'));
     }
 
     if (this.sort === SearchSortEnum.Experience) {
-      return `${this.$t('birthday')}: ` + (this.user.birthDate ? moment(this.user.workStartDate).format('DD/MM/YYYY') : this.$t('unknown'));
+      return `${this.$t('workStart')}: ` +
+        (this.user.workStartDate ? moment(this.user.workStartDate).format('DD/MM/YYYY') : this.$t('unknown'));
     }
 
     return (this.user.tableNumber ? `${this.$tc('floor')}: ` + Math.floor(parseInt(this.user.tableNumber, 10) / 100) : '');

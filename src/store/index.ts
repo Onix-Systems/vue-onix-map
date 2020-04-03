@@ -16,8 +16,12 @@ export const store = new Vuex.Store({
     tablesStatistic: {} as any,
     isSidebarOnLeft: true,
     locale: LocaleEnum.En,
+    isTouchDevice: false,
   },
   mutations: {
+    changeTouchDevice(state, isTouch) {
+      state.isTouchDevice = isTouch;
+    },
     changeFloor(state, floor) {
       state.currentFloor = floor;
     },

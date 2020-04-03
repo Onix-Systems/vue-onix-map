@@ -37,7 +37,7 @@ export default class AuthenticationCallback extends Vue {
 
     const params = new URLSearchParams();
     params.append('grant_type', 'authorization_code');
-    params.append('client_id', 'kVWed0XDnLYkat1MCqp9Z');
+    params.append('client_id', process.env.VUE_APP_CLIENT_ID);
     params.append('redirect_uri', window.location.protocol + '//' + window.location.host + '/callback');
     params.append('code_verifier', localStorage.codeVerifier);
     params.append('code', code);
@@ -47,14 +47,14 @@ export default class AuthenticationCallback extends Vue {
   public refresh() {
     const params = new URLSearchParams();
     params.append('grant_type', 'refresh_token');
-    params.append('client_id', 'kVWed0XDnLYkat1MCqp9Z');
+    params.append('client_id', process.env.VUE_APP_CLIENT_ID);
     params.append('code_verifier', localStorage.codeVerifier);
     params.append('refresh_token', JSON.parse(localStorage.token).refresh_token);
     this.getRequest(params);
   }
 
   public getRequest(params: URLSearchParams) {
-    ax.post('https://passport.hydra.office.onix.ua/v1/oidc-provider/token', params).then((res) => {
+    ax.post(`${process.env.VUE_APP_PASSPORT_API_URL}/v1/oidc-provider/token`, params).then((res) => {
       localStorage.token = JSON.stringify(res.data);
       store.commit('setTokenType', res.data.token_type);
       store.commit('setToken', res.data.access_token);

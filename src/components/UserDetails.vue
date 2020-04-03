@@ -31,14 +31,12 @@
 import {Component, Prop, Mixins} from 'vue-property-decorator';
 import CommonMixin from '@/components/mixins/CommonMixin';
 import UserMixin from '@/components/mixins/UserMixin';
-import {LocaleEnum} from '@/enums/LocaleEnum';
 
 
 @Component({})
 export default class UserDetails extends Mixins(CommonMixin, UserMixin) {
   @Prop(Boolean) public showDetailsModal!: boolean;
   @Prop(String) public popUpStyles!: boolean;
-  public localeEnum = LocaleEnum;
   public closeDetails() {
     this.$router.push(this.$route.path);
     this.$emit('closed');
