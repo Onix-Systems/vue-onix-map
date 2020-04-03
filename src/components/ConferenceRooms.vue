@@ -45,9 +45,6 @@ export default class ConferenceRooms extends Mixins(CommonMixin) {
 <style lang="scss" scoped>
   @import "../assets/scss/media";
   .dropdown-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     top: 43px;
     position: absolute;
     width: 335px;
@@ -55,7 +52,9 @@ export default class ConferenceRooms extends Mixins(CommonMixin) {
     background-color: #fff;
     border-radius: 4px;
     border: 1px solid #E2E6ED;
-    box-shadow: 0px 4px 8px rgba(43, 44, 48, 0.1);
+    box-shadow: 0 4px 8px rgba(43, 44, 48, 0.1);
+    overflow-y: auto;
+    max-height: calc(100vh - 57px);
     @include media_mobile {
       top: 54px;
     }
@@ -67,6 +66,7 @@ export default class ConferenceRooms extends Mixins(CommonMixin) {
       padding: 0 16px;
       width: 100%;
       height: 45px;
+      min-height: 45px;
       opacity: 0.8;
       position: relative;
       &:last-child {
