@@ -6,7 +6,7 @@
         :src="currentUser.attachment ? currentUser.attachment.link70 : require('../assets/images/def-img.png')"
         :alt="currentUser.name"
       )
-    .user-dropdown(v-if="showMenu")
+    .user-dropdown(v-if="showMenu" :class="{'can-touch': canTouch}")
       ul(v-if="!showLanguageList" @click.stop="showMenu = false")
         li(@click.stop="showLanguageList = true") {{$tc('language')}}: {{$t('languageName')}}
         li(@click="logout") {{$t('logout')}}
@@ -39,6 +39,10 @@ export default class CurrentUserMenu extends Mixins(CommonMixin) {
     return {
       name: 'John Doe',
     };
+  }
+
+  get canTouch() {
+    return store.state.isTouchDevice;
   }
 
   public logout() {
@@ -159,6 +163,11 @@ export default class CurrentUserMenu extends Mixins(CommonMixin) {
         &:hover {
           background: #EBEEF2;
         }
+      }
+    }
+    &.can-touch {
+      ul li:hover, .language-list-block .language-list-name:hover {
+        background: none;
       }
     }
   }
