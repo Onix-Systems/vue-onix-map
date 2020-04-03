@@ -36,6 +36,10 @@ body {
   overflow: hidden;
 }
 
+body, html, #app {
+  height: 100%;
+}
+
 ol, ul {
   list-style: none;
 }

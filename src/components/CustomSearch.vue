@@ -332,6 +332,7 @@ export default class CustomSearch extends Mixins(UserMixin) {
       position: fixed;
       right: 0;
       top: 57px;
+      height: calc(100% - 57px);
 
       &.left {
         right: 72px;
@@ -344,7 +345,7 @@ export default class CustomSearch extends Mixins(UserMixin) {
         background-color: #ffffff;
         width: calc(100vw - 72px);
         padding: 24px 0 0 24px;
-        height: calc(100vh - 57px);
+        height: 100%;
         display: flex;
         flex-direction: column;
         @include media_mobile {
@@ -362,9 +363,11 @@ export default class CustomSearch extends Mixins(UserMixin) {
         flex-wrap: wrap;
         width: 100%;
         margin-bottom: 20px;
+        min-height: 35px;
         @include media_mobile {
           flex-direction: column;
           align-items: flex-start;
+          min-height: 93px;
         }
         @media only screen and (max-width: 539px) {
           padding-left: 16px;

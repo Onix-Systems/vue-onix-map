@@ -520,8 +520,8 @@ export default class MainLayout extends Vue {
 
 <style lang="scss" scoped>
   .page-container {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: #E5F0FF;
 
     .map-container {
