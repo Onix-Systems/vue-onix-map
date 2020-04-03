@@ -47,8 +47,8 @@ export default class UserSearchCard extends Mixins(CommonMixin, UserMixin) {
     }
 
     if (this.sort === SearchSortEnum.Experience) {
-      return `${this.$t('birthday')}: ` +
-        (this.user.birthDate ? moment(this.user.workStartDate).format('DD/MM/YYYY') : this.$t('unknown'));
+      return `${this.$t('work start')}: ` +
+        (this.user.workStartDate ? moment(this.user.workStartDate).format('DD/MM/YYYY') : this.$t('unknown'));
     }
 
     return (this.user.tableNumber ? `${this.$tc('floor')}: ` + Math.floor(parseInt(this.user.tableNumber, 10) / 100) : '');
