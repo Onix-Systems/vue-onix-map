@@ -16,17 +16,17 @@
               v-scroll-to="{ el: '#peoples', container: '#scroll-container' }"
               @click="scrollToBlock('People')"
             ) {{$t('people')}}
-              span  {{ filteredUsers.length }}
+              sup  {{ filteredUsers.length }}
             button(
               v-scroll-to="{ el: '#skills', container: '#scroll-container' }"
               @click="scrollToBlock('Skills')"
             ) {{$tc('skill', 2)}}
-              span  {{ filteredSkills.length }}
+              sup  {{ filteredSkills.length }}
             button(
               v-scroll-to="{ el: '#technologies', container: '#scroll-container' }"
               @click="scrollToBlock('Technologies')"
             ) {{$tc('technology', 2)}}
-              span  {{ filteredTechnologies.length }}
+              sup  {{ filteredTechnologies.length }}
             button.close(@click="showDropdown = false, $emit('searchIsActive', false)")
           .sort-block(v-click-outside="closeSort")
             .sort-label {{$t('search.sort.label')}}
@@ -403,14 +403,11 @@ export default class CustomSearch extends Mixins(UserMixin) {
           line-height: 15px;
           color: #0072FF;
           text-transform: capitalize;
-          &:after{
-            content: '';
-          }
           @media only screen and (max-width: 340px) {
             margin: 0 5px;
           }
 
-          span {
+          sup {
             color: #99C7FF;
           }
         }
