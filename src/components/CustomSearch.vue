@@ -16,17 +16,17 @@
               v-scroll-to="{ el: '#peoples', container: '#scroll-container' }"
               @click="scrollToBlock('People')"
             ) {{$t('people')}}
-              sup  {{ filteredUsers.length }}
+              .count  {{ filteredUsers.length }}
             button(
               v-scroll-to="{ el: '#skills', container: '#scroll-container' }"
               @click="scrollToBlock('Skills')"
             ) {{$tc('skill', 2)}}
-              sup  {{ filteredSkills.length }}
+              .count  {{ filteredSkills.length }}
             button(
               v-scroll-to="{ el: '#technologies', container: '#scroll-container' }"
               @click="scrollToBlock('Technologies')"
             ) {{$tc('technology', 2)}}
-              sup  {{ filteredTechnologies.length }}
+              .count  {{ filteredTechnologies.length }}
             button.close(@click="showDropdown = false, $emit('searchIsActive', false)")
           .sort-block(v-click-outside="closeSort")
             .sort-label {{$t('search.sort.label')}}
@@ -407,8 +407,9 @@ export default class CustomSearch extends Mixins(UserMixin) {
             margin: 0 5px;
           }
 
-          sup {
+          .count {
             color: #99C7FF;
+            display: inline;
           }
         }
       }
