@@ -1338,8 +1338,8 @@ export const PLACES = {
       },
       imgWidth: 42,
       imgHeight: 42,
-      x: 926,
-      y: 748,
+      x: 905,
+      y: 742,
     },
     {
       id: 806,
