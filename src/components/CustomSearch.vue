@@ -403,6 +403,9 @@ export default class CustomSearch extends Mixins(UserMixin) {
           line-height: 15px;
           color: #0072FF;
           text-transform: capitalize;
+          &:after{
+            content: '';
+          }
           @media only screen and (max-width: 340px) {
             margin: 0 5px;
           }
