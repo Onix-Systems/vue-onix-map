@@ -72,9 +72,6 @@ export default class UserSearchCard extends Mixins(CommonMixin, UserMixin) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    @include media_tablet {
-      cursor: pointer;
-    }
     @media only screen and (max-width: 539px) {
       width: 100%;
       height: auto;
@@ -88,6 +85,9 @@ export default class UserSearchCard extends Mixins(CommonMixin, UserMixin) {
       align-items: center;
       padding-top: 34px;
       width: 100%;
+      @include media_tablet {
+        cursor: pointer;
+      }
       @media only screen and (max-width: 539px) {
         flex-direction: row;
         padding: 16px;
