@@ -37,7 +37,7 @@
         g(v-for="place in floorPlaces"
           @mousemove="setHoveredPlace(place)"
           @mouseout="clearHoveredPlace"
-          :table-id="place.id"
+          :place-id="place.id"
           :x="place.x"
           :y="place.y"
           :style="'transform: translate(' + place.x + 'px,' + place.y + 'px)'")

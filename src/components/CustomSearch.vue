@@ -409,6 +409,7 @@ export default class CustomSearch extends Mixins(UserMixin) {
 
           span {
             color: #99C7FF;
+            font-weight: 500;
           }
         }
       }
