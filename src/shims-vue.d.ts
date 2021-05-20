@@ -11,5 +11,6 @@ declare module 'vue/types/vue' {
     $router: VueRouter;
     $route: Route;
     $gtag: VueGtag;
+    $gapi: any;
   }
 }

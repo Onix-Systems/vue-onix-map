@@ -1,3 +1,6 @@
+import {TechnologyInterface} from '@/interfaces/technologyInterface';
+import {SkillInterface} from '@/interfaces/skillInterface';
+
 export interface UserInterface {
   id: number;
   username: string;
@@ -10,9 +13,18 @@ export interface UserInterface {
   additionalPhone: string;
   gmailId: string;
   skypeId: string;
+  facebookId: string;
+  githubId: string;
+  upworkId: string;
+  bitbucketId: string;
+  slackId: string;
+  sshPublicKey: string;
+  sshPublicKeyModified: string;
+  level: string;
   gender: string;
   groups: any;
   isVacation: boolean;
+  attachmentId: number;
   attachment: {
     id: number;
     name: string;
@@ -23,19 +35,23 @@ export interface UserInterface {
     link70: string;
   };
   workStartDate: string;
+  workEndDate: string;
   birthDate: string;
   isActive: boolean;
   workPlace: string;
+  profile: string;
+  personalQualities: string;
+  education: string;
+  experience: string;
+  languages: any;
+  leadId: number;
+  managerId: number;
+  supervisorId: number;
+  primarySalesManagerId: number;
+  use2f: boolean;
+  createdAt: string;
+  updatedAt: string;
   tableNumber: string;
-  skills: Array<{
-    idNumber: number,
-    id: string,
-    name: string,
-    description: string,
-  }>;
-  technologies: Array<{
-    id: string,
-    name: string,
-    numberId: number,
-  }>;
+  filteredSkillName?: string;
+  filteredSkillLvl?: string;
 }

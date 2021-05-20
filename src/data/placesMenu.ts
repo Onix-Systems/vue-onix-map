@@ -1,4 +1,4 @@
-import {PlacesMenuInterface} from '@/interfaces/placesMenuInterface';
+import { PlacesMenuInterface } from '@/interfaces/placesMenuInterface';
 
 export const PLACES_MENU: PlacesMenuInterface[] = [
   {
@@ -82,7 +82,7 @@ export const PLACES_MENU: PlacesMenuInterface[] = [
           en: 'Contact us',
           ua: 'Зв\'яжіться з нами',
         },
-        link: 'https://www.facebook.com',
+        link: 'https://www.facebook.com/maxim.kamenschikov',
         icon: 'football.svg',
       },
 

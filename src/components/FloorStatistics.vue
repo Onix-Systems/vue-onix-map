@@ -9,21 +9,21 @@
 
 <script lang="ts">
   import {Component, Vue} from 'vue-property-decorator';
-  import {store} from '@/store';
+  import {vxm} from '@/store';
 
 
   @Component({})
   export default class UserDetails extends Vue {
     get currentFloor(): number {
-      return store.state.currentFloor;
+      return vxm.general.currentFloor;
     }
 
     get currentFloorStatistic() {
-      return store.state.tablesStatistic[this.currentFloor];
+      return vxm.general.tablesStatistic[this.currentFloor];
     }
 
     get isSidebarOnLeft(): boolean {
-      return store.state.isSidebarOnLeft;
+      return vxm.general.isSidebarOnLeft;
     }
   }
 </script>

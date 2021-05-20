@@ -1,15 +1,25 @@
 <template lang="pug">
-  //- user pop-up
-  .user-details(v-if="showDetailsModal" :style="popUpStyles" ref="popupContainer")
+  // user popUp
+  .user-details(v-if="showDetailsModal && user" :style="popUpStyles" ref="popupContainer")
     .popup-body(ref="popupBody")
       .user-img
-        img(:src="user.attachment ? user.attachment.link70 : require('../assets/images/def-img.png')")
+        a(
+        :href="`${env.VUE_APP_PASSPORT_API_URL}/employees/${user.id}`"
+        target="blank"
+        @click="checkUserLinkStatistics"
+        )
+          img(:src="user.attachment ? user.attachment.link70 : require('../assets/images/def-img.png')")
       .user-info
         .data-row.place {{user.tableNumber ? `${$tc('place')} ${user.tableNumber}` : $t('remote')}}
           .copy-url(@click="copyUrl")
             img(:src="require('@/assets/images/copy-url.svg')" :title="`${$t('copy')} url` | capitalize")
         .data-row.name
-          span {{$i18n.locale === localeEnum.En ? `${user.firstName} ${user.lastName}` : `${user.firstNameRu} ${user.lastNameRu}`}}
+          a(
+          :href="`${env.VUE_APP_PASSPORT_API_URL}/employees/${user.id}`"
+          target="blank"
+          @click="checkUserLinkStatistics"
+          )
+            span {{$i18n.locale === localeEnum.En ? `${user.firstName} ${user.lastName}` : `${user.firstNameRu} ${user.lastNameRu}`}}
           i.status(:class="{vocation: checkUserOnVacation}")
             .tooltip
               span {{checkUserOnVacation ? $t('vacation') : $t('inOffice')}}
@@ -25,18 +35,29 @@
           span(v-for="(tech, i) in userTechnologies") {{tech.name + (userTechnologies.length - 1 === i ? '' : ', ')}}
       button.close(@click="closeDetails")
     .arrow(v-if="user.tableNumber")
+  // table popUp
+  .user-details(v-else-if="showDetailsModal && !user && table" :style="popUpStyles" ref="popupContainer")
+    .popup-body(ref="popupBody")
+      .user-info
+        .data-row.place {{`${$tc('place')} ${table.id}`}}
+          .copy-url(@click="copyUrl")
+            img(:src="require('@/assets/images/copy-url.svg')" :title="`${$t('copy')} url` | capitalize")
+          button.close(@click="closeDetails")
+    .arrow
 </template>
 
 <script lang="ts">
 import {Component, Prop, Mixins} from 'vue-property-decorator';
 import CommonMixin from '@/components/mixins/CommonMixin';
 import UserMixin from '@/components/mixins/UserMixin';
-
+import {TableInterface} from '@/interfaces/tableInterface';
 
 @Component({})
 export default class UserDetails extends Mixins(CommonMixin, UserMixin) {
   @Prop(Boolean) public showDetailsModal!: boolean;
   @Prop(String) public popUpStyles!: boolean;
+  @Prop(Object) public table!: TableInterface;
+
   public closeDetails() {
     this.$router.push(this.$route.path);
     this.$emit('closed');
@@ -122,11 +143,16 @@ export default class UserDetails extends Mixins(CommonMixin, UserMixin) {
             display: flex;
             align-items: center;
 
-            span {
-              overflow: hidden;
-              text-overflow: ellipsis;
-              white-space: nowrap;
-              padding-right: 10px;
+            a {
+              color: inherit;
+              text-decoration: none;
+
+              span {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                padding-right: 10px;
+              }
             }
 
             .status {

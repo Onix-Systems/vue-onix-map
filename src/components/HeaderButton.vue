@@ -1,32 +1,37 @@
 <template lang="pug">
   .wrapper(:class="[{'button-active': isActive}]" v-click-outside="closeDropdown")
     div(
-      @click="isActive = !isActive"
+      @click="clicked(type)"
       :class="[isTitleEmpty ? 'button-non-text-container' : 'button-text-container']" )
         img(:src="icon" alt='')
         .text(v-if="!isTitleEmpty") {{title}}
     slot(v-if="isActive")
-      .dropdown-default
+      //.dropdown-default
         .item Coming soon
+    slot(v-if="isActive" name="list")
 </template>
 
 <script lang="ts">
-import {Component, Vue, Prop} from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import ClickOutside from '@/directives/clickOutside';
 
 @Component({
-  directives: {ClickOutside},
+  directives: { ClickOutside },
 })
 export default class HeaderButton extends Vue {
-  @Prop({default: ''}) private title !: string;
-  @Prop({default: ''}) private icon !: string;
+  @Prop({ default: '' }) private title!: string;
+  @Prop({default: ''}) private type!: string;
+  @Prop({ default: '' }) private icon!: string;
 
   private isActive: boolean = false;
 
-  private updated() {
+  private created() {
     // because slot don't emit event
-    this.$on('close-dropdown', () => {
+    this.$on('close-dropdown', (e: Event) => {
       this.isActive = false;
+      if(e) {
+        this.$parent.$emit('place-selected', e);
+      }
     });
   }
 
@@ -37,22 +42,30 @@ export default class HeaderButton extends Vue {
   private closeDropdown() {
     this.isActive = false;
   }
+
+  private clicked(placeType: string) {
+    this.isActive = !this.isActive;
+    if (placeType !== '') {
+      this.$emit('btnClicked', {status: this.isActive, type: placeType});
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/media";
+@import '../assets/scss/media';
 .wrapper {
   position: relative;
   @include media_mobile {
     position: initial;
   }
 }
-.button-text-container, .button-non-text-container {
+.button-text-container,
+.button-non-text-container {
   display: flex;
   height: 36px;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   user-select: none;
   white-space: nowrap;
 }
@@ -92,8 +105,9 @@ export default class HeaderButton extends Vue {
       height: 4px;
       right: 25px;
       transition: transform 0.5s;
-      content: "";
-      background: url("../assets/images/header-icons/header_down-arrow.svg") center center no-repeat;
+      content: '';
+      background: url('../assets/images/header-icons/header_down-arrow.svg')
+        center center no-repeat;
     }
   }
 }
@@ -141,7 +155,7 @@ export default class HeaderButton extends Vue {
   padding: 16px;
   background-color: #fff;
   border-radius: 4px;
-  border: 1px solid #E2E6ED;
+  border: 1px solid #e2e6ed;
   box-shadow: 0 4px 8px rgba(43, 44, 48, 0.1);
   @include media_mobile {
     top: 54px;

@@ -4,7 +4,7 @@ export const SERVICES: ServiceInterface[] = [
   {
     id: 0,
     name: 'Hydra',
-    link: 'https://knowledge.onix.kr.ua/knowledge-base/poleznye-ssylki-v-kompanii-onix/',
+    link: 'https://hydra.office.onix.ua',
     icon: 'projects.svg',
   },
   {

@@ -44,7 +44,7 @@ export default class LoginPage extends Vue {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
   .login-block {
     display: flex;
     flex-direction: column;

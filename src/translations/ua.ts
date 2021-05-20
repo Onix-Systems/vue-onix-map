@@ -1,6 +1,8 @@
 export default {
   languageName: 'українська',
   logout: 'вихід',
+  logoutGoogleAccount: 'вихід з google аккаунта',
+  signInWithGoogle: 'Увійти через Google',
   confRoomMenu: {
     book: 'зарезервувати',
   },
@@ -32,7 +34,8 @@ export default {
   welcomeTo: 'Ласкаво просимо до',
   loginWith: 'Вхід через',
   poweredBy: 'Розроблено в',
-  conferenceRoom: 'кімната для переговорів | кімнати для переговорів',
+  conferenceRoom: 'переговорка | переговорки',
+  standingTables: 'столики',
   place: 'місце | локації',
   vacation: 'у відпусці',
   inOffice: 'в офісі',
@@ -40,4 +43,9 @@ export default {
   unknown: 'невідомо',
   birthday: 'день народження',
   workStart: 'початок роботи',
+  myProfile: 'мій профіль',
+  till: 'до',
+  timeList: 'список доступності',
+  permissionGapiError: 'Ви не маєте дозволу на доступ до цього календаря.',
+  generalGapiError: 'Внутрішня помилка сервера. Спробуйте пізніше або зв\'яжіться з нами',
 };

@@ -7,43 +7,47 @@ export default new Router(
   {
     mode: 'history',
 
-    // routes: [
-    //   {
-    //     path: '',
-    //     name: 'mainPage',
-    //     component: () => import('@/components/MainLayout.vue'),
-        // beforeEnter: (to, from, next) => {
-        //   if (!localStorage.token) {
-        //     next('/login');
-        //   } else {
-        //     next();
-        //   }
-        // },
+    routes: [
+      {
+        path: '',
+        name: 'mainPage',
+        component: () => import('@/components/MainLayout.vue'),
+        beforeEnter: (to, from, next) => {
+          if (process.env.VUE_APP_DEMO_MODE) {
+            next();
+            return;
+          }
+          if (!localStorage.token) {
+            next('/login');
+          } else {
+            next();
+          }
+        },
       },
 
-      // {
-      //   path: '/login',
-      //   name: 'login',
-      //   component: () => import('@/components/LoginPage.vue'),
-      //   beforeEnter: (to, from, next) => {
-      //     if (localStorage.token) {
-      //       next('/');
-      //     } else {
-      //       next();
-      //     }
-      //   },
-      // },
-      //
-      // {
-      //   path: '/callback',
-      //   name: 'callback',
-      //   component: () => import('@/components/AuthenticationCallback.vue'),
-      // },
+      {
+        path: '/login',
+        name: 'login',
+        component: () => import('@/components/LoginPage.vue'),
+        beforeEnter: (to, from, next) => {
+          if (localStorage.token) {
+            next('/');
+          } else {
+            next();
+          }
+        },
+      },
 
-    //   {
-    //     path: '*',
-    //     redirect: {name: 'mainPage'},
-    //   },
-    // ],
-  // },
+      {
+        path: '/callback',
+        name: 'callback',
+        component: () => import('@/components/AuthenticationCallback.vue'),
+      },
+
+      {
+        path: '*',
+        redirect: {name: 'mainPage'},
+      },
+    ],
+  },
 );

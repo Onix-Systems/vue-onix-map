@@ -6,6 +6,7 @@ export interface PlaceInterface {
   name: TranslationInterface;
   placeGroup: string;
   placeType: string;
+  calendarId?: string;
   description: TranslationInterface;
   showImg: boolean;
   rect: {
