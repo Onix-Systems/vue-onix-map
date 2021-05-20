@@ -46,66 +46,92 @@
                   :class="{active: currentSort === searchSort.NearestBirthday}"
                 ) {{$t(`search.sort.type.${searchSort.NearestBirthday}`)}}
         .search-result#scroll-container
-          section(v-if="filteredUsers.length")
-            .title#peoples {{$t('people')}}
-            template(v-if="currentSort === searchSort.Floor")
-              .floor-block(v-for="floor in floors" :key="floor")
-                template(v-if="getUsersByFloor(filteredUsers, floor).length")
-                  .floor-label {{floor !== 0 ? floor : ''}}
-                    span {{floor !== 0 ? ` ${$tc('floor')}` : $t('remote')}}
-                  .users-list
-                    .user-block(
-                      v-for="user in getUsersByFloor(filteredUsers, floor)"
-                    )
-                      user-search-card(:user="user" :query="query" :sort="currentSort" @selectUser="selectUser(user)")
-            template(v-if="currentSort !== searchSort.Floor")
+          the-loader(v-if="isSearching")
+          template(v-if="!isSearching")
+            section(v-if="filteredUsers.length")
+              .title#peoples {{$t('people')}}
+              template(v-if="currentSort === searchSort.Floor")
+                .floor-block(v-for="floor in floors" :key="floor")
+                  template(v-if="getUsersByFloor(filteredUsers, floor).length")
+                    .floor-label {{floor !== 0 ? floor : ''}}
+                      span {{floor !== 0 ? ` ${$tc('floor')}` : $t('remote')}}
+                    .users-list
+                      .user-block(
+                        v-for="user in getUsersByFloor(filteredUsers, floor)"
+                      )
+                        user-search-card(
+                          :user="user"
+                          :query="query"
+                          :sort="currentSort"
+                          section="users"
+                          @selectUser="selectUser(user)"
+                        )
+              template(v-if="currentSort !== searchSort.Floor")
+                .users-list
+                  .user-block(
+                    v-for="user in filteredUsers"
+                  )
+                    user-search-card(:user="user" :query="query" :sort="currentSort" @selectUser="selectUser(user)")
+            section(v-if="filteredSkills.length")
+              .title#skills {{$tc('skill', 2)}}
+                template(v-if="listOfSkills.length")  (
+                  span(
+                    v-for="(skill, i) in listOfSkills"
+                    v-html="$options.filters.wrapText(skill + (i === listOfSkills.length - 1 ? '' : ', '), query)"
+                  )
+                  | )
               .users-list
-                .user-block(
-                  v-for="user in filteredUsers"
+                template(v-for="user in filteredSkills")
+                  user-search-card(
+                  :user="user"
+                  :query="query"
+                  :sort="currentSort"
+                  :skillList="listOfSkills"
+                  section="skills"
+                  @selectUser="selectUser(user)"
                 )
-                  user-search-card(:user="user" :query="query" :sort="currentSort" @selectUser="selectUser(user)")
-          section(v-if="filteredSkills.length")
-            .title#skills {{$tc('skill', 2)}}
-              template(v-if="listOfSkills.length")  (
-                span(
-                  v-for="(skill, i) in listOfSkills"
-                  v-html="$options.filters.wrapText(skill + (i === listOfSkills.length - 1 ? '' : ', '), query)"
-                )
-                | )
-            .users-list
-              template(v-for="user in filteredSkills")
-                user-search-card(:user="user" :query="query" :sort="currentSort" @selectUser="selectUser(user)")
-          section(v-if="filteredTechnologies.length")
-            .title#technologies {{$tc('technology', 2)}}
-              template(v-if="listOfTechnologies.length")  (
-                span(
-                  v-for="(tech, i) in listOfTechnologies"
-                  v-html="$options.filters.wrapText(tech + (i === listOfTechnologies.length - 1 ? '' : ', '), query)"
-                )
-                | )
-            .users-list
-              template(v-for="user in filteredTechnologies")
-                user-search-card(:user="user" :query="query" :sort="currentSort" @selectUser="selectUser(user)")
-          .no-matches(v-if="!filteredUsers.length && !filteredSkills.length && !filteredTechnologies.length") {{$t('search.noMatches')}}
+            section(v-if="filteredTechnologies.length")
+              .title#technologies {{$tc('technology', 2)}}
+                template(v-if="listOfTechnologies.length")  (
+                  span(
+                    v-for="(tech, i) in listOfTechnologies"
+                    v-html="$options.filters.wrapText(tech + (i === listOfTechnologies.length - 1 ? '' : ', '), query)"
+                  )
+                  | )
+              .users-list
+                template(v-for="user in filteredTechnologies")
+                  user-search-card(
+                    :user="user"
+                    :query="query"
+                    :sort="currentSort"
+                    section="technologies"
+                    @selectUser="selectUser(user)"
+                  )
+            .no-matches(v-if="!filteredUsers.length && !filteredSkills.length && !filteredTechnologies.length") {{$t('search.noMatches')}}
 
 </template>
 
 <script lang="ts">
 import ClickOutside from '@/directives/clickOutside';
 import {UserInterface} from '@/interfaces/userInterface';
-import {store} from '@/store';
-import {Component, Mixins} from 'vue-property-decorator';
+import {vxm} from '@/store';
+import {Component, Mixins, Watch} from 'vue-property-decorator';
 import UserSearchCard from '@/components/UserSearchCard.vue';
+import TheLoader from '@/components/TheLoader.vue';
 import {SearchSortEnum} from '@/enums/SearchSortEnum';
 import moment, {Moment} from 'moment';
+import CommonMixin from '@/components/mixins/CommonMixin';
 import UserMixin from '@/components/mixins/UserMixin';
+import {UserExperienceEnum} from '@/enums/UserExperienceEnum';
+import {SkillInterface} from '@/interfaces/skillInterface';
+import {EmployeeSkillInterface} from '@/interfaces/employeeSkillInterface';
 
 
 @Component({
-  components: {UserSearchCard},
+  components: {UserSearchCard, TheLoader},
   directives: {ClickOutside},
 })
-export default class CustomSearch extends Mixins(UserMixin) {
+export default class CustomSearch extends Mixins(CommonMixin, UserMixin) {
   public query: string = '';
   public showDropdown: boolean = false;
   public showSort: boolean = false;
@@ -114,68 +140,127 @@ export default class CustomSearch extends Mixins(UserMixin) {
   public currentSort: string = SearchSortEnum.Floor;
   public searchSort = SearchSortEnum;
   public floors: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 0];
+  public filteredUsers: UserInterface[] = [];
+  public filteredSkills: UserInterface[] = [];
+  public filteredTechnologies: UserInterface[] = [];
+  public isSearching: boolean = true;
+  public debouncedUpdateSearchResult = this.debounce(this.updateSearchResult, 700, false);
+  public userExpEnum = UserExperienceEnum;
+  public skillsCategory: string[] = [];
+
+  public mounted() {
+    this.skillsCategory = [
+      this.userExpEnum.WANT_TO_LEARN,
+      this.userExpEnum.SOME_KNOWLEDGE,
+      this.userExpEnum.GOOD_KNOWLEDGE,
+      this.userExpEnum.EXPERIENCED,
+      this.userExpEnum.EXPERT,
+    ];
+
+    if (this.$route.query.s && this.$route.query.s !== this.query) {
+      this.query = this.$route.query.s as string;
+      this.showDropdown = true;
+    }
+    if (this.$route.query.sort && this.$route.query.sort !== this.currentSort) {
+      this.currentSort = this.$route.query.sort as string;
+      this.showDropdown = true;
+    }
+    this.updateSearchResult();
+  }
+
+  @Watch('query')
+  public onQueryUpdate() {
+    this.isSearching = true;
+    this.debouncedUpdateSearchResult();
+  }
+
+  public updateSearchResult() {
+    if (
+      this.showDropdown &&
+      (this.$route.query.s !== this.query || this.$route.query.sort !== this.currentSort)
+    ) {
+      this.$router.push({query: {s: this.query, sort: this.currentSort}});
+    }
+
+    Promise.all([
+      this.getFilteredUsers(),
+      this.getFilteredSkills(),
+      this.getFilteredTechnologies(),
+    ]).then((data) => {
+      this.filteredUsers = data[0];
+      this.filteredSkills = data[1];
+      this.filteredTechnologies = data[2];
+      this.isSearching = false;
+    });
+  }
 
   get placeholder() {
     return window.innerWidth > 400 ? this.$t('search.placeholder.full') : this.$t('search.placeholder.small');
   }
 
-  get filteredUsers(): UserInterface[] {
-    let users = this.sortedUsers;
+  public getFilteredUsers(): Promise<UserInterface[]> {
+    return new Promise<UserInterface[]>((resolve) => {
+      let users = this.sortedUsers;
 
-    if (this.query.length >= 2) {
-      const q = this.query.toLowerCase();
-      users = users.filter((x) => x.firstName.toLowerCase().indexOf(q) >= 0 ||
-        x.lastName.toLowerCase().indexOf(q) >= 0 || x.firstNameRu.toLowerCase().indexOf(q) >= 0 ||
-        x.lastNameRu.toLowerCase().indexOf(q) >= 0);
-    }
-
-    return users;
+      if (this.query.length >= 2) {
+        const q = this.query.toLowerCase();
+        users = users.filter((x) => x.firstName.toLowerCase().indexOf(q) >= 0 ||
+          x.lastName.toLowerCase().indexOf(q) >= 0 || x.firstNameRu.toLowerCase().indexOf(q) >= 0 ||
+          x.lastNameRu.toLowerCase().indexOf(q) >= 0);
+      }
+      resolve(users);
+    });
   }
 
-  get filteredSkills(): UserInterface[] {
-    if (this.query.length >= 2) {
-      const q = this.query.toLowerCase();
-      this.listOfSkills = [];
-      return this.sortedUsers.filter((x) => x.skills.find((y) => {
-        const index = y.name.toLowerCase().indexOf(q) >= 0;
-        if (index && this.listOfSkills.indexOf(y.name) === -1) {
-          this.listOfSkills.push(y.name);
-        }
-        return index;
-      }));
-    } else {
-      return [];
-    }
+  public getFilteredSkills(): Promise<UserInterface[]> {
+    return new Promise<UserInterface[]>((resolve) => {
+      if (this.query.length >= 2) {
+        const q = this.query.toLowerCase();
+        this.listOfSkills = [];
+        resolve(this.simpleSkillSort(this.findUsersWithSkill(this.addFilteredSkill(q))) );
+      } else {
+        resolve([]);
+      }
+    });
   }
 
-  get filteredTechnologies(): UserInterface[] {
-    if (this.query.length >= 2) {
-      const q = this.query.toLowerCase();
-      this.listOfTechnologies = [];
-      return this.sortedUsers.filter((x) => x.technologies.find((y) => {
-        const index = y.name.toLowerCase().indexOf(q) >= 0;
-        if (index && this.listOfTechnologies.indexOf(y.name) === -1) {
-          this.listOfTechnologies.push(y.name);
-        }
-        return index;
-      }));
-    } else {
-      return [];
-    }
+  public getFilteredTechnologies(): Promise<UserInterface[]> {
+    return new Promise<UserInterface[]>((resolve) => {
+      if (this.query.length >= 2) {
+        const q = this.query.toLowerCase();
+        this.listOfTechnologies = [];
+        resolve(
+          this.sortedUsers.filter((user) => this.getUserTechnologies(user).find((technology) => {
+            const index = technology.name.toLowerCase().indexOf(q) >= 0;
+            if (index && this.listOfTechnologies.indexOf(technology.name) === -1) {
+              this.listOfTechnologies.push(technology.name);
+            }
+            return index;
+          })),
+        );
+      } else {
+        resolve([]);
+      }
+    });
   }
 
   get usersByExperience(): UserInterface[] {
-    return store.state.users.slice().sort((user1, user2) => {
-      return moment(user1.workStartDate).valueOf() - moment(user2.workStartDate).valueOf();
+
+    return vxm.general.users.slice().sort((user1: any, user2: any) => {
+        return moment(user1.workStartDate).valueOf() - moment(user2.workStartDate).valueOf();
       },
     );
   }
 
   get usersByBirthday(): UserInterface[] {
-    return store.state.users.slice().sort((user1, user2) => {
+    return vxm.general.users.slice().sort((user1: any, user2: any) => {
       const birthday1 = this.getNextBirthday(user1.birthDate);
       const birthday2 = this.getNextBirthday(user2.birthDate);
-      return birthday1.valueOf() - birthday2.valueOf();
+      /*if have NaN values try to convert them into something readable*/
+      if (!birthday1.valueOf() || !birthday2.valueOf()) {
+        return !birthday1.valueOf() && !birthday2.valueOf() ? 0 : !birthday1.valueOf() ? 1 : -1;
+      }
+      return birthday1.valueOf() > birthday2.valueOf() ? 1 : birthday1.valueOf() === birthday2.valueOf() ? 0 : -1;
     });
   }
 
@@ -188,11 +273,11 @@ export default class CustomSearch extends Mixins(UserMixin) {
       return this.usersByBirthday;
     }
 
-    return store.state.users;
+    return vxm.general.users;
   }
 
   get isSidebarOnLeft(): boolean {
-    return store.state.isSidebarOnLeft;
+    return vxm.general.isSidebarOnLeft;
   }
 
   public getUsersByFloor(users: UserInterface[], floor: number): UserInterface[] {
@@ -244,6 +329,8 @@ export default class CustomSearch extends Mixins(UserMixin) {
 
   public changeSort(sort: string) {
     this.currentSort = sort;
+    this.isSearching = true;
+    this.updateSearchResult();
     this.$gtag.event('Change search sort', {
       event_category: 'Search users',
       event_label: sort,
@@ -262,6 +349,59 @@ export default class CustomSearch extends Mixins(UserMixin) {
     this.$gtag.event('Scroll to block on search result list', {
       event_category: 'Search users',
       event_label: blockName,
+    });
+  }
+  /**
+   * Take query input and data from this.sortedUsers add new data to the users.
+   * Also fill this.listOfSkills with all similar skills
+   * @param query string used to filter result
+   * @param exaltSearch if true return a skill exactly to query, otherwise return all similar to it
+   * @return modified user, add skill and it's lvl
+   */
+  public addFilteredSkill(query: string, exaltSearch = false): UserInterface[] {
+    return this.sortedUsers.map( (user: UserInterface) => {
+      /*reset data*/
+      user.filteredSkillName = undefined;
+      user.filteredSkillLvl = undefined;
+
+      this.getUserSkills(user).find((skill) => {
+
+        const index = skill.name.toLowerCase().indexOf(query) >= 0;
+        if (index) {
+          /*to get user skill name we have skill.id to search*/
+          const userSkill = this.findUserSkill(user, skill.id);
+          if (userSkill) {
+            user.filteredSkillName = skill.name; // add new data
+            user.filteredSkillLvl = userSkill.usageLevel; // add new data
+          }
+        }
+        if (index && this.listOfSkills.indexOf(skill.name) === -1) {
+          this.listOfSkills.push(skill.name);
+        }
+        return index;
+      });
+      return user;
+    });
+  }
+
+  public findUsersWithSkill(users: UserInterface[]): UserInterface[] {
+    return users.filter( (user: UserInterface) => user.filteredSkillLvl );
+  }
+
+  public findUserSkill(user: UserInterface, id: string): EmployeeSkillInterface | undefined {
+    return this.getEmployeeSkills(user).find( (idToCompare: EmployeeSkillInterface) => {
+      return idToCompare.skill === id;
+    });
+  }
+
+  private simpleSkillSort(users: UserInterface[]): UserInterface[] {
+    users.sort( (user1, user2) => {
+        const result = this.getUserSkillPoint(user2.filteredSkillLvl) - this.getUserSkillPoint(user1.filteredSkillLvl);
+        return result > 0 ? 1 : result < 0 ? -1 : 0;
+      },
+    );
+    return users.sort( (user1, user2) => {
+      return (user1.filteredSkillName || '').localeCompare(user2.filteredSkillName || '');
     });
   }
 }

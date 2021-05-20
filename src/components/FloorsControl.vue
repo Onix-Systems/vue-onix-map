@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import {store} from '@/store';
+import {vxm} from '@/store';
 import {Component, Prop, Mixins} from 'vue-property-decorator';
 import CommonMixin from '@/components/mixins/CommonMixin';
 
@@ -29,7 +29,7 @@ export default class FloorsControl extends Mixins(CommonMixin) {
   public floors: number[] = [8, 7, 6, 5, 4, 3, 2, 1];
 
   public selectFloor(floor: number) {
-    store.commit('changeFloor', floor);
+    vxm.general.changeFloor(floor);
     this.$emit('changed');
     this.$gtag.event('Select floor', {
       event_category: 'Navigate',
@@ -38,15 +38,15 @@ export default class FloorsControl extends Mixins(CommonMixin) {
   }
 
   get currentFloor(): number {
-    return store.state.currentFloor;
+    return vxm.general.currentFloor;;
   }
 
   get isLeft(): boolean {
-    return store.state.isSidebarOnLeft;
+    return vxm.general.isSidebarOnLeft;
   }
 
   public changeSidebarPosition(event: any) {
-    this.$store.commit('changeSidebarPosition', event.target.checked);
+    vxm.general.changeSidebarPosition(event.target.checked);
     this.$gtag.event('Change sidebar position', {
       event_category: 'Settings',
       event_label: event.target.checked ? 'to left' : 'to right',
@@ -54,7 +54,7 @@ export default class FloorsControl extends Mixins(CommonMixin) {
   }
 
   public isDisabled(floor: number): boolean {
-    return floor === 2 || floor === 3 || floor === 5;
+    return floor === 2 || floor === 3;
   }
 }
 </script>

@@ -134,8 +134,10 @@ export const PLACES = {
       placeType: 'medkit',
       PlaceGroup: 'emergency',
       description: {
-        en: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
-        ua: 'Якщо вам, або вашому колезі потрібне щось із предметів першої допомоги, ви можете взяти <b> пов’язки, антисептики, знеболюючі та інші лікарські засоби </b>. Будьте здорові.',
+        en:
+          'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
+        ua:
+          'Якщо вам, або вашому колезі потрібне щось із предметів першої допомоги, ви можете взяти <b> пов’язки, антисептики, знеболюючі та інші лікарські засоби </b>. Будьте здорові.',
       },
       showImg: true,
       rect: {
@@ -165,8 +167,10 @@ export const PLACES = {
       placeType: 'medkit',
       PlaceGroup: 'emergency',
       description: {
-        en: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
-        ua: 'Якщо вам, або вашому колезі потрібне щось із предметів першої допомоги, ви можете взяти <b> пов’язки, антисептики, знеболюючі та інші лікарські засоби </b>. Будьте здорові.',
+        en:
+          'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
+        ua:
+          'Якщо вам, або вашому колезі потрібне щось із предметів першої допомоги, ви можете взяти <b> пов’язки, антисептики, знеболюючі та інші лікарські засоби </b>. Будьте здорові.',
       },
       showImg: true,
       rect: {
@@ -207,7 +211,7 @@ export const PLACES = {
         width: 35,
       },
       bubble: {
-        x: 78,
+        x: 58,
         y: 55,
         width: 240,
         height: 32,
@@ -227,6 +231,8 @@ export const PLACES = {
         ua: '4. Кімната для переговорів',
       },
       placeType: 'meetroom',
+      calendarId:
+        'onix-systems.com_3936383132333837373035@resource.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -240,7 +246,7 @@ export const PLACES = {
         width: 35,
       },
       bubble: {
-        x: 20,
+        x: 30,
         y: 40,
         width: 240,
         height: 32,
@@ -353,8 +359,10 @@ export const PLACES = {
       placeType: 'medkit',
       PlaceGroup: 'emergency',
       description: {
-        en: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
-        ua: 'Якщо вам, або вашому колезі потрібне щось із предметів першої допомоги, ви можете взяти <b> пов’язки, антисептики, знеболюючі та інші лікарські засоби </b>. Будьте здорові.',
+        en:
+          'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
+        ua:
+          'Якщо вам, або вашому колезі потрібне щось із предметів першої допомоги, ви можете взяти <b> пов’язки, антисептики, знеболюючі та інші лікарські засоби </b>. Будьте здорові.',
       },
       showImg: true,
       rect: {
@@ -375,15 +383,110 @@ export const PLACES = {
       y: 351,
     },
   ],
-  6: [
+  5: [
     {
-      id: 601,
+      id: 501,
+      img: 'shadow-wc-v2.svg',
+      name: {
+        en: '5-1. Water Closet',
+        ua: '5-1. Туалет',
+      },
+      placeType: 'wc',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 3,
+        y: 2,
+        height: 40,
+        width: 35,
+      },
+      bubble: {
+        x: 50,
+        y: 20,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 42,
+      imgHeight: 42,
+      x: 1462,
+      y: 288,
+    },
+    {
+      id: 502,
+      img: 'shadow-wc-v2.svg',
+      name: {
+        en: '5-2. Water Closet',
+        ua: '5-2. Туалет',
+      },
+      placeType: 'wc',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 3,
+        y: 2,
+        height: 40,
+        width: 35,
+      },
+      bubble: {
+        x: 50,
+        y: 20,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 42,
+      imgHeight: 42,
+      x: 1514,
+      y: 317,
+    },
+    {
+      id: 503,
+      img: 'shadow-kitchen.svg',
+      name: {
+        en: '5. Kitchen',
+        ua: '5. Кухня',
+      },
+      placeType: 'kitchen',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 0,
+        y: 2,
+        height: 60,
+        width: 60,
+      },
+      bubble: {
+        x: 58,
+        y: 25,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 60,
+      imgHeight: 60,
+      x: 1653,
+      y: 196,
+    },
+    {
+      id: 504,
       img: 'meetroom.svg',
       name: {
-        en: '6. Conf Room',
-        ua: '6. Кімната для переговорів',
+        en: '5-1. Conf Room',
+        ua: '5-1. Кімната для переговорів',
       },
       placeType: 'meetroom',
+      calendarId:
+        'c_1881mih7huk02hf6h5ev5lkkuagi44ggdtn6iu1dedsn6t35dlpisorfdk@resource.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -397,19 +500,382 @@ export const PLACES = {
         width: 35,
       },
       bubble: {
-        x: 20,
+        x: 30,
         y: 40,
         width: 240,
         height: 32,
       },
       imgWidth: 44,
       imgHeight: 44,
-      x: 1220,
-      y: 600,
+      x: 1291,
+      y: 484,
     },
     {
-      id: 602,
-      img: 'shadow-wc-v1.svg',
+      id: 505,
+      img: 'meetroom.svg',
+      name: {
+        en: '5-2. Meet Room',
+        ua: '5-2. Кімната для зустрічей',
+      },
+      placeType: 'meetroom',
+      calendarId:
+        'c_1884lu210pl2ihsfni9tves89lhio4ggdtn6iu1dedsn6t35dlpisorfdk@resource.calendar.google.com',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 4,
+        y: 0,
+        height: 40,
+        width: 35,
+      },
+      bubble: {
+        x: 30,
+        y: 40,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 44,
+      imgHeight: 44,
+      x: 1337,
+      y: 335,
+    },
+    {
+      id: 506,
+      img: 'meetroom.svg',
+      name: {
+        en: '5-3. Meet Room',
+        ua: '5-3. Кімната для зустрічей',
+      },
+      placeType: 'meetroom',
+      calendarId:
+        'c_1881tjt3vdi78htvmdab5f1j86a644ggdtn6iu1dedsn6t35dlpisorfdk@resource.calendar.google.com',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 4,
+        y: 0,
+        height: 40,
+        width: 35,
+      },
+      bubble: {
+        x: 30,
+        y: 40,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 44,
+      imgHeight: 44,
+      x: 1387,
+      y: 365,
+    },
+    {
+      id: 507,
+      img: 'shadow-smoke.svg',
+      name: {
+        en: '5. Smoking Place',
+        ua: '5. Місце для паління',
+      },
+      placeType: 'smoking',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 0,
+        y: 2,
+        height: 60,
+        width: 75,
+      },
+      bubble: {
+        x: 58,
+        y: 25,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 72,
+      imgHeight: 72,
+      x: 1640,
+      y: 82,
+    },
+    {
+      id: 508,
+      img: 'fire-extinguisher.svg',
+      name: {
+        en: '5-1. Extinguisher',
+        ua: '5-1. Вогнегасник',
+      },
+      placeType: 'extinguisher',
+      PlaceGroup: 'emergency',
+      description: {
+        en:
+          '<ul><li>Pull out the sealed check.</li><li>Move away from the fire by 3-4 m.</li><li>Operate the fire extinguisher: with the built-in pressure source, pull the start handle of the gas canister up, press the handle of the spray gun with your hand.</li></ul>',
+        ua:
+          '<ul><li>Висмикнути опломбовану чеку.</li><li>Відійти від джерела пожежі на 3-4 м.</li><li>Привести вогнегасник в дію: з вбудованим джерелом тиску - відвести вгору рукоятку запуску газового балончика, натиснути кистю руки на ручку пістолета-розпилювача.</li></ul>',
+      },
+      showImg: true,
+      rect: {
+        x: 2,
+        y: 0,
+        height: 40,
+        width: 35,
+      },
+      bubble: {
+        x: 45,
+        y: 40,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 44,
+      imgHeight: 44,
+      x: 1205,
+      y: 370,
+    },
+    {
+      id: 509,
+      img: 'fire-extinguisher.svg',
+      name: {
+        en: '5-2. Extinguisher',
+        ua: '5-2. Вогнегасник',
+      },
+      placeType: 'extinguisher',
+      PlaceGroup: 'emergency',
+      description: {
+        en:
+          '<ul><li>Pull out the sealed check.</li><li>Move away from the fire by 3-4 m.</li><li>Operate the fire extinguisher: with the built-in pressure source, pull the start handle of the gas canister up, press the handle of the spray gun with your hand.</li></ul>',
+        ua:
+          '<ul><li>Висмикнути опломбовану чеку.</li><li>Відійти від джерела пожежі на 3-4 м.</li><li>Привести вогнегасник в дію: з вбудованим джерелом тиску - відвести вгору рукоятку запуску газового балончика, натиснути кистю руки на ручку пістолета-розпилювача.</li></ul>',
+      },
+      showImg: true,
+      rect: {
+        x: 2,
+        y: 0,
+        height: 40,
+        width: 35,
+      },
+      bubble: {
+        x: 45,
+        y: 40,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 44,
+      imgHeight: 44,
+      x: 1735,
+      y: 185,
+    },
+    {
+      id: 510,
+      img: 'stand-table-1.png',
+      name: {
+        en: '501. Standing table',
+        ua: '501. Столик для роботи навстоячки',
+      },
+      placeType: 'standingTable',
+      calendarId:
+        'c_1880bmem7v1soiu7i67du0ut7mkq04ggdtn6iu1dedsn6t35dlpisorfdk@resource.calendar.google.com',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 10,
+        y: 15,
+        height: 30,
+        width: 60,
+      },
+      bubble: {
+        x: 50,
+        y: 41,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 74,
+      imgHeight: 72,
+      x: 1440,
+      y: 63,
+    },
+    {
+      id: 511,
+      img: 'stand-table-1.png',
+      name: {
+        en: '502. Standing table',
+        ua: '502. Столик для роботи навстоячки',
+      },
+      placeType: 'standingTable',
+      calendarId:
+        'c_1889dml0skpq4hgmilpf8sp53gbmi4ggdtn6iu1dedsn6t35dlpisorfdk@resource.calendar.google.com',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 10,
+        y: 20,
+        height: 30,
+        width: 60,
+      },
+      bubble: {
+        x: 50,
+        y: 41,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 74,
+      imgHeight: 72,
+      x: 1385,
+      y: 91,
+    },
+    {
+      id: 512,
+      img: 'stand-table-2.png',
+      name: {
+        en: '503. Standing table',
+        ua: '503. Столик для роботи навстоячки',
+      },
+      placeType: 'standingTable',
+      calendarId:
+        'c_188fndr4qp1fkgllgbprib4msu1em4ggdtn6iu1dedsn6t35dlpisorfdk@resource.calendar.google.com',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 5,
+        y: 15,
+        height: 40,
+        width: 55,
+      },
+      bubble: {
+        x: 50,
+        y: 41,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 74,
+      imgHeight: 72,
+      x: 1497,
+      y: 103,
+    },
+    {
+      id: 513,
+      img: 'stand-table-2.png',
+      name: {
+        en: '504. Standing table',
+        ua: '504. Столик для роботи навстоячки',
+      },
+      placeType: 'standingTable',
+      calendarId:
+        'c_188ap9q5qsjv6gv0lh3jhcvhs2aia4ggdtn6iu1dedsn6t35dlpisorfdk@resource.calendar.google.com',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 5,
+        y: 15,
+        height: 40,
+        width: 55,
+      },
+      bubble: {
+        x: 50,
+        y: 41,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 74,
+      imgHeight: 72,
+      x: 1545,
+      y: 127,
+    },
+    {
+      id: 515,
+      img: 'stand-table-1.png',
+      name: {
+        en: '505. Standing table',
+        ua: '505. Столик для роботи навстоячки',
+      },
+      placeType: 'standingTable',
+      calendarId:
+        'c_188f4l7edkekuitvkce46v2j08lgc@resource.calendar.google.com',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 10,
+        y: 15,
+        height: 30,
+        width: 60,
+      },
+      bubble: {
+        x: 50,
+        y: 41,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 74,
+      imgHeight: 72,
+      x: 957,
+      y: 285,
+    },
+    {
+      id: 514,
+      img: 'stand-table-1.png',
+      name: {
+        en: '506. Standing table',
+        ua: '506. Столик для роботи навстоячки',
+      },
+      placeType: 'standingTable',
+      calendarId:
+        'c_188d1takssudqieqjhajkbomtvkns@resource.calendar.google.com',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 10,
+        y: 20,
+        height: 30,
+        width: 60,
+      },
+      bubble: {
+        x: 50,
+        y: 41,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 74,
+      imgHeight: 72,
+      x: 909,
+      y: 308,
+    },
+  ],
+  6: [
+    {
+      id: 601,
+      img: 'shadow-wc-v2.svg',
       name: {
         en: '6-1. Water Closet',
         ua: '6-1. Туалет',
@@ -422,24 +888,24 @@ export const PLACES = {
       },
       showImg: false,
       rect: {
-        x: 0,
-        y: 12,
+        x: 3,
+        y: 2,
         height: 40,
-        width: 80,
+        width: 35,
       },
       bubble: {
-        x: 58,
-        y: 35,
+        x: 50,
+        y: 20,
         width: 240,
         height: 32,
       },
-      imgWidth: 72,
-      imgHeight: 72,
-      x: 1440,
-      y: 310,
+      imgWidth: 42,
+      imgHeight: 42,
+      x: 1462,
+      y: 290,
     },
     {
-      id: 603,
+      id: 602,
       img: 'shadow-wc-v2.svg',
       name: {
         en: '6-2. Water Closet',
@@ -466,11 +932,11 @@ export const PLACES = {
       },
       imgWidth: 42,
       imgHeight: 42,
-      x: 1331,
-      y: 378,
+      x: 1514,
+      y: 317,
     },
     {
-      id: 604,
+      id: 603,
       img: 'shadow-kitchen.svg',
       name: {
         en: '6-1. Kitchen',
@@ -486,8 +952,8 @@ export const PLACES = {
       rect: {
         x: 0,
         y: 2,
-        height: 52,
-        width: 52,
+        height: 60,
+        width: 60,
       },
       bubble: {
         x: 58,
@@ -495,13 +961,242 @@ export const PLACES = {
         width: 240,
         height: 32,
       },
-      imgWidth: 52,
-      imgHeight: 52,
-      x: 1600,
-      y: 237,
+      imgWidth: 60,
+      imgHeight: 60,
+      x: 1653,
+      y: 196,
+    },
+    {
+      id: 604,
+      img: 'meetroom.svg',
+      name: {
+        en: '6-1. Conf Room',
+        ua: '6-1. Кімната для переговорів',
+      },
+      placeType: 'meetroom',
+      calendarId:
+        'onix-systems.com_2d35343832313133303632@resource.calendar.google.com',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 4,
+        y: 0,
+        height: 40,
+        width: 35,
+      },
+      bubble: {
+        x: 30,
+        y: 40,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 44,
+      imgHeight: 44,
+      x: 1220,
+      y: 600,
     },
     {
       id: 605,
+      img: 'shadow-smoke.svg',
+      name: {
+        en: '6. Smoking Place',
+        ua: '6. Місце для паління',
+      },
+      placeType: 'smoking',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 0,
+        y: 2,
+        height: 60,
+        width: 75,
+      },
+      bubble: {
+        x: 58,
+        y: 25,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 72,
+      imgHeight: 72,
+      x: 1640,
+      y: 82,
+    },
+    {
+      id: 606,
+      img: 'fire-extinguisher.svg',
+      name: {
+        en: '6-1. Extinguisher',
+        ua: '6-1. Вогнегасник',
+      },
+      placeType: 'extinguisher',
+      PlaceGroup: 'emergency',
+      description: {
+        en:
+          '<ul><li>Pull out the sealed check.</li><li>Move away from the fire by 3-4 m.</li><li>Operate the fire extinguisher: with the built-in pressure source, pull the start handle of the gas canister up, press the handle of the spray gun with your hand.</li></ul>',
+        ua:
+          '<ul><li>Висмикнути опломбовану чеку.</li><li>Відійти від джерела пожежі на 3-4 м.</li><li>Привести вогнегасник в дію: з вбудованим джерелом тиску - відвести вгору рукоятку запуску газового балончика, натиснути кистю руки на ручку пістолета-розпилювача.</li></ul>',
+      },
+      showImg: true,
+      rect: {
+        x: 2,
+        y: 0,
+        height: 40,
+        width: 35,
+      },
+      bubble: {
+        x: 45,
+        y: 40,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 44,
+      imgHeight: 44,
+      x: 1205,
+      y: 370,
+    },
+    {
+      id: 607,
+      img: 'fire-extinguisher.svg',
+      name: {
+        en: '6-2. Extinguisher',
+        ua: '6-2. Вогнегасник',
+      },
+      placeType: 'extinguisher',
+      PlaceGroup: 'emergency',
+      description: {
+        en:
+          '<ul><li>Pull out the sealed check.</li><li>Move away from the fire by 3-4 m.</li><li>Operate the fire extinguisher: with the built-in pressure source, pull the start handle of the gas canister up, press the handle of the spray gun with your hand.</li></ul>',
+        ua:
+          '<ul><li>Висмикнути опломбовану чеку.</li><li>Відійти від джерела пожежі на 3-4 м.</li><li>Привести вогнегасник в дію: з вбудованим джерелом тиску - відвести вгору рукоятку запуску газового балончика, натиснути кистю руки на ручку пістолета-розпилювача.</li></ul>',
+      },
+      showImg: true,
+      rect: {
+        x: 2,
+        y: 0,
+        height: 40,
+        width: 35,
+      },
+      bubble: {
+        x: 45,
+        y: 40,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 44,
+      imgHeight: 44,
+      x: 1735,
+      y: 185,
+    },
+    {
+      id: 608,
+      img: 'meetroom.svg',
+      name: {
+        en: '6-2. Conf Room',
+        ua: '6-2. Кімната для переговорів',
+      },
+      placeType: 'meetroom',
+      calendarId:
+        'c_188d4a73o1q7middn0461d2bihmp8@resource.calendar.google.com',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 4,
+        y: 0,
+        height: 40,
+        width: 35,
+      },
+      bubble: {
+        x: 30,
+        y: 40,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 44,
+      imgHeight: 44,
+      x: 1291,
+      y: 484,
+    },
+    {
+      id: 609,
+      img: 'meetroom.svg',
+      name: {
+        en: '6-3. Meet Room',
+        ua: '6-3. Кімната для зустрічей',
+      },
+      placeType: 'meetroom',
+      calendarId:
+        'c_1889e54nc05g8hg5m4q3peegm1eu8@resource.calendar.google.com',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 4,
+        y: 0,
+        height: 40,
+        width: 35,
+      },
+      bubble: {
+        x: 30,
+        y: 40,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 44,
+      imgHeight: 44,
+      x: 1337,
+      y: 335,
+    },
+    {
+      id: 610,
+      img: 'meetroom.svg',
+      name: {
+        en: '6-4. Meet Room',
+        ua: '6-4. Кімната для зустрічей',
+      },
+      placeType: 'meetroom',
+      calendarId:
+        'c_1886jua253m1sgn0mq55bc71ovrua@resource.calendar.google.com',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 4,
+        y: 0,
+        height: 40,
+        width: 35,
+      },
+      bubble: {
+        x: 30,
+        y: 40,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 44,
+      imgHeight: 44,
+      x: 1387,
+      y: 365,
+    },
+    {
+      id: 611,
       img: 'shadow-kitchen.svg',
       name: {
         en: '6-2. Kitchen',
@@ -532,7 +1227,7 @@ export const PLACES = {
       y: 800,
     },
     {
-      id: 606,
+      id: 612,
       img: 'shadow-wc-v1.svg',
       name: {
         en: '6-3. Water Closet',
@@ -563,42 +1258,11 @@ export const PLACES = {
       y: 692,
     },
     {
-      id: 607,
-      img: 'shadow-smoke.svg',
-      name: {
-        en: '6-1. Smoking Place',
-        ua: '6-1. Місце для паління',
-      },
-      placeType: 'smoking',
-      PlaceGroup: 'chill',
-      description: {
-        en: '',
-        ua: '',
-      },
-      showImg: false,
-      rect: {
-        x: 0,
-        y: 2,
-        height: 60,
-        width: 75,
-      },
-      bubble: {
-        x: 58,
-        y: 25,
-        width: 240,
-        height: 32,
-      },
-      imgWidth: 72,
-      imgHeight: 72,
-      x: 1620,
-      y: 76,
-    },
-    {
-      id: 609,
+      id: 613,
       img: 'gym.svg',
       name: {
         en: '6. Sport',
-        ua: 'Спорт',
+        ua: '6. Спорт',
       },
       placeType: 'gym',
       PlaceGroup: 'chill',
@@ -625,7 +1289,7 @@ export const PLACES = {
       y: 745,
     },
     {
-      id: 610,
+      id: 614,
       img: 'foosball.svg',
       name: {
         en: 'Foosball',
@@ -656,38 +1320,7 @@ export const PLACES = {
       y: 704,
     },
     {
-      id: 611,
-      img: 'doctor.svg',
-      name: {
-        en: '6-1. First aid kit',
-        ua: '6-1. Аптечка першої допомоги',
-      },
-      placeType: 'medkit',
-      PlaceGroup: 'emergency',
-      description: {
-        en: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
-        ua: 'Якщо вам, або вашому колезі потрібне щось із предметів першої допомоги, ви можете взяти <b> пов’язки, антисептики, знеболюючі та інші лікарські засоби </b>. Будьте здорові.',
-      },
-      showImg: true,
-      rect: {
-        x: 3,
-        y: 0,
-        height: 40,
-        width: 35,
-      },
-      bubble: {
-        x: 45,
-        y: 40,
-        width: 240,
-        height: 32,
-      },
-      imgWidth: 44,
-      imgHeight: 44,
-      x: 1328,
-      y: 533,
-    },
-    {
-      id: 612,
+      id: 615,
       img: 'doctor.svg',
       name: {
         en: '6-2. First aid kit',
@@ -696,8 +1329,10 @@ export const PLACES = {
       placeType: 'medkit',
       PlaceGroup: 'emergency',
       description: {
-        en: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
-        ua: 'Якщо вам, або вашому колезі потрібне щось із предметів першої допомоги, ви можете взяти <b> пов’язки, антисептики, знеболюючі та інші лікарські засоби </b>. Будьте здорові.',
+        en:
+          'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
+        ua:
+          'Якщо вам, або вашому колезі потрібне щось із предметів першої допомоги, ви можете взяти <b> пов’язки, антисептики, знеболюючі та інші лікарські засоби </b>. Будьте здорові.',
       },
       showImg: true,
       rect: {
@@ -718,7 +1353,7 @@ export const PLACES = {
       y: 822,
     },
     {
-      id: 613,
+      id: 616,
       img: 'sofa.svg',
       name: {
         en: '6. Chill Room',
@@ -748,6 +1383,138 @@ export const PLACES = {
       x: 245,
       y: 729,
     },
+    {
+      id: 617,
+      img: 'stand-table-1.png',
+      name: {
+        en: '601. Standing table',
+        ua: '601. Столик для роботи навстоячки',
+      },
+      placeType: 'standingTable',
+      calendarId:
+        'c_188auq9vtl3seiv2itcpkpmdok74a@resource.calendar.google.com',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 10,
+        y: 20,
+        height: 30,
+        width: 60,
+      },
+      bubble: {
+        x: 50,
+        y: 41,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 74,
+      imgHeight: 72,
+      x: 1440,
+      y: 63,
+    },
+    {
+      id: 618,
+      img: 'stand-table-1.png',
+      name: {
+        en: '602. Standing table',
+        ua: '602. Столик для роботи навстоячки',
+      },
+      placeType: 'standingTable',
+      calendarId:
+        'c_188eelkt4v8bihqkj32vangrgplai@resource.calendar.google.com',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 10,
+        y: 20,
+        height: 30,
+        width: 60,
+      },
+      bubble: {
+        x: 50,
+        y: 41,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 74,
+      imgHeight: 72,
+      x: 1385,
+      y: 91,
+    },
+    {
+      id: 619,
+      img: 'stand-table-2.png',
+      name: {
+        en: '603. Standing table',
+        ua: '603. Столик для роботи навстоячки',
+      },
+      placeType: 'standingTable',
+      calendarId:
+        'c_188fplc4tt1f8hgsjfu6okkh5vkgo@resource.calendar.google.com',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 5,
+        y: 15,
+        height: 40,
+        width: 55,
+      },
+      bubble: {
+        x: 50,
+        y: 41,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 74,
+      imgHeight: 72,
+      x: 1497,
+      y: 103,
+    },
+    {
+      id: 620,
+      img: 'stand-table-2.png',
+      name: {
+        en: '604. Standing table',
+        ua: '604. Столик для роботи навстоячки',
+      },
+      placeType: 'standingTable',
+      calendarId:
+        'c_188eqe8jj5f8ehggk9hh4qpl8n1lu@resource.calendar.google.com',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 5,
+        y: 15,
+        height: 40,
+        width: 55,
+      },
+      bubble: {
+        x: 50,
+        y: 41,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 74,
+      imgHeight: 72,
+      x: 1545,
+      y: 127,
+    },
   ],
   7: [
     {
@@ -760,8 +1527,10 @@ export const PLACES = {
       placeType: 'medkit',
       PlaceGroup: 'emergency',
       description: {
-        en: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
-        ua: 'Якщо вам, або вашому колезі потрібне щось із предметів першої допомоги, ви можете взяти <b> пов’язки, антисептики, знеболюючі та інші лікарські засоби </b>. Будьте здорові.',
+        en:
+          'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
+        ua:
+          'Якщо вам, або вашому колезі потрібне щось із предметів першої допомоги, ви можете взяти <b> пов’язки, антисептики, знеболюючі та інші лікарські засоби </b>. Будьте здорові.',
       },
       showImg: true,
       rect: {
@@ -791,8 +1560,10 @@ export const PLACES = {
       placeType: 'extinguisher',
       PlaceGroup: 'emergency',
       description: {
-        en: '<ul><li>Pull out the sealed check.</li><li>Move away from the fire by 3-4 m.</li><li>Operate the fire extinguisher: with the built-in pressure source, pull the start handle of the gas canister up, press the handle of the spray gun with your hand.</li></ul>',
-        ua: '<ul><li>Висмикнути опломбовану чеку.</li><li>Відійти від джерела пожежі на 3-4 м.</li><li>Привести вогнегасник в дію: з вбудованим джерелом тиску - відвести вгору рукоятку запуску газового балончика, натиснути кистю руки на ручку пістолета-розпилювача.</li></ul>',
+        en:
+          '<ul><li>Pull out the sealed check.</li><li>Move away from the fire by 3-4 m.</li><li>Operate the fire extinguisher: with the built-in pressure source, pull the start handle of the gas canister up, press the handle of the spray gun with your hand.</li></ul>',
+        ua:
+          '<ul><li>Висмикнути опломбовану чеку.</li><li>Відійти від джерела пожежі на 3-4 м.</li><li>Привести вогнегасник в дію: з вбудованим джерелом тиску - відвести вгору рукоятку запуску газового балончика, натиснути кистю руки на ручку пістолета-розпилювача.</li></ul>',
       },
       showImg: true,
       rect: {
@@ -915,8 +1686,10 @@ export const PLACES = {
       placeType: 'ps',
       PlaceGroup: 'chill',
       description: {
-        en: 'Here you can relax and play games such as <b>FIFA, Track mania, NFL, Mortal Kombat and more else.</b>',
-        ua: 'Тут ви можете розслабитися та пограти в такі ігри, як: <b>FIFA, Track mania, NFL, Mortal Kombat та багато іншого.</b>',
+        en:
+          'Here you can relax and play games such as <b>FIFA, Track mania, NFL, Mortal Kombat and more else.</b>',
+        ua:
+          'Тут ви можете розслабитися та пограти в такі ігри, як: <b>FIFA, Track mania, NFL, Mortal Kombat та багато іншого.</b>',
       },
       showImg: true,
       rect: {
@@ -941,7 +1714,7 @@ export const PLACES = {
       img: 'gym.svg',
       name: {
         en: '7. Sport',
-        ua: 'Спорт',
+        ua: '7. Спорт',
       },
       placeType: 'gym',
       PlaceGroup: 'chill',
@@ -975,6 +1748,8 @@ export const PLACES = {
         ua: '7-1. Кімната для переговорів',
       },
       placeType: 'meetroom',
+      calendarId:
+        'onix-systems.com_3230313136333537313437@resource.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -988,7 +1763,7 @@ export const PLACES = {
         width: 35,
       },
       bubble: {
-        x: 20,
+        x: 30,
         y: 40,
         width: 240,
         height: 32,
@@ -1006,6 +1781,8 @@ export const PLACES = {
         ua: '7-2. Кімната для зустрічей',
       },
       placeType: 'meetroom',
+      calendarId:
+        'onix-systems.com_35333731393235313434@resource.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -1019,7 +1796,7 @@ export const PLACES = {
         width: 35,
       },
       bubble: {
-        x: 20,
+        x: 30,
         y: 40,
         width: 240,
         height: 32,
@@ -1037,6 +1814,8 @@ export const PLACES = {
         ua: '7-3. Кімната для зустрічей',
       },
       placeType: 'meetroom',
+      calendarId:
+        'c_188dlpco8c72ogv8lstroj1u9vm9s@resource.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -1050,7 +1829,7 @@ export const PLACES = {
         width: 35,
       },
       bubble: {
-        x: 20,
+        x: 30,
         y: 40,
         width: 240,
         height: 32,
@@ -1068,6 +1847,8 @@ export const PLACES = {
         ua: '7-4. Кімната для зустрічей',
       },
       placeType: 'meetroom',
+      calendarId:
+        'c_1880hqu5canm0gbgntf572ossqm26@resource.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -1081,7 +1862,7 @@ export const PLACES = {
         width: 35,
       },
       bubble: {
-        x: 20,
+        x: 30,
         y: 40,
         width: 240,
         height: 32,
@@ -1132,8 +1913,10 @@ export const PLACES = {
       placeType: 'extinguisher',
       PlaceGroup: 'emergency',
       description: {
-        en: '<ul><li>Pull out the sealed check.</li><li>Move away from the fire by 3-4 m.</li><li>Operate the fire extinguisher: with the built-in pressure source, pull the start handle of the gas canister up, press the handle of the spray gun with your hand.</li></ul>',
-        ua: '<ul><li>Висмикнути опломбовану чеку.</li><li>Відійти від джерела пожежі на 3-4 м.</li><li>Привести вогнегасник в дію: з вбудованим джерелом тиску - відвести вгору рукоятку запуску газового балончика, натиснути кистю руки на ручку пістолета-розпилювача.</li></ul>',
+        en:
+          '<ul><li>Pull out the sealed check.</li><li>Move away from the fire by 3-4 m.</li><li>Operate the fire extinguisher: with the built-in pressure source, pull the start handle of the gas canister up, press the handle of the spray gun with your hand.</li></ul>',
+        ua:
+          '<ul><li>Висмикнути опломбовану чеку.</li><li>Відійти від джерела пожежі на 3-4 м.</li><li>Привести вогнегасник в дію: з вбудованим джерелом тиску - відвести вгору рукоятку запуску газового балончика, натиснути кистю руки на ручку пістолета-розпилювача.</li></ul>',
       },
       showImg: true,
       rect: {
@@ -1194,6 +1977,8 @@ export const PLACES = {
         ua: '8-1. Кімната для переговорів',
       },
       placeType: 'meetroom',
+      calendarId:
+        'onix-systems.com_2d3739383339353038353438@resource.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -1207,7 +1992,7 @@ export const PLACES = {
         width: 35,
       },
       bubble: {
-        x: 20,
+        x: 30,
         y: 40,
         width: 240,
         height: 32,
@@ -1225,6 +2010,8 @@ export const PLACES = {
         ua: '8-2. Кімната для переговорів',
       },
       placeType: 'meetroom',
+      calendarId:
+        'onix-systems.com_32303836333034333639@resource.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -1238,7 +2025,7 @@ export const PLACES = {
         width: 35,
       },
       bubble: {
-        x: 20,
+        x: 30,
         y: 40,
         width: 240,
         height: 32,
@@ -1475,8 +2262,10 @@ export const PLACES = {
       placeType: 'medkit',
       PlaceGroup: 'emergency',
       description: {
-        en: 'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
-        ua: 'Якщо вам, або вашому колезі потрібне щось із предметів першої допомоги, ви можете взяти <b> пов’язки, антисептики, знеболюючі та інші лікарські засоби </b>. Будьте здорові.',
+        en:
+          'If you or your colleague needs something from first aid items here you can take <b>bandages, antiseptic, painkillers and else type of medicines</b>. Be healthy.',
+        ua:
+          'Якщо вам, або вашому колезі потрібне щось із предметів першої допомоги, ви можете взяти <b> пов’язки, антисептики, знеболюючі та інші лікарські засоби </b>. Будьте здорові.',
       },
       showImg: true,
       rect: {
@@ -1539,8 +2328,10 @@ export const PLACES = {
       placeType: 'extinguisher',
       PlaceGroup: 'emergency',
       description: {
-        en: '<ul><li>Pull out the sealed check.</li><li>Move away from the fire by 3-4 m.</li><li>Operate the fire extinguisher: with the built-in pressure source, pull the start handle of the gas canister up, press the handle of the spray gun with your hand.</li></ul>',
-        ua: '<ul><li>Висмикнути опломбовану чеку.</li><li>Відійти від джерела пожежі на 3-4 м.</li><li>Привести вогнегасник в дію: з вбудованим джерелом тиску - відвести вгору рукоятку запуску газового балончика, натиснути кистю руки на ручку пістолета-розпилювача.</li></ul>',
+        en:
+          '<ul><li>Pull out the sealed check.</li><li>Move away from the fire by 3-4 m.</li><li>Operate the fire extinguisher: with the built-in pressure source, pull the start handle of the gas canister up, press the handle of the spray gun with your hand.</li></ul>',
+        ua:
+          '<ul><li>Висмикнути опломбовану чеку.</li><li>Відійти від джерела пожежі на 3-4 м.</li><li>Привести вогнегасник в дію: з вбудованим джерелом тиску - відвести вгору рукоятку запуску газового балончика, натиснути кистю руки на ручку пістолета-розпилювача.</li></ul>',
       },
       showImg: true,
       rect: {
@@ -1570,8 +2361,10 @@ export const PLACES = {
       placeType: 'extinguisher',
       PlaceGroup: 'emergency',
       description: {
-        en: '<ul><li>Pull out the sealed check.</li><li>Move away from the fire by 3-4 m.</li><li>Operate the fire extinguisher: with the built-in pressure source, pull the start handle of the gas canister up, press the handle of the spray gun with your hand.</li></ul>',
-        ua: '<ul><li>Висмикнути опломбовану чеку.</li><li>Відійти від джерела пожежі на 3-4 м.</li><li>Привести вогнегасник в дію: з вбудованим джерелом тиску - відвести вгору рукоятку запуску газового балончика, натиснути кистю руки на ручку пістолета-розпилювача.</li></ul>',
+        en:
+          '<ul><li>Pull out the sealed check.</li><li>Move away from the fire by 3-4 m.</li><li>Operate the fire extinguisher: with the built-in pressure source, pull the start handle of the gas canister up, press the handle of the spray gun with your hand.</li></ul>',
+        ua:
+          '<ul><li>Висмикнути опломбовану чеку.</li><li>Відійти від джерела пожежі на 3-4 м.</li><li>Привести вогнегасник в дію: з вбудованим джерелом тиску - відвести вгору рукоятку запуску газового балончика, натиснути кистю руки на ручку пістолета-розпилювача.</li></ul>',
       },
       showImg: true,
       rect: {
@@ -1621,6 +2414,72 @@ export const PLACES = {
       imgHeight: 72,
       x: 550,
       y: 917,
+    },
+    {
+      id: 815,
+      img: 'stand-table-1.png',
+      name: {
+        en: '801. Standing table',
+        ua: '801. Столик для роботи навстоячки',
+      },
+      placeType: 'standingTable',
+      calendarId:
+        'c_188aaejg3u4iag4nmh9njnkki15vc@resource.calendar.google.com',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 10,
+        y: 15,
+        height: 30,
+        width: 60,
+      },
+      bubble: {
+        x: 50,
+        y: 41,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 74,
+      imgHeight: 72,
+      x: 1646,
+      y: 502,
+    },
+    {
+      id: 816,
+      img: 'stand-table-1.png',
+      name: {
+        en: '802. Standing table',
+        ua: '802. Столик для роботи навстоячки',
+      },
+      placeType: 'standingTable',
+      calendarId:
+        'c_188d1dm5s9s28hiul63qurtap1g30@resource.calendar.google.com',
+      PlaceGroup: 'chill',
+      description: {
+        en: '',
+        ua: '',
+      },
+      showImg: false,
+      rect: {
+        x: 10,
+        y: 15,
+        height: 30,
+        width: 60,
+      },
+      bubble: {
+        x: 50,
+        y: 41,
+        width: 240,
+        height: 32,
+      },
+      imgWidth: 74,
+      imgHeight: 72,
+      x: 1733,
+      y: 547,
     },
   ],
 };

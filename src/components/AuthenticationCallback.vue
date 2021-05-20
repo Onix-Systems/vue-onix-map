@@ -7,7 +7,7 @@
 import {Component, Vue} from 'vue-property-decorator';
 import TheLoader from '@/components/TheLoader.vue';
 import axios from 'axios';
-import {store} from '@/store';
+import {vxm} from '@/store';
 
 const ax = axios.create({
   headers: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -56,8 +56,8 @@ export default class AuthenticationCallback extends Vue {
   public getRequest(params: URLSearchParams) {
     ax.post(`${process.env.VUE_APP_PASSPORT_API_URL}/v1/oidc-provider/token`, params).then((res) => {
       localStorage.token = JSON.stringify(res.data);
-      store.commit('setTokenType', res.data.token_type);
-      store.commit('setToken', res.data.access_token);
+      vxm.user.setTokenType(res.data.token_type);
+      vxm.user.setToken(res.data.access_token);
       this.$router.push('/');
     }).catch((e) => {
       localStorage.removeItem('token');

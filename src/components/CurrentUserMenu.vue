@@ -1,14 +1,22 @@
 <template lang="pug">
   .current-user(v-click-outside="closeMenu")
     .user-block(@click="showMenu = !showMenu")
-      .user-name(:class="{'arrow-up': showMenu}") {{currentUser.name}}
+      .user-name(:class="{'arrow-up': showMenu}")
+        | {{$i18n.locale === localeEnum.En ? currentUser.name : userNameRu}}
       img.avatar(
         :src="currentUser.attachment ? currentUser.attachment.link70 : require('../assets/images/def-img.png')"
         :alt="currentUser.name"
       )
     .user-dropdown(v-if="showMenu" :class="{'can-touch': canTouch}")
       ul(v-if="!showLanguageList" @click.stop="showMenu = false")
+        li.link
+          a(
+            :href="`${env.VUE_APP_PASSPORT_API_URL}/employees/${currentUser.id}`"
+            target="blank"
+            @click="clickOnMyProfile"
+          ) {{$t('myProfile')}}
         li(@click.stop="showLanguageList = true") {{$tc('language')}}: {{$t('languageName')}}
+        li(v-if="isSignInGoogleAccount" @click="logoutGoogleAccount") {{$t('logoutGoogleAccount')}}
         li(@click="logout") {{$t('logout')}}
       .language-list-block(v-if="showLanguageList")
         .language-list-label-block
@@ -20,29 +28,36 @@
 
 <script lang="ts">
 import {Component, Mixins} from 'vue-property-decorator';
-import {store} from '@/store';
+import {vxm} from '@/store';
+import {UserInterface} from '@/interfaces/userInterface';
 import ClickOutside from '@/directives/clickOutside';
 import CommonMixin from '@/components/mixins/CommonMixin';
+import ConfRoomMixin from '@/components/mixins/ConfRoomMixin';
+import {LocaleEnum} from '@/enums/LocaleEnum';
 
 @Component({
   directives: {ClickOutside},
 })
-export default class CurrentUserMenu extends Mixins(CommonMixin) {
+export default class CurrentUserMenu extends Mixins(CommonMixin, ConfRoomMixin) {
   public showMenu: boolean = false;
   public showLanguageList: boolean = false;
 
-  // public created() {
-  //   store.dispatch('getCurrentUser');
-  // }
+  public created() {
+    vxm.user.getCurrentUser()
+  }
 
   get currentUser() {
-    return {
-      name: 'John Doe',
-    };
+    return vxm.user.currentUser;
+  }
+
+  get userNameRu(): string {
+    const currentUser = vxm.general.users.find(
+      (user: UserInterface) => user.id === this.currentUser.id) as UserInterface;
+    return `${currentUser.firstNameRu} ${currentUser.lastNameRu}`;
   }
 
   get canTouch() {
-    return store.state.isTouchDevice;
+    return vxm.user.isTouchDevice;
   }
 
   public logout() {
@@ -53,8 +68,14 @@ export default class CurrentUserMenu extends Mixins(CommonMixin) {
     this.$router.push('/login');
   }
 
-  public setLanguage(locale: string) {
-    store.commit('setLocale', locale);
+  public logoutGoogleAccount() {
+    this.$gapi.signOut().then(() => {
+      vxm.user.setSignInGoogleAccount(false);
+    });
+  }
+
+  public setLanguage(locale: LocaleEnum) {
+    vxm.user.setLocale(locale);
     this.$i18n.locale = locale;
     this.showMenu = false;
     this.showLanguageList = false;

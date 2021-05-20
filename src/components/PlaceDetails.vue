@@ -1,12 +1,24 @@
 <template lang="pug">
   //- place pop-up
   .place-details(v-if="showDetailsModal" :style="popUpStyles" ref="popupContainer")
-    .popup-body(ref="popupBody" :class="[isConfRoom() ? 'conf-room-container' : 'place-container']")
+    .popup-body(ref="popupBody" :class="[isCalendarItem ? 'calendar-container' : 'place-container']")
       .popup-header
         img.header-img(v-if="haveImg()" :src="getImg(selectedPlace.img)" alt="")
+        .room-status(
+          v-if="isCalendarItem() && isSignInGoogleAccount"
+          :class="{unknown: !hasCalendar(selectedPlace), busy: hasCalendar(selectedPlace) && \
+            !checkFree(timeNow, timeNow, selectedPlace.calendarId, selectedPlace.placeType)}"
+        )
         .header-text {{getTranslate(selectedPlace.name)}}
         .get-link(@click="copyUrl")
-      .btn-booking(v-if="isConfRoom()" @click="toTheCalendar()") {{$t('confRoomMenu.book')}}
+      .btn-booking(
+        v-if="isCalendarItem() && isSignInGoogleAccount"
+        :class="{'warning': (isSignInGoogleAccount \
+          && hasCalendar(selectedPlace) && isBusyNow(selectedPlace.calendarId, selectedPlace.placeType))}"
+        @click="toTheCalendar(selectedPlace)"
+      )
+        | {{$t('confRoomMenu.book')}}
+      google-signin-btn.google-sign-in(v-else-if="isCalendarItem() && !isSignInGoogleAccount" @click="signIn()")
       .description(v-if="haveDescription()")
         .info(v-html="getTranslate(selectedPlace.description)")
       button.close(@click="closeDetails")
@@ -17,20 +29,27 @@
 import {PlaceInterface} from '@/interfaces/placeInterface';
 import {Component, Prop, Mixins} from 'vue-property-decorator';
 import CommonMixin from '@/components/mixins/CommonMixin';
+import ConfRoomMixin from '@/components/mixins/ConfRoomMixin';
+import {vxm} from '@/store';
+import {PlaceTypeEnum} from '@/enums/PlaceTypeEnum';
 
 
 @Component({})
-export default class PlacesDetails extends Mixins(CommonMixin) {
+export default class PlacesDetails extends Mixins(CommonMixin, ConfRoomMixin) {
   @Prop(Boolean) public showDetailsModal!: boolean;
   @Prop(String) public popUpStyles!: boolean;
   @Prop({default: null}) public selectedPlace!: PlaceInterface;
+
   public closeDetails() {
     this.$router.push(this.$route.path);
     this.$emit('closed');
   }
-  private isConfRoom(): boolean {
-    return this.selectedPlace.placeType === 'meetroom';
-  }
+
+  private isCalendarItem = () => [
+    PlaceTypeEnum.MEETROOM as string,
+    PlaceTypeEnum.STANDING_TABLE as string
+  ].includes(this.selectedPlace.placeType);
+
   private haveImg(): boolean {
     return this.selectedPlace.showImg;
   }
@@ -43,6 +62,24 @@ export default class PlacesDetails extends Mixins(CommonMixin) {
   private parseText(text: string) {
     const reg = /\d\. /;
     return text.split(reg).slice(1);
+  }
+
+  private signIn() {
+    this.$gapi.signIn().then(() => {
+      this.getCalendar()
+          .then(async () => {
+            await this.getCalendarBusyTimes();
+            vxm.user.setSignInGoogleAccount(true);
+          })
+    });
+  }
+
+  private getCalendar() {
+    return vxm.googleCalendar.getCalendarItemsBusy({
+      vm: this,
+      places: [this.selectedPlace],
+      placeType: this.placeType,
+    });
   }
 }
 </script>
@@ -109,6 +146,22 @@ export default class PlacesDetails extends Mixins(CommonMixin) {
         border-width: 11px;
       }
     }
+    .room-status {
+      align-self: center;
+      border-radius: 50%;
+      width: 6px;
+      height: 6px;
+      background-color: #31D723;
+      margin-right: 10px;
+
+      &.busyAll {
+        background-color: #FF0000;
+      }
+
+      &.unknown, &.busy {
+        background-color: #ff9d0f;
+      }
+    }
     .header-text {
       display: flex;
       align-items: center;
@@ -148,12 +201,12 @@ export default class PlacesDetails extends Mixins(CommonMixin) {
       }
     }
 
-    .place-container, .conf-room-container {
+    .place-container, .calendar-container {
       flex-wrap: wrap;
       min-height: 35px;
     }
-    .conf-room-container {
-      width: 286px;
+    .calendar-container {
+      width: 260px;
     }
     .place-container {
       width: 235px;
@@ -176,12 +229,17 @@ export default class PlacesDetails extends Mixins(CommonMixin) {
         color: #E5F0FF;
         background-color:#4D9CFF;
       }
+      &.warning:hover {
+        color: white;
+        background-color: #ff9d0f;
+      }
       margin-left: 15px;
     }
 
     .get-link {
       margin-left: 10px;
       &:hover {
+        cursor: pointer;
         background-color: rgb(210, 229, 255);
       }
     }
@@ -192,6 +250,10 @@ export default class PlacesDetails extends Mixins(CommonMixin) {
       height: 16px;
       border-radius: 50%;
       background: url("../assets/images/copy_link.svg") no-repeat center center #E5F0FF;
+    }
+
+    .google-sign-in {
+      margin-top: 10px;
     }
   }
 </style>

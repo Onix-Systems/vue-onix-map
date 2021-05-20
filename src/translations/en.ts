@@ -1,6 +1,8 @@
 export default {
   languageName: 'english',
   logout: 'logout',
+  logoutGoogleAccount: 'logout from google account',
+  signInWithGoogle: 'Sign in with Google',
   confRoomMenu: {
     book: 'book',
   },
@@ -32,7 +34,8 @@ export default {
   welcomeTo: 'Welcome to',
   loginWith: 'Login with',
   poweredBy: 'Powered by',
-  conferenceRoom: 'conference room | conference rooms',
+  conferenceRoom: 'room | rooms',
+  standingTables: 'tables',
   place: 'place | places',
   vacation: 'vacation',
   inOffice: 'in office',
@@ -40,4 +43,9 @@ export default {
   unknown: 'unknown',
   birthday: 'birthday',
   workStart: 'work start',
+  myProfile: 'my profile',
+  till: 'till',
+  timeList: 'time list',
+  permissionGapiError: 'You do not have permission to access this calendar.',
+  generalGapiError: 'Internal server error. Try again later or contact us.',
 };

@@ -8,13 +8,17 @@ import router from './router';
 import VueScrollTo from 'vue-scrollto';
 import VueGtag from 'vue-gtag';
 import i18n from '@/translations/i18n';
+// @ts-ignore
+import VueGoogleApi from 'vue-google-api';
 
 
+Vue.use(VueGoogleApi, {
+  apiKey: process.env.VUE_APP_GOOGLE_API_KEY,
+  clientId: process.env.VUE_APP_GOOGLE_API_CLIENT_ID,
+  scope: 'https://www.googleapis.com/auth/calendar.readonly',
+});
 Vue.use(VueGtag, {
-  config: { id: '' },
-  params: {
-    send_page_view: false,
-  },
+  config: { id: process.env.VUE_APP_GOOGLE_ANALYTICS_ID },
 });
 Vue.use(Notifications);
 Vue.use(VueScrollTo);

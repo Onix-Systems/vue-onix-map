@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 import en from '@/translations/en';
 import ua from '@/translations/ua';
-import store from '@/store';
+import {vxm} from '@/store';
 import {LocaleEnum} from '@/enums/LocaleEnum';
 
 
@@ -13,7 +13,7 @@ const messages = {
 };
 
 export default new VueI18n({
-  locale: store.state.locale,
+  locale: vxm.user.locale,
   messages,
   fallbackLocale: LocaleEnum.En,
 });
