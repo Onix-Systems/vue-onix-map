@@ -118,7 +118,7 @@ export class GeneralStore extends VuexModule {
   @action
   public async getEmployeesSkills() {
     if (process.env.VUE_APP_DEMO_MODE) {
-      return [];
+      return;
     }
     return hydraApi.getEmployeesSkills().then((res: AxiosResponse) => {
       if (res.data) {
@@ -130,7 +130,7 @@ export class GeneralStore extends VuexModule {
   @action
   public async getTechnologies() {
     if (process.env.VUE_APP_DEMO_MODE) {
-      return [];
+      return;
     }
     return hydraApi.getTechnologies().then((res) => {
       if (res.data) {
@@ -142,7 +142,7 @@ export class GeneralStore extends VuexModule {
   @action
   public async getEmployeesOnVacation() {
     if (process.env.VUE_APP_DEMO_MODE) {
-      return [];
+      return;
     }
     return hydraApi.getEmployeesOnVacation().then((res: AxiosResponse) => {
       if (res.data) {
@@ -154,7 +154,7 @@ export class GeneralStore extends VuexModule {
   @action
   public async getSkillsList() {
     if (process.env.VUE_APP_DEMO_MODE) {
-      return [];
+      return;
     }
     return hydraApi.getSkillsList().then((res: AxiosResponse) => {
       if (res.data) {
