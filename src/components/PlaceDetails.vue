@@ -15,7 +15,7 @@
         v-if="isCalendarItem() && isSignInGoogleAccount"
         :class="{'warning': (isSignInGoogleAccount \
           && hasCalendar(selectedPlace) && isBusyNow(selectedPlace.calendarId, selectedPlace.placeType))}"
-        @click="toTheCalendar(selectedPlace)"
+        @click="toTheCalendar(selectedPlace) && isSignInGoogleAccount"
       )
         | {{$t('confRoomMenu.book')}}
       google-signin-btn.google-sign-in(v-else-if="isCalendarItem() && !isSignInGoogleAccount" @click="signIn()")
