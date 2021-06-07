@@ -23,7 +23,7 @@
         button.btn-booking(
           :class="{'warning': (isSignInGoogleAccount \
           && hasCalendar(object) && isBusyNow(object.calendarId, object.placeType))}"
-          v-if="hasCalendar(object)"
+          v-if="hasCalendar(object) && isSignInGoogleAccount"
           @click="toTheCalendar(currentPlace)"
           @touchstart="toTheCalendar(currentPlace)"
         ) {{$t('confRoomMenu.book')}}
