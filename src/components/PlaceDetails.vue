@@ -11,8 +11,6 @@
         .get-link(@click="copyUrl")
       .btn-booking(
         v-if="isCalendarItem()"
-        :class="{'warning': (isSignInGoogleAccount \
-          && hasCalendar(selectedPlace) && isBusyNow(selectedPlace.calendarId, selectedPlace.placeType))}"
         @click="toTheCalendar(selectedPlace)"
       )
         | {{$t('confRoomMenu.book')}}

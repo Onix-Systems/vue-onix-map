@@ -11,14 +11,7 @@
       )
         .room-status
         .room-name {{getTranslate(object.name)}}
-        .busy-till(
-          v-if="isSignInGoogleAccount \
-          && hasCalendar(object) && isBusyNow(object.calendarId, object.placeType)"
-        )
-          | {{$t('till')}} {{getNextFree(object.calendarId).format('HH:mm')}}
         button.btn-booking(
-          :class="{'warning': (isSignInGoogleAccount \
-          && hasCalendar(object) && isBusyNow(object.calendarId, object.placeType))}"
           v-if="hasCalendar(object)"
           @click="toTheCalendar(currentPlace)"
           @touchstart="toTheCalendar(currentPlace)"
@@ -67,13 +60,6 @@ export default class GoogleCalendarPlaces extends Mixins(
 
   get screenWidth() {
     return window.innerWidth;
-  }
-
-  public async created() {
-    if (this.isSignInGoogleAccount) {
-      await this.getCalendar();
-      this.timeLists = this.createTimeLists();
-    }
   }
 
   public showTimeList(room: any) {
