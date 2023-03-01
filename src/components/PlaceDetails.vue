@@ -5,24 +5,23 @@
       .popup-header
         img.header-img(v-if="haveImg()" :src="getImg(selectedPlace.img)" alt="")
         .room-status(
-          v-if="isCalendarItem() && isSignInGoogleAccount"
-          :class="{unknown: !hasCalendar(selectedPlace), busy: hasCalendar(selectedPlace) && \
-            !checkFree(timeNow, timeNow, selectedPlace.calendarId, selectedPlace.placeType)}"
+          v-if="isCalendarItem()"
         )
         .header-text {{getTranslate(selectedPlace.name)}}
         .get-link(@click="copyUrl")
       .btn-booking(
-        v-if="isCalendarItem() && isSignInGoogleAccount"
+        v-if="isCalendarItem()"
         :class="{'warning': (isSignInGoogleAccount \
           && hasCalendar(selectedPlace) && isBusyNow(selectedPlace.calendarId, selectedPlace.placeType))}"
         @click="toTheCalendar(selectedPlace)"
       )
         | {{$t('confRoomMenu.book')}}
-      google-signin-btn.google-sign-in(v-else-if="isCalendarItem() && !isSignInGoogleAccount" @click="signIn()")
       .description(v-if="haveDescription()")
         .info(v-html="getTranslate(selectedPlace.description)")
       button.close(@click="closeDetails")
-    .arrow
+      .room-preview
+        img(:src="require(`@/assets/images/rooms/8-1-conf-room.jpg`)")
+    .arrowrooms
 </template>
 
 <script lang="ts">
@@ -153,14 +152,6 @@ export default class PlacesDetails extends Mixins(CommonMixin, ConfRoomMixin) {
       height: 6px;
       background-color: #31D723;
       margin-right: 10px;
-
-      &.busyAll {
-        background-color: #FF0000;
-      }
-
-      &.unknown, &.busy {
-        background-color: #ff9d0f;
-      }
     }
     .header-text {
       display: flex;
@@ -254,6 +245,17 @@ export default class PlacesDetails extends Mixins(CommonMixin, ConfRoomMixin) {
 
     .google-sign-in {
       margin-top: 10px;
+    }
+
+    .room-preview {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      min-height: 170px;
+
+      img {
+        width: 100%;
+      }
     }
   }
 </style>
