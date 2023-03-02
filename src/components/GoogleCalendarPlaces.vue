@@ -9,41 +9,13 @@
         @mouseenter="showTimeList(object)"
         :class="{hovered: currentPlaceCalendarId === object.calendarId}"
       )
-        .room-status(
-          v-if="isSignInGoogleAccount"
-          :class="{unknown: !hasCalendar(object), busy: hasCalendar(object) && \
-            isBusyNow(object.calendarId, object.placeType)}"
-        )
+        .room-status
         .room-name {{getTranslate(object.name)}}
-        .busy-till(
-          v-if="isSignInGoogleAccount \
-          && hasCalendar(object) && isBusyNow(object.calendarId, object.placeType)"
-        )
-          | {{$t('till')}} {{getNextFree(object.calendarId).format('HH:mm')}}
         button.btn-booking(
-          :class="{'warning': (isSignInGoogleAccount \
-          && hasCalendar(object) && isBusyNow(object.calendarId, object.placeType))}"
-          v-if="hasCalendar(object) && isSignInGoogleAccount"
+          v-if="hasCalendar(object)"
           @click="toTheCalendar(currentPlace)"
           @touchstart="toTheCalendar(currentPlace)"
         ) {{$t('confRoomMenu.book')}}
-        img.arrow-right(
-          v-if="hasCalendar(object)"
-          :src="require('../assets/images/header-icons/header_down-arrow.svg')"
-          @click.stop="showTimeList(object)"
-          @touchstart.prevent.stop="showTimeList(object)"
-        )
-    .time-list-block.dropdown-container(v-if="showPlaceTimeList")
-      .back-block
-        img.back-arrow(
-          :src="require('../assets/images/header-icons/places/arrow.svg')"
-          @click.stop="showPlaceTimeList = false"
-        )
-        .time-block-title {{$t('timeList')}}
-      calendar-places-time-list(
-        :time-list="timeList"
-        @signIn="signIn()"
-      )
 </template>
 
 <script lang="ts">
@@ -88,13 +60,6 @@ export default class GoogleCalendarPlaces extends Mixins(
 
   get screenWidth() {
     return window.innerWidth;
-  }
-
-  public async created() {
-    if (this.isSignInGoogleAccount) {
-      await this.getCalendar();
-      this.timeLists = this.createTimeLists();
-    }
   }
 
   public showTimeList(room: any) {
@@ -214,6 +179,7 @@ export default class GoogleCalendarPlaces extends Mixins(
     align-items: center;
     font-size: 14px;
     padding-left: 15px;
+    padding-right: 15px;
     width: 100%;
     height: 45px;
     min-height: 48px;
@@ -294,14 +260,6 @@ export default class GoogleCalendarPlaces extends Mixins(
     min-height: 6px;
     background-color: #31d723;
     margin-right: 10px;
-
-    &.busyAll {
-      background-color: #ff0000;
-    }
-
-    &.unknown, &.busy {
-      background-color: #ff9d0f;
-    }
   }
 
   .back-block {
