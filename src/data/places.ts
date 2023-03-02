@@ -232,7 +232,7 @@ export const PLACES = {
       },
       placeType: 'meetroom',
       calendarId:
-        'onix-systems.com_3936383132333837373035@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -486,7 +486,7 @@ export const PLACES = {
       },
       placeType: 'meetroom',
       calendarId:
-        'c_1881mih7huk02hf6h5ev5lkkuagi44ggdtn6iu1dedsn6t35dlpisorfdk@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -519,7 +519,7 @@ export const PLACES = {
       },
       placeType: 'meetroom',
       calendarId:
-        'c_1884lu210pl2ihsfni9tves89lhio4ggdtn6iu1dedsn6t35dlpisorfdk@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -552,7 +552,7 @@ export const PLACES = {
       },
       placeType: 'meetroom',
       calendarId:
-        'c_1881tjt3vdi78htvmdab5f1j86a644ggdtn6iu1dedsn6t35dlpisorfdk@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -682,7 +682,7 @@ export const PLACES = {
       },
       placeType: 'standingTable',
       calendarId:
-        'c_1880bmem7v1soiu7i67du0ut7mkq04ggdtn6iu1dedsn6t35dlpisorfdk@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -715,7 +715,7 @@ export const PLACES = {
       },
       placeType: 'standingTable',
       calendarId:
-        'c_1889dml0skpq4hgmilpf8sp53gbmi4ggdtn6iu1dedsn6t35dlpisorfdk@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -748,7 +748,7 @@ export const PLACES = {
       },
       placeType: 'standingTable',
       calendarId:
-        'c_188fndr4qp1fkgllgbprib4msu1em4ggdtn6iu1dedsn6t35dlpisorfdk@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -781,7 +781,7 @@ export const PLACES = {
       },
       placeType: 'standingTable',
       calendarId:
-        'c_188ap9q5qsjv6gv0lh3jhcvhs2aia4ggdtn6iu1dedsn6t35dlpisorfdk@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -814,7 +814,7 @@ export const PLACES = {
       },
       placeType: 'standingTable',
       calendarId:
-        'c_188f4l7edkekuitvkce46v2j08lgc@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -847,7 +847,7 @@ export const PLACES = {
       },
       placeType: 'standingTable',
       calendarId:
-        'c_188d1takssudqieqjhajkbomtvkns@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -975,7 +975,7 @@ export const PLACES = {
       },
       placeType: 'meetroom',
       calendarId:
-        'onix-systems.com_2d35343832313133303632@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -1105,7 +1105,7 @@ export const PLACES = {
       },
       placeType: 'meetroom',
       calendarId:
-        'c_188d4a73o1q7middn0461d2bihmp8@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -1138,7 +1138,7 @@ export const PLACES = {
       },
       placeType: 'meetroom',
       calendarId:
-        'c_1889e54nc05g8hg5m4q3peegm1eu8@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -1171,7 +1171,7 @@ export const PLACES = {
       },
       placeType: 'meetroom',
       calendarId:
-        'c_1886jua253m1sgn0mq55bc71ovrua@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -1392,7 +1392,7 @@ export const PLACES = {
       },
       placeType: 'standingTable',
       calendarId:
-        'c_188auq9vtl3seiv2itcpkpmdok74a@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -1425,7 +1425,7 @@ export const PLACES = {
       },
       placeType: 'standingTable',
       calendarId:
-        'c_188eelkt4v8bihqkj32vangrgplai@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -1458,7 +1458,7 @@ export const PLACES = {
       },
       placeType: 'standingTable',
       calendarId:
-        'c_188fplc4tt1f8hgsjfu6okkh5vkgo@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -1491,7 +1491,7 @@ export const PLACES = {
       },
       placeType: 'standingTable',
       calendarId:
-        'c_188eqe8jj5f8ehggk9hh4qpl8n1lu@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -1749,7 +1749,7 @@ export const PLACES = {
       },
       placeType: 'meetroom',
       calendarId:
-        'onix-systems.com_3230313136333537313437@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -1782,7 +1782,7 @@ export const PLACES = {
       },
       placeType: 'meetroom',
       calendarId:
-        'onix-systems.com_35333731393235313434@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -1815,7 +1815,7 @@ export const PLACES = {
       },
       placeType: 'meetroom',
       calendarId:
-        'c_188dlpco8c72ogv8lstroj1u9vm9s@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -1848,7 +1848,7 @@ export const PLACES = {
       },
       placeType: 'meetroom',
       calendarId:
-        'c_1880hqu5canm0gbgntf572ossqm26@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -1978,7 +1978,7 @@ export const PLACES = {
       },
       placeType: 'meetroom',
       calendarId:
-        'onix-systems.com_2d3739383339353038353438@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -2011,7 +2011,7 @@ export const PLACES = {
       },
       placeType: 'meetroom',
       calendarId:
-        'onix-systems.com_32303836333034333639@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -2424,7 +2424,7 @@ export const PLACES = {
       },
       placeType: 'standingTable',
       calendarId:
-        'c_188aaejg3u4iag4nmh9njnkki15vc@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
@@ -2457,7 +2457,7 @@ export const PLACES = {
       },
       placeType: 'standingTable',
       calendarId:
-        'c_188d1dm5s9s28hiul63qurtap1g30@resource.calendar.google.com',
+        'c_a971c3a92a11816cc76ae6f61b729b2eb1766c5f2cab5d3f2eb66d625fdad4e7@group.calendar.google.com',
       PlaceGroup: 'chill',
       description: {
         en: '',
