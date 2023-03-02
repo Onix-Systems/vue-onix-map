@@ -52,11 +52,13 @@ export default class CommonMixin extends Vue {
   }
 
   public getTranslate(field: any) {
+    // remake the observer into an array
+    const fallbackLocale = JSON.parse(JSON.stringify(this.$i18n.fallbackLocale));
     if (field.hasOwnProperty(this.$i18n.locale)) {
       return field[this.$i18n.locale];
     }
-    if (field.hasOwnProperty(this.$i18n.fallbackLocale)) {
-      return field[this.$i18n.fallbackLocale];
+    if (field.hasOwnProperty(fallbackLocale[0])) {
+      return field[fallbackLocale[0]];
     }
     return field;
   }
