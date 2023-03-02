@@ -55,8 +55,8 @@ export default class CommonMixin extends Vue {
     if (field.hasOwnProperty(this.$i18n.locale)) {
       return field[this.$i18n.locale];
     }
-    if (field.hasOwnProperty(this.$i18n.fallbackLocale)) {
-      return field[this.$i18n.fallbackLocale];
+    if (field.hasOwnProperty(this.$i18n.fallbackLocale as string)) {
+      return field[this.$i18n.fallbackLocale as string];
     }
     return field;
   }
